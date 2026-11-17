@@ -26,6 +26,7 @@ This repository is the StudyForge framework: an Agent Skill, plus a Claude Code 
 ## Versions and releases
 
 - [Semantic Versioning](https://semver.org). MAJOR: breaks existing study repositories (keys, layout, required files). MINOR: additive (a workflow, a stack, a rule). PATCH: wording, templates, fixes. While in `0.x`, breaking changes bump the minor version.
+- **Tags are `studyforge-vX.Y.Z`** (the first release set that format). Do not change the tag format: release-please finds the previous release by it, and a new format makes it propose an already published version again.
 - **Never edit version numbers by hand.** release-please bumps `.claude-plugin/plugin.json`, the `metadata.version` line of `SKILL.md` and the `studyforge.toml` template (lines marked `x-release-please-version`), writes `CHANGELOG.md` and tags the release when its pull request is merged.
 - [Conventional Commits](https://www.conventionalcommits.org) in English, imperative: `feat:`, `fix:`, `docs:`, `chore:`, `ci:`, `test:`, `refactor:`. A breaking change says `feat!:` or has a `BREAKING CHANGE:` footer.
 - For now changes go straight to `master` (single maintainer); the release pull request opened by release-please is the review point before each version. No AI attribution lines in commits or pull requests.
