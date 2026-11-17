@@ -26,7 +26,7 @@ It is the distilled version of several generations of personal study labs (Quark
 ## 🧭 How it works
 
 ```mermaid
-flowchart LR
+flowchart TB
     G([🎯 What I want to learn]) --> S[🗺️ syllabus]
     S --> I[📦 init]
     I --> B[🔨 build<br/>next lab]

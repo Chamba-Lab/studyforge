@@ -30,7 +30,7 @@ Es la versión destilada de varias generaciones de labs de estudio personales (Q
 ## 🧭 Cómo funciona
 
 ```mermaid
-flowchart LR
+flowchart TB
     G([🎯 Lo que quiero aprender]) --> S[🗺️ syllabus]
     S --> I[📦 init]
     I --> B[🔨 build<br/>siguiente lab]
