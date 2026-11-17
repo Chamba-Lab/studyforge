@@ -34,6 +34,7 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
    - Run `python tools/verify.py --lab <ID>`.
    - Run the type's checks from the definition of done in [quality](../references/quality.md).
    - Check that the diagrams render.
+   - **Read the lab as a learner.** Can you follow it without guessing? Does anything near a prediction give its answer away? Is every concept a task needs taught here or in an earlier lab? If your agent offers subagents, a reviewer without your context finds these faster. Do it at least once per block.
 7. **Update the memory.**
    - In `SYLLABUS.md`: set the status to `🟨 built`, add the link to the README, and update the "Notes for the next labs".
    - In `docs/lessons.md`: add anything worth keeping.

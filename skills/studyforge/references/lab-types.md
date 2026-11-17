@@ -38,7 +38,7 @@ NN-<slug>/
 ```
 
 - **The demo is finished.** The learner switches options on and off, breaks things on purpose, and watches what happens.
-- **Every step is "🔮 predict first → run → compare".** Show the expected output in its own block.
+- **Every step is "🔮 predict first → run → compare".** Show the expected output and its explanation inside a `<details>` block after the commands. Visible right under the prediction, it would be the answer.
 - **Run every command in the guide, in order, on a clean machine state.** Quote real numbers and messages. A guide step that edits a file must end by restoring it, or must say clearly that it leaves the file changed.
 - **Name everything you create** (containers, images, namespaces) after the lab, and end with a 🧹 cleanup section that removes only those.
 - When the demo has a build, `tools/verify.py` checks that it builds. The steps themselves are checked by running them.

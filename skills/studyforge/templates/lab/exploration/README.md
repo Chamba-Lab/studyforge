@@ -57,16 +57,16 @@ flowchart LR
 <command>
 ```
 
-**What you should see:**
+<details><summary>👀 What you should see</summary>
 
 ```text
 <real output, key lines>
 ```
 
 <Why it happens, in 2–3 lines.>
+</details>
 
-> [!WARNING]
-> <A trap, without spoiling it.>
+<!-- studyforge: The expected output goes inside <details>: visible right under a prediction, it IS the answer. -->
 
 ## 💼 In real projects
 - <How this is run, monitored or secured for real.>
