@@ -1,0 +1,29 @@
+# StudyForge configuration. Read by the workflows and by tools/verify.py.
+# Reference: https://github.com/Chamba-Lab/studyforge/blob/master/skills/studyforge/references/layout.md
+studyforge = "0.1.0" # x-release-please-version
+
+[path]
+title = "<Topic, from <level> to <level>>"
+goal = "<What the learner will be able to do at the end>"
+
+[language]
+content = "<es | en | pt-BR …>"   # guides, concepts, READMEs. Code, folders and commits: always English.
+
+[learner]
+os = "<windows | macos | linux>"
+shells = ["<powershell>", "<bash>"]   # order in which guides show commands
+containers = "<docker | podman | none>"
+
+[dependencies]
+strategy = "<shared-parent | independent | per-block>"   # recorded in docs/decisions.md
+
+# One [[stack]] per toolchain. tools/verify.py runs, in each variant folder
+# (starter/, solution/, demo/, reference/), the command of the first stack whose
+# `detect` pattern matches a file there. See the skill's stacks/ notes for values.
+[[stack]]
+id = "<maven>"
+detect = "<pom.xml>"
+command = "<mvn -q -B clean verify>"
+# command_windows = "<…>"                       # optional override on Windows
+reports = "<**/target/surefire-reports/TEST-*.xml>"  # optional JUnit XML, to count tests
+timeout = 900

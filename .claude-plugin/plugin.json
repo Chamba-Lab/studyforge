@@ -1,0 +1,13 @@
+{
+  "name": "studyforge",
+  "version": "0.1.0",
+  "description": "Forge hands-on study paths: a refined syllabus first, then verifiable labs (challenge, exploration, concept) and an integrator project that closes each block.",
+  "author": {
+    "name": "Chamba Lab",
+    "url": "https://chambalab.org"
+  },
+  "homepage": "https://github.com/Chamba-Lab/studyforge",
+  "repository": "https://github.com/Chamba-Lab/studyforge",
+  "license": "MIT",
+  "keywords": ["learning", "labs", "syllabus", "education", "study", "agent-skills"]
+}

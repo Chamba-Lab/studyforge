@@ -1,0 +1,48 @@
+# StudyForge template: translate labels and descriptions to the content language.
+name: Lab feedback
+description: Tell us how a lab went, so it improves for you and for the next people.
+title: "Feedback: lab <ID>"
+labels: ["feedback"]
+body:
+  - type: input
+    id: lab
+    attributes:
+      label: Lab
+      description: The lab ID from the syllabus (for example 1.2 or 1.P).
+    validations:
+      required: true
+  - type: dropdown
+    id: finished
+    attributes:
+      label: Did you finish it?
+      options:
+        - "Yes, without looking at the solution"
+        - "Yes, after looking at the hints or the solution"
+        - "No, I got stuck"
+    validations:
+      required: true
+  - type: input
+    id: time
+    attributes:
+      label: How long did it take?
+      placeholder: "1 h 30 min"
+  - type: textarea
+    id: clear
+    attributes:
+      label: What was clear or useful?
+  - type: textarea
+    id: hard
+    attributes:
+      label: What was hard, confusing or wrong?
+      description: Steps that failed, commands that did not work, explanations that were missing.
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What would you change?
+  - type: input
+    id: environment
+    attributes:
+      label: Your environment
+      placeholder: "Windows 11, PowerShell, Docker Desktop 4.x"

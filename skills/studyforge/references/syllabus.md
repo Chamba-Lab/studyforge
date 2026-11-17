@@ -1,0 +1,74 @@
+# The syllabus
+
+`SYLLABUS.md` is the plan and the state of a study path. The `syllabus` workflow writes it. The `build`, `review` and `feedback` workflows update it.
+
+## Keys
+
+Keys are always written in English, with their emoji, in every language. A study repository in another language translates **only the legend** at the top of `SYLLABUS.md`. Workflows read the keys, so a key that changes per language would break them.
+
+**Status**
+
+| Key | Meaning |
+|---|---|
+| ⬜ `pending` | Planned and not built yet |
+| 🟨 `built` | Built and verified, waiting for a learner to solve it and give feedback |
+| ✅ `done` | A learner solved it and their feedback was applied |
+
+Never mark a lab `done` yourself: only learner feedback does that. When a lab is retired, keep its row with a note and do not reuse its ID.
+
+**Topic kind**
+
+| Key | Meaning |
+|---|---|
+| 🎯 `core` | The path; skipping it leaves a gap |
+| 🔬 `deep-dive` | The same topic, deeper |
+| 🔀 `alternative` | The same goal with another technology or approach (RabbitMQ instead of Kafka) |
+| ➕ `elective` | Valuable but skippable when time is short |
+
+The **🆕 `modern`** tag can go on any kind. It marks a topic that brings the path up to date, such as a newer API or a new platform feature.
+
+**Lab type**: 🧩 `challenge` · 🔭 `exploration` · 💭 `concept` · 🏗️ `project`. See [lab-types](lab-types.md) and [projects](projects.md).
+
+## Structure of `SYLLABUS.md`
+
+1. **Header**: goal, audience and starting level, the stack with **pinned versions**, session length, and the legend (translated if the content is not in English).
+2. **Design rules**: the method's rules that this path stresses, plus any of its own. Example: "labs 08–10 start from the REST contract of lab 05".
+3. **One section per block** with a one-line focus and this table:
+
+| ID | Topic | Kind | Type | What is practiced | Owns / builds on | Starts from | Status |
+|---|---|---|---|---|---|---|---|
+| [1.1](labs/01-fundamentals/01-dev-mode/README.md) | Dev mode | 🎯 core | 🧩 challenge | Live reload, dev UI, running the jar | Owns dev mode | Generated project | 🟨 built |
+| 1.P | Project: task board | 🎯 core | 🏗️ project | Everything in block 1 | Uses 1.1–1.4 | From scratch | ⬜ pending |
+
+4. **Notes for the next labs**: what the next lab should reuse, avoid or set up. Write it at the end of every lab so a fresh session can continue.
+
+## Designing a syllabus
+
+- **Interview before drafting.** Ask only what changes the plan:
+  - The goal: a job, a certification, a project, or curiosity.
+  - Current and target level.
+  - Topics to go deep on.
+  - Time per week and session length.
+  - Deadline.
+  - Stack constraints.
+  - Operating system and tools.
+  - Content language.
+
+  Propose defaults instead of asking open questions.
+- **Research current versions** before naming them. Prefer LTS or stable releases, write down the support window, and follow [sources](sources.md).
+- **Order by prerequisites.** A lab only uses what an earlier lab owns or what `SETUP.md` installs.
+- **The core path must stand alone.** Someone who skips every deep-dive, alternative and elective still gets a coherent path.
+- **Place extras after the core topic they extend.** They take the next free number, or a letter suffix when IDs are frozen (see [layout](layout.md)).
+- **Blocks have 3–7 labs and one project.** A final capstone is its own block.
+- **One owner per topic.** If two rows teach the same thing, merge them or point one to the other.
+- **Size every lab at 1–2 h.** A row that needs "and" three times is two labs.
+- **Pick the starting point per lab**: a generated project, a minimal app, an earlier lab, or from scratch. Write it in "Starts from" (see principle 3 in [method](method.md)).
+- **Pick the lab type per topic.** Use a `challenge` when the behavior can be checked by tests, an `exploration` for operational topics that are understood by observing them (infrastructure, tooling, performance), and a `concept` when there is nothing to run yet (mindset, theory, a comparison).
+- **Decide the dependency strategy** with the syllabus and record it (see [dependencies](dependencies.md)).
+- **Present the draft with a recommendation**, iterate, and only then write the file.
+
+## Keeping it alive
+
+- Update the status in the same commit that builds or finishes a lab.
+- Feedback that changes the plan (split, merge, reorder, add) goes through the `syllabus` workflow again. Renumber only items that are still `pending` (see [layout](layout.md)).
+- When a block is finished, tell the learner in one short message: what the block contains, what was verified, and an invitation to give feedback. It is a reminder, never a gate.

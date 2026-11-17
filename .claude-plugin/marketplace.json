@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "studyforge",
+  "description": "StudyForge by Chamba Lab: build hands-on study paths with any agent.",
+  "owner": {
+    "name": "Chamba Lab",
+    "url": "https://chambalab.org"
+  },
+  "plugins": [
+    {
+      "name": "studyforge",
+      "description": "Forge hands-on study paths: a refined syllabus first, then verifiable labs and an integrator project per block.",
+      "source": "./",
+      "category": "learning"
+    }
+  ]
+}
