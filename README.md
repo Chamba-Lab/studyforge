@@ -10,7 +10,7 @@ A refined syllabus first, then short labs you can run, break and verify, and a p
 </div>
 
 > [!NOTE]
-> **Version 0.x.** The showcase is built: [pytest-lab](https://github.com/Chamba-Lab/pytest-lab), a complete study path made with StudyForge itself (see [`examples/`](examples/)). Version 1.0.0 follows once it is reviewed.
+> **Proven end to end.** [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) is a complete study path built with StudyForge itself: five labs plus a project, verified on Python 3.12 and 3.15 and reviewed through a learner's eyes (see [`examples/`](examples/)).
 
 ## 💡 What it is
 
@@ -106,9 +106,8 @@ The [visual gallery](docs/visuals.md) shows every format StudyForge recommends, 
 
 ## 🛣️ Roadmap
 
-- **0.x:** the method, workflows, templates and verifier, and the showcase [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) (one block of five labs plus a project, built with StudyForge).
-- **1.0.0:** when the showcase is complete and verified.
-- **1.x:** `adopt` (bring an existing lab repository under the method), help with upgrades between versions, running acceptance tests against a live reference.
+- **1.0:** the method, the five workflows, templates, the verifier, and the showcase [pytest-lab](https://github.com/Chamba-Lab/pytest-lab).
+- **1.x:** `adopt` (bring an existing lab repository under the method), help with upgrades between versions, running acceptance tests against a live reference, and more proven stacks (Node, notebooks, containers, Maven). These are additive; anything that would break an existing study repository waits for 2.0.
 
 ## 🤝 Contributing
 

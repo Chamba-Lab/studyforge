@@ -10,7 +10,7 @@ Primero un sílabo bien afinado, luego laboratorios cortos que puedes correr, ro
 </div>
 
 > [!NOTE]
-> **Versión 0.x.** El showcase ya está construido: [pytest-lab](https://github.com/Chamba-Lab/pytest-lab), un camino de estudio completo hecho con el propio StudyForge (ver [`examples/`](examples/)). La 1.0.0 llega cuando esté revisado.
+> **Probado de punta a punta.** [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) es un camino de estudio completo construido con el propio StudyForge: cinco labs y un proyecto, verificados en Python 3.12 y 3.15 y revisados con ojos de aprendiz (ver [`examples/`](examples/)).
 
 ## 💡 Qué es
 
@@ -112,9 +112,8 @@ La [galería visual](docs/visuals.md) muestra renderizado cada formato que recom
 
 ## 🛣️ Hoja de ruta
 
-- **0.x:** el método, los workflows, las plantillas y el verificador, y el showcase [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) (un bloque de cinco labs y un proyecto, construido con StudyForge).
-- **1.0.0:** cuando el showcase esté completo y verificado.
-- **1.x:** `adopt` (traer un repositorio de labs existente al método), ayuda para actualizar entre versiones, y correr las pruebas de aceptación contra la referencia en vivo.
+- **1.0:** el método, los cinco workflows, las plantillas, el verificador y el showcase [pytest-lab](https://github.com/Chamba-Lab/pytest-lab).
+- **1.x:** `adopt` (traer un repositorio de labs existente al método), ayuda para actualizar entre versiones, correr las pruebas de aceptación contra la referencia en vivo y más stacks probados (Node, notebooks, contenedores, Maven). Todo eso se suma sin romper; lo que rompiera un repositorio de estudio existente espera a la 2.0.
 
 ## 🤝 Contribuir
 
