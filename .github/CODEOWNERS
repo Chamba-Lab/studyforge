@@ -1,0 +1,5 @@
+# Default reviewers: the Admins team is requested on every pull request, including
+# the release pull requests opened by release-please, so they show up as pending
+# reviews (web and mobile). Same pattern as Chamba-Lab/home. The team needs write
+# access to this repository for the request to work.
+* @Chamba-Lab/admins
