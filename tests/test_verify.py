@@ -84,7 +84,16 @@ def test_a_starter_that_passes_is_a_problem(repo: Path) -> None:
 def test_a_starter_that_does_not_import_is_flagged(repo: Path) -> None:
     write(repo, f"{LAB}/starter/calc.py", "def add(a, b:\n")
     result = verify(repo, "--lab", "1.1")
-    assert "did not run" in result.stdout or "0 tests ran" in result.stdout
+    assert "error(s), not assertion failures" in result.stdout
+
+
+def test_a_starter_with_fewer_cases_than_the_solution_is_fine(repo: Path) -> None:
+    # Parametrization labs: the solution legitimately has more test cases.
+    extra = "\n\nimport pytest\n\n@pytest.mark.parametrize('n', [1, 2, 3])\ndef test_more(n):\n    assert add(n, 0) == n\n"
+    (repo / f"{LAB}/solution/tests/test_calc.py").write_text(TESTS + extra, encoding="utf-8")
+    result = verify(repo, "--lab", "1.1")
+    assert result.returncode == 0, result.stdout
+    assert "[warn]" not in result.stdout
 
 
 def test_structure_problems_are_reported(repo: Path) -> None:

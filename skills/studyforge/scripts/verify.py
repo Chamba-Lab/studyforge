@@ -78,7 +78,6 @@ class Lab:
     problems: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     results: list[str] = field(default_factory=list)
-    counts: dict[str, int] = field(default_factory=dict)
 
 
 # --------------------------------------------------------------------------- setup
@@ -308,8 +307,9 @@ def stack_for(variant: Path, stacks: list[dict]) -> dict | None:
     return None
 
 
-def junit_totals(variant: Path, pattern: str, since: float) -> tuple[int, int] | None:
-    tests = failed = 0
+def junit_totals(variant: Path, pattern: str, since: float) -> tuple[int, int, int] | None:
+    """(tests, assertion failures, errors) from the JUnit XML reports written by this run."""
+    tests = failures = errors = 0
     found = False
     for report in variant.glob(pattern):
         if report.stat().st_mtime < since:
@@ -321,8 +321,9 @@ def junit_totals(variant: Path, pattern: str, since: float) -> tuple[int, int] |
         found = True
         for suite in tree.getroot().iter("testsuite"):
             tests += int(suite.get("tests", 0))
-            failed += int(suite.get("failures", 0)) + int(suite.get("errors", 0))
-    return (tests, failed) if found else None
+            failures += int(suite.get("failures", 0))
+            errors += int(suite.get("errors", 0))
+    return (tests, failures, errors) if found else None
 
 
 def run_variant(root: Path, lab: Lab, name: str, stacks: list[dict], logs: Path,
@@ -348,9 +349,7 @@ def run_variant(root: Path, lab: Lab, name: str, stacks: list[dict], logs: Path,
                             f"(log: {log})")
         return
     totals = junit_totals(variant, stack["reports"], started) if stack.get("reports") else None
-    counted = f" ({totals[0]} tests, {totals[1]} failing)" if totals else ""
-    if totals:
-        lab.counts[name] = totals[0]
+    counted = f" ({totals[0]} tests, {totals[1] + totals[2]} failing)" if totals else ""
     if expect_green:
         if code != 0:
             lab.problems.append(f"{where}: expected green, exit code {code}{counted} (log: {log})")
@@ -365,11 +364,16 @@ def run_variant(root: Path, lab: Lab, name: str, stacks: list[dict], logs: Path,
         elif stack.get("reports") and (totals is None or totals[0] == 0):
             lab.problems.append(f"{where}: red, but 0 tests ran: it probably does not build, "
                                 f"so its tests never run (log: {log})")
-        elif totals and totals[1] == 0:
+        elif totals and totals[1] + totals[2] == 0:
             lab.problems.append(f"{where}: exit code {code} with no failing test: a build or "
                                 f"setup error, not a red test (log: {log})")
         else:
             lab.results.append(f"{name} red{counted}")
+            if totals and totals[2]:
+                lab.warnings.append(
+                    f"{where}: {totals[2]} error(s), not assertion failures. A module that does "
+                    "not import or a test that cannot be set up is red for the wrong reason, "
+                    f"unless the lab means it (log: {log})")
 
 
 def run_lab(root: Path, lab: Lab, stacks: list[dict], logs: Path) -> None:
@@ -378,12 +382,6 @@ def run_lab(root: Path, lab: Lab, stacks: list[dict], logs: Path) -> None:
             run_variant(root, lab, "solution", stacks, logs, expect_green=True)
         if (lab.path / "starter").is_dir():
             run_variant(root, lab, "starter", stacks, logs, expect_green=False)
-        solution, starter = lab.counts.get("solution"), lab.counts.get("starter")
-        if solution and starter is not None and starter < solution:
-            lab.warnings.append(
-                f"{rel(root, lab.path)}: starter ran {starter} tests, solution {solution}. "
-                "Some starter tests did not run: a compile or collection error is red for "
-                "the wrong reason (integration tests skipped after red unit tests are fine)")
     elif lab.kind == "exploration":
         if stack_for(lab.path / "demo", stacks):
             run_variant(root, lab, "demo", stacks, logs, expect_green=True)
