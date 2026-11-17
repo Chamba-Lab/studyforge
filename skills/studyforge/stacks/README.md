@@ -6,7 +6,7 @@ A stack note tells the workflows how to build and verify labs for one toolchain.
 |---|---|---|---|
 | Java with Maven | [maven](maven.md) | `pom.xml` | challenge, exploration, project |
 | Node.js (npm) | [node](node.md) | `package.json` | challenge, exploration, project |
-| Python (pytest) | [python](python.md) | `pyproject.toml` | challenge, exploration, project |
+| Python (pytest) ✅ proven | [python](python.md) | `pyproject.toml` | challenge, exploration, project |
 | Jupyter notebooks | [notebook](notebook.md) | `*.ipynb` | challenge, exploration (data, ML) |
 | Containers (Docker / Podman) | [containers](containers.md) | `compose.yaml` | exploration |
 
