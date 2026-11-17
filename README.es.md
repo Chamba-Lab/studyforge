@@ -10,7 +10,7 @@ Primero un sílabo bien afinado, luego laboratorios cortos que puedes correr, ro
 </div>
 
 > [!NOTE]
-> **Versión 0.x: el diseño ya está listo y el primer showcase viene en camino.** La 1.0.0 llega cuando el ejemplo de [`examples/`](examples/) esté construido de punta a punta con el propio StudyForge.
+> **Versión 0.x.** El showcase ya está construido: [pytest-lab](https://github.com/Chamba-Lab/pytest-lab), un camino de estudio completo hecho con el propio StudyForge (ver [`examples/`](examples/)). La 1.0.0 llega cuando esté revisado.
 
 ## 💡 Qué es
 
@@ -112,7 +112,7 @@ La [galería visual](docs/visuals.md) muestra renderizado cada formato que recom
 
 ## 🛣️ Hoja de ruta
 
-- **0.x:** el método, los workflows, las plantillas y el verificador (esta versión). Después, el showcase en `examples/`: un camino pequeño (1–2 bloques y un proyecto) construido con StudyForge.
+- **0.x:** el método, los workflows, las plantillas y el verificador, y el showcase [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) (un bloque de cinco labs y un proyecto, construido con StudyForge).
 - **1.0.0:** cuando el showcase esté completo y verificado.
 - **1.x:** `adopt` (traer un repositorio de labs existente al método), ayuda para actualizar entre versiones, y correr las pruebas de aceptación contra la referencia en vivo.
 

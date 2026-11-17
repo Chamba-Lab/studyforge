@@ -188,4 +188,4 @@ Stop the dev mode with <kbd>Ctrl</kbd>+<kbd>C</kbd>.[^1]
 
 ## Images
 
-Excalidraw (`.excalidraw.svg`) and diagrams.net (`.drawio.svg`) files render on GitHub as images and stay editable in their editors. They need a solid background so they stay visible in dark mode. The showcase in `examples/` will include a real one.
+Excalidraw (`.excalidraw.svg`) and diagrams.net (`.drawio.svg`) files render on GitHub as images and stay editable in their editors. They need a solid background so they stay visible in dark mode. For a real image with a solid background, alt text and a `<title>`/`<desc>` for screen readers, see the test pyramid in the showcase: [pytest-lab, lab 1.1](https://github.com/Chamba-Lab/pytest-lab/blob/master/labs/01-fundamentals/01-why-test/CONCEPT.md#la-pirámide-de-pruebas).
