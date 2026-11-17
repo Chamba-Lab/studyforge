@@ -10,10 +10,10 @@ A visual earns its place when it shows something prose would take a paragraph to
 | Interaction between components over time | Mermaid `sequenceDiagram` | ✅ |
 | A lifecycle or state machine | Mermaid `stateDiagram-v2` | ✅ |
 | A data model | Mermaid `erDiagram` / `classDiagram` | ✅ |
-| Branches and merges (git topics) | Mermaid `gitGraph` | ⏳ |
-| How a technology evolved | Mermaid `timeline` | ⏳ |
-| A map of a block or of a concept | Mermaid `mindmap` | ⏳ |
-| Measured numbers (benchmarks, latencies) | Mermaid `xychart-beta` (with the table next to it) | ⏳ |
+| Branches and merges (git topics) | Mermaid `gitGraph` | ✅ |
+| How a technology evolved | Mermaid `timeline` | ✅ |
+| A map of a block or of a concept | Mermaid `mindmap` | ✅ |
+| Measured numbers (benchmarks, latencies) | Mermaid `xychart-beta` (with the table next to it) | ✅ |
 | A comparison | Markdown table | ✅ |
 | What changes between two states | A `diff` code block | ✅ |
 | A formula (data, ML, complexity) | LaTeX: `$...$` inline, `$$...$$` as a block | ✅ |
@@ -26,8 +26,6 @@ A visual earns its place when it shows something prose would take a paragraph to
 | A user interface (consoles, dashboards) | A screenshot in `assets/` | ✅ |
 | A terminal session for a landing page | A GIF recorded from a VHS script (`.tape`) | ✅ as an image |
 
-⏳ = expected to render, not yet confirmed in the [gallery](https://github.com/Chamba-Lab/studyforge/blob/master/docs/visuals.md); confirm before relying on it.
-
 Do not use formats that GitHub does not render (PlantUML, D2, ASCII art for anything but terminal output). They need a build step and fail silently for readers.
 
 ## Rules
@@ -35,7 +33,9 @@ Do not use formats that GitHub does not render (PlantUML, D2, ASCII art for anyt
 - **Use Mermaid by default.** Use images only when Mermaid falls short.
 - **One diagram per idea, at most ~15 nodes.** If it does not fit, it is two ideas.
 - **A diagram never replaces the text.** One sentence before it says what to look at. Images carry alt text. This keeps guides accessible and readable from a terminal or by an agent.
-- **Use classic diagram types first.** GitHub does not always ship the newest Mermaid. Check a newer type in the gallery before relying on it, and look at the GitHub preview before marking a lab `built`.
+- **Use only the types in the table.** All of them were checked rendering on GitHub in the gallery (2026-11-17). GitHub does not always ship the newest Mermaid: check any other type in the gallery first, and look at the GitHub preview before marking a lab `built`.
+- **Check `timeline` and `mindmap` in both themes.** They pick their own color scale, and in GitHub's dark theme some nodes come out dark on dark. If a node is hard to read, simplify the diagram or use a `flowchart`.
+- **In math, write braces as `\lbrace` and `brace`.** Markdown consumes the backslash of `\{`, and GitHub then renders the formula without braces.
 - **Images have a solid background.** A transparent PNG or SVG with dark strokes disappears in GitHub's dark theme.
 - **Images live in the lab's `assets/`**, compressed, with descriptive names (`assets/event-loop.excalidraw.svg`).
 - **Do not color-code meaning alone.** Pair color with a label or a shape.
