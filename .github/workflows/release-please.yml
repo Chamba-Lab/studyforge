@@ -1,0 +1,21 @@
+# Opens and updates a release pull request from Conventional Commits on master.
+# Merging that pull request tags the version, writes CHANGELOG.md and publishes
+# the GitHub Release. Versions in plugin.json, SKILL.md and the studyforge.toml
+# template are bumped by release-please (see release-please-config.json).
+name: release-please
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
