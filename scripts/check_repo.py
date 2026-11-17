@@ -101,8 +101,12 @@ def check_bom() -> None:
         if ".git" in file.parts or not file.is_file():
             continue
         if file.suffix in {".md", ".py", ".json", ".toml", ".yml", ".yaml"}:
-            if file.read_bytes()[:3] == b"\xef\xbb\xbf":
+            data = file.read_bytes()
+            if data[:3] == b"\xef\xbb\xbf":
                 problems.append(f"{file.relative_to(ROOT)}: UTF-8 byte-order mark")
+            if data.replace(b"\r\n", b"\n").count(b"\r"):
+                problems.append(f"{file.relative_to(ROOT)}: stray carriage return (\\r) "
+                                "inside a line, usually an unescaped \\r written by a script")
 
 
 def main() -> int:

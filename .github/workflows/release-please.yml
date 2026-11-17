@@ -2,20 +2,37 @@
 # Merging that pull request tags the version, writes CHANGELOG.md and publishes
 # the GitHub Release. Versions in plugin.json, SKILL.md and the studyforge.toml
 # template are bumped by release-please (see release-please-config.json).
+#
+# The organization does not let the built-in GITHUB_TOKEN open pull requests, so
+# the token comes from the "Chamba Lab CD Bot" GitHub App (same App as
+# Chamba-Lab/home). It is generated per run, lives one hour, is limited to this
+# repository and asks only for what release-please needs. A pull request opened
+# by an App also triggers the checks workflow, unlike one opened by GITHUB_TOKEN.
 name: release-please
 
 on:
   push:
     branches: [master]
+  workflow_dispatch:
 
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+  contents: read
 
 jobs:
   release-please:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Generate release token
+        id: app-token
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+          permission-issues: write
+
       - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ steps.app-token.outputs.token }}
