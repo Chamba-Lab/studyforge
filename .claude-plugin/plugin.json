@@ -9,5 +9,12 @@
   "homepage": "https://github.com/Chamba-Lab/studyforge",
   "repository": "https://github.com/Chamba-Lab/studyforge",
   "license": "MIT",
-  "keywords": ["learning", "labs", "syllabus", "education", "study", "agent-skills"]
+  "keywords": [
+    "learning",
+    "labs",
+    "syllabus",
+    "education",
+    "study",
+    "agent-skills"
+  ]
 }
