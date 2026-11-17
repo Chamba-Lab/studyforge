@@ -167,7 +167,7 @@ Hidden until the learner opens it, which is right for hints, verified answers an
 
 ### Math
 
-Write braces as `\lbrace` / `brace`: Markdown eats the backslash of `\{`. Inline: the throughput is $\lambda = \frac{N}{T}$. As a block:
+Write braces as `\lbrace` / `\rbrace`: Markdown eats the backslash of `\{`. Inline: the throughput is $\lambda = \frac{N}{T}$. As a block:
 
 $$
 \text{p99} = \min \lbrace x : P(X \le x) \ge 0.99 \rbrace
