@@ -69,9 +69,11 @@ Then ask your agent something like *"Use StudyForge to design a study path for �
 
 ## 🧱 The building blocks
 
-**Topic kinds** — 🎯 `core` · 🔬 `deep-dive` · 🔀 `alternative` · ➕ `elective`, plus the 🆕 `modern` tag.
-**Lab types** — 🧩 `challenge` · 🔭 `exploration` · 💭 `concept` · 🏗️ `project`.
-**Status** — ⬜ `pending` · 🟨 `built` (waiting for a learner) · ✅ `done` (solved, feedback applied).
+| Piece | Keys |
+|---|---|
+| **Topic kind** | 🎯 `core` · 🔬 `deep-dive` · 🔀 `alternative` · ➕ `elective`, plus the 🆕 `modern` tag |
+| **Lab type** | 🧩 `challenge` · 🔭 `exploration` · 💭 `concept` · 🏗️ `project` |
+| **Status** | ⬜ `pending` · 🟨 `built` (waiting for a learner) · ✅ `done` (solved, feedback applied) |
 
 Keys stay in English in every language, so workflows can read them; only their legend is translated. Lab content is written in the language you choose; code is always English.
 
