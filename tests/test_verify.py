@@ -1,0 +1,112 @@
+"""Tests for skills/studyforge/scripts/verify.py against a small study repository.
+
+Run: python -m pytest tests -q   (needs pytest; the labs inside the fixture use it too)
+"""
+
+from __future__ import annotations
+
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
+
+VERIFY = Path(__file__).resolve().parent.parent / "skills" / "studyforge" / "scripts" / "verify.py"
+
+CONFIG = """studyforge = "0.1.0"
+[language]
+content = "es"
+[learner]
+os = "linux"
+[dependencies]
+strategy = "independent"
+[[stack]]
+id = "python"
+detect = "pyproject.toml"
+command = "{python} -m pytest -q -p no:cacheprovider --junitxml=.reports/junit.xml"
+reports = ".reports/junit.xml"
+timeout = 120
+"""
+CHALLENGE_README = "\n".join([
+    "# 🧩 1.1 · Suma", "## 🎯 Objetivos", "## 💡 Por qué importa", "## 📍 Dónde",
+    "## 🧠 Conceptos", "## 📚 Documentación", "## 🧭 Escenario", "## ✅ Tareas",
+    "## 💼 En proyectos reales", "## ✔️ Respuestas verificadas", "## 🎤 Autoevaluación", ""])
+PYPROJECT = '[project]\nname = "x"\nversion = "0"\n[tool.pytest.ini_options]\npythonpath = ["."]\n'
+TESTS = "from calc import add\n\ndef test_add():\n    assert add(2, 3) == 5\n\ndef test_guard():\n    assert True\n"
+LAB = "labs/01-basics/01-sum"
+
+
+def write(root: Path, relative: str, text: str) -> None:
+    path = root / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+@pytest.fixture
+def repo(tmp_path: Path) -> Path:
+    python = sys.executable.replace("\\", "/")
+    write(tmp_path, "studyforge.toml", CONFIG.format(python=f'"{python}"'.strip('"')))
+    for name in ("AGENTS.md", "README.md", "SETUP.md", "docs/decisions.md", "docs/lessons.md"):
+        write(tmp_path, name, "# x\n")
+    write(tmp_path, "CLAUDE.md", "@AGENTS.md\n")
+    write(tmp_path, "SYLLABUS.md", "| 1.1 | a |\n| 1.2 | b |\n")
+    write(tmp_path, f"{LAB}/README.md", CHALLENGE_README)
+    for variant, body in (("solution", "return a + b"), ("starter", "raise NotImplementedError('TODO')")):
+        write(tmp_path, f"{LAB}/{variant}/pyproject.toml", PYPROJECT)
+        write(tmp_path, f"{LAB}/{variant}/calc.py", f"def add(a, b):\n    {body}\n")
+        write(tmp_path, f"{LAB}/{variant}/tests/test_calc.py", TESTS)
+    write(tmp_path, "labs/01-basics/02-mindset/README.md",
+          "# 💭 1.2 · M\n## 🎯 O\n## 💡 P\n## 🧠 C\n## 📚 D\n## 🎤 A\n")
+    write(tmp_path, "labs/01-basics/02-mindset/CONCEPT.md", "# C\n")
+    return tmp_path
+
+
+def verify(root: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run([sys.executable, str(VERIFY), *args], cwd=root,
+                          capture_output=True, text=True, encoding="utf-8")
+
+
+def test_a_correct_repository_passes(repo: Path) -> None:
+    result = verify(repo)
+    assert result.returncode == 0, result.stdout
+    assert "solution green (2 tests, 0 failing)" in result.stdout
+    assert "starter red (2 tests, 1 failing)" in result.stdout
+
+
+def test_a_starter_that_passes_is_a_problem(repo: Path) -> None:
+    write(repo, f"{LAB}/starter/calc.py", "def add(a, b):\n    return a + b\n")
+    result = verify(repo, "--lab", "1.1")
+    assert result.returncode == 1
+    assert "expected red" in result.stdout
+
+
+def test_a_starter_that_does_not_import_is_flagged(repo: Path) -> None:
+    write(repo, f"{LAB}/starter/calc.py", "def add(a, b:\n")
+    result = verify(repo, "--lab", "1.1")
+    assert "did not run" in result.stdout or "0 tests ran" in result.stdout
+
+
+def test_structure_problems_are_reported(repo: Path) -> None:
+    write(repo, "labs/01-basics/02-mindset/README.md", "# 💭 1.2 · M\n## 🎯 O\n")
+    (repo / "labs/01-basics/3-Bad_Name").mkdir()
+    (repo / f"{LAB}/solution/bom.py").write_bytes(b"\xef\xbb\xbfx = 1\n")
+    result = verify(repo, "--structure")
+    assert result.returncode == 1
+    assert "missing the section anchored '## 🎤" in result.stdout
+    assert "a lab folder must be" in result.stdout
+    assert "byte-order mark" in result.stdout
+
+
+def test_list_shows_ids_and_types(repo: Path) -> None:
+    result = verify(repo, "--list")
+    assert "1.1    challenge" in result.stdout
+    assert "1.2    concept" in result.stdout
+
+
+def test_without_configuration_it_cannot_run(tmp_path: Path) -> None:
+    copy = tmp_path / "verify.py"
+    shutil.copy(VERIFY, copy)
+    result = subprocess.run([sys.executable, str(copy)], cwd=tmp_path,
+                            capture_output=True, text=True, encoding="utf-8")
+    assert result.returncode == 2
