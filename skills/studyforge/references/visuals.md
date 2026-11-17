@@ -10,10 +10,10 @@ A visual earns its place when it shows something prose would take a paragraph to
 | Interaction between components over time | Mermaid `sequenceDiagram` | ✅ |
 | A lifecycle or state machine | Mermaid `stateDiagram-v2` | ✅ |
 | A data model | Mermaid `erDiagram` / `classDiagram` | ✅ |
-| Branches and merges (git topics) | Mermaid `gitGraph` | ✅ |
-| How a technology evolved | Mermaid `timeline` | ✅ |
-| A map of a block or of a concept | Mermaid `mindmap` | ✅ |
-| Measured numbers (benchmarks, latencies) | Mermaid `xychart-beta` (with the table next to it) | ✅ |
+| Branches and merges (git topics) | Mermaid `gitGraph` | ⏳ |
+| How a technology evolved | Mermaid `timeline` | ⏳ |
+| A map of a block or of a concept | Mermaid `mindmap` | ⏳ |
+| Measured numbers (benchmarks, latencies) | Mermaid `xychart-beta` (with the table next to it) | ⏳ |
 | A comparison | Markdown table | ✅ |
 | What changes between two states | A `diff` code block | ✅ |
 | A formula (data, ML, complexity) | LaTeX: `$...$` inline, `$$...$$` as a block | ✅ |
@@ -25,6 +25,8 @@ A visual earns its place when it shows something prose would take a paragraph to
 | An architecture Mermaid cannot lay out well | diagrams.net, saved as `.drawio.svg` (stays editable) | ✅ as an image |
 | A user interface (consoles, dashboards) | A screenshot in `assets/` | ✅ |
 | A terminal session for a landing page | A GIF recorded from a VHS script (`.tape`) | ✅ as an image |
+
+⏳ = expected to render, not yet confirmed in the [gallery](https://github.com/Chamba-Lab/studyforge/blob/master/docs/visuals.md); confirm before relying on it.
 
 Do not use formats that GitHub does not render (PlantUML, D2, ASCII art for anything but terminal output). They need a build step and fail silently for readers.
 
