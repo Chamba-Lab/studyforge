@@ -1,0 +1,32 @@
+name: Lesson or improvement
+description: A lesson learned while building or using labs, a problem with StudyForge, or an idea.
+labels: ["triage"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - "Lesson learned while building or using labs"
+        - "Something in StudyForge is wrong or unclear"
+        - "Idea or request"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The situation, what you expected and what you got. For a lesson, what was learned.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What should change
+      description: The rule, template, workflow or stack note that would have prevented it, if you know.
+  - type: input
+    id: context
+    attributes:
+      label: Context
+      description: Stack and versions, agent used, StudyForge version (from studyforge.toml).
+      placeholder: "Quarkus 3.40 · Claude Code · StudyForge 0.1.0"
