@@ -23,7 +23,9 @@ NN-<slug>/
 - **The starter hides the mechanism under study, not the app.** Replace only the code being taught with a `TODO`, and keep everything else working. A starter that cannot even build is not "red": its tests never run.
 - **Each target test fails for the right reason.** A "404 for an unknown id" test passes on its own when the route does not exist yet. Make negative tests first prove that the valid case works.
 - **Regression guards are welcome.** A test that is green from the start protects something the learner must not break, such as an earlier domain this lab builds on. Name it as a guard in the README.
-- **Labs about testing are turned around.** The production code is finished, and the tests have their assertions written but are missing their arrangement (mocks, clock, fixtures).
+- **Labs about testing are turned around.** The production code is finished and the learner writes tests. Two ways to validate them:
+  - **Arrangement missing:** the assertions are written and the setup is missing (mocks, clock, fixtures). This fits labs about test tooling inside a larger framework.
+  - **Mutant hunt (preferred when the learner writes whole tests):** a test runs the learner's test file in a subprocess, first against the real module (it must pass) and then against each mutant in `tests/mutants/<id>/` (it must fail). Stubs call `skip("TODO …")`, so each task turns its own mutants green. A "bug fixed" variant validates an expected failure (`xfail`). See the [Python stack note](../stacks/python.md) and pytest-lab labs 1.2–1.4.
 - Build the solution first, then derive the starter from it, then check task by task that each step turns its tests green (see [quality](quality.md)).
 
 ## 🔭 Exploration

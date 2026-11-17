@@ -49,6 +49,9 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 - **Shared state needs an explicit reset** between tests (caches, breakers, counters, fakes). When a trap breaks shared state for good, order the test classes by task and say so.
 - **Wait for readiness**, such as a port or a log line, before the first call. A silent first call is a startup race, not a bug.
 - **Plan the verification budget** when the infrastructure is slow. Dry-run one mutation first and read its log. Run long batteries in the background.
+- **A comfortable test environment hides bugs.** An experiment script that set `PYTHONIOENCODING=utf-8` for every child process let a "no UTF-8 output" mutation pass; without it, the acceptance test caught it. Run experiments in the environment learners have, not one that is friendlier.
+- **A test that compares against the same constant as the code protects nothing.** If `EXIT_ERROR = 2` changes to `1`, a test that asserts `== EXIT_ERROR` changes with it. When a value is part of the contract, write it literally in the test.
+- **Your own tests fall into the traps you teach.** Data that does not separate two behaviors lets a mutant survive (ties in alphabetical order, a largest debtor who is also the first name). The mutation list catches it.
 
 ## Being a good guest on the machine
 
