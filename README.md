@@ -5,7 +5,7 @@
 **Forge hands-on study paths with any AI agent.**
 A refined syllabus first, then short labs you can run, break and verify, and a project that closes each block.
 
-[Español](README.es.md) · [The method](skills/studyforge/references/method.md) · [Visual gallery](docs/visuals.md) · [Changelog](CHANGELOG.md)
+[Español](README.es.md) · [The method](skills/studyforge/references/method.md) · [Visual gallery](docs/visuals.md) · [Changelog](https://github.com/Chamba-Lab/studyforge/blob/master/CHANGELOG.md)
 
 </div>
 

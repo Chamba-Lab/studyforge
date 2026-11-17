@@ -5,7 +5,7 @@
 **Forja caminos de estudio prácticos con cualquier agente de IA.**
 Primero un sílabo bien afinado, luego laboratorios cortos que puedes correr, romper y verificar, y un proyecto que cierra cada bloque.
 
-[English](README.md) · [El método](skills/studyforge/references/method.md) · [Galería visual](docs/visuals.md) · [Changelog](CHANGELOG.md)
+[English](README.md) · [El método](skills/studyforge/references/method.md) · [Galería visual](docs/visuals.md) · [Changelog](https://github.com/Chamba-Lab/studyforge/blob/master/CHANGELOG.md)
 
 </div>
 
