@@ -29,12 +29,12 @@ It is the distilled version of several generations of personal study labs (Quark
 flowchart TB
     G([🎯 What I want to learn]) --> S[🗺️ syllabus]
     S --> I[📦 init]
-    I --> B[🔨 build<br/>next lab]
-    B --> L{{🧑‍🎓 learner<br/>solves it}}
+    I --> B[🔨 build<br/>Next lab]
+    B --> L{{🧑‍🎓 The learner<br/>solves it}}
     L --> F[💬 feedback]
     F --> B
-    F -. general lesson .-> U[(StudyForge)]
-    R[🔍 review] -. audit · upgrade .-> B
+    F -. General lesson .-> U[(StudyForge)]
+    R[🔍 review] -. Audit · upgrade .-> B
 ```
 
 | Workflow | Ask your agent… | It produces |

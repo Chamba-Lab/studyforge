@@ -10,8 +10,8 @@ The request goes through validation before it reaches the database. Look for the
 ```mermaid
 flowchart LR
     A[Request] --> B{Valid?}
-    B -- no --> C[400 + error contract]
-    B -- yes --> D[(Database)]
+    B -- No --> C[400 + error contract]
+    B -- Yes --> D[(Database)]
     D --> E[201 + Location]
 ```
 
@@ -21,8 +21,8 @@ flowchart LR
 ```mermaid
 flowchart LR
     A[Request] --> B{Valid?}
-    B -- no --> C[400 + error contract]
-    B -- yes --> D[(Database)]
+    B -- No --> C[400 + error contract]
+    B -- Yes --> D[(Database)]
     D --> E[201 + Location]
 ```
 ````
@@ -41,7 +41,7 @@ sequenceDiagram
     Note over C,S: client timeout (2 s)
     P-->>S: charged
     C->>S: retry POST /payments (key=abc)
-    S-->>C: 200 (same payment, charged once)
+    S-->>C: 200 (Same payment, charged once)
 ```
 
 ### `stateDiagram-v2`: a lifecycle

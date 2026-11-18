@@ -33,12 +33,12 @@ Es la versión destilada de varias generaciones de labs de estudio personales (Q
 flowchart TB
     G([🎯 Lo que quiero aprender]) --> S[🗺️ syllabus]
     S --> I[📦 init]
-    I --> B[🔨 build<br/>siguiente lab]
-    B --> L{{🧑‍🎓 el aprendiz<br/>lo resuelve}}
+    I --> B[🔨 build<br/>Siguiente lab]
+    B --> L{{🧑‍🎓 El aprendiz<br/>lo resuelve}}
     L --> F[💬 feedback]
     F --> B
-    F -. lección general .-> U[(StudyForge)]
-    R[🔍 review] -. auditar · actualizar .-> B
+    F -. Lección general .-> U[(StudyForge)]
+    R[🔍 review] -. Auditar · actualizar .-> B
 ```
 
 | Workflow | Pídele a tu agente… | Resultado |

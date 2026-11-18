@@ -18,6 +18,7 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 - [ ] Every command and quoted output in the README was run, in the learner's shells from `studyforge.toml`.
 - [ ] Every claim was checked against [sources](sources.md), and every link opens.
 - [ ] Diagrams render on GitHub ([visuals](visuals.md)).
+- [ ] Proofread for form: capitalization (headings, lists, tables, diagram labels), proper nouns, accents and punctuation in the content language ([writing](writing.md#tone)).
 - [ ] No byte-order mark, no build output, no `.env`, no secret. Wrapper scripts (`mvnw`, `gradlew`) are executable in git.
 - [ ] `python tools/verify.py --lab <ID>` passes.
 - [ ] `SYLLABUS.md` says `🟨 built`, and its "Notes for the next labs" are updated.
