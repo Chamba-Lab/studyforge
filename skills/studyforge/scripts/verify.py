@@ -51,9 +51,9 @@ VS16 = "️"  # emoji variation selector, ignored when comparing anchors
 TYPE_EMOJI = {"challenge": "🧩", "exploration": "🔭", "concept": "💭", "project": "🏗"}
 ANCHOR_ORDER = ["🎯", "💡", "📍", "🧠", "📚", "🧭", "✅", "🧪", "🛣", "🔍", "👀",
                 "💼", "🧹", "🚀", "🆘", "✔", "🎤", "🔁"]
-REQUIRED_ANCHORS = {
-    "challenge": ["🎯", "💡", "📍", "🧠", "📚", "🧭", "✅", "💼", "✔", "🎤"],
-    "exploration": ["🎯", "💡", "📍", "🧠", "📚", "🧭", "🧪", "💼", "✔", "🎤"],
+REQUIRED_ANCHORS = {  # sections every lab of the type needs; the rest appear only when they add something
+    "challenge": ["🎯", "💡", "📍", "🧠", "📚", "🧭", "✅", "✔", "🎤"],
+    "exploration": ["🎯", "💡", "📍", "🧠", "📚", "🧭", "🧪", "🎤"],
     "concept": ["🎯", "💡", "🧠", "📚", "🎤"],
     "project": ["🎯", "📍", "🛣"],
 }

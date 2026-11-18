@@ -29,6 +29,7 @@ The README states both paths and recommends one based on the learner's time.
 - **Contract**: endpoints, messages or the CLI, plus the error contract.
 - **Acceptance criteria** as Given/When/Then, each mapped to `acceptance/` when possible.
 - **Non-functional requirements** from the block, such as security, resilience, observability or packaging. Name the lab that taught each one.
+- **What is new here.** Check the brief against the labs: anything the project needs that no lab of the block taught (a file encoding, a library feature, a testing pattern) is listed with a short explanation or a hint, so the learner does not have to guess. Better still, move it into the lab where it belongs.
 - **Constraints and freedom**: what is fixed (contract, versions) and what is up to the learner (internal design).
 - **Out of scope**: what is missing on purpose.
 

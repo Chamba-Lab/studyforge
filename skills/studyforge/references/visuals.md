@@ -42,7 +42,7 @@ Do not use formats that GitHub does not render (PlantUML, D2, ASCII art for anyt
 
 ## How readers see the diagrams
 
-Lab READMEs include a short "How to read these guides" note (from the repository template). This is what it says:
+The study repository's `SETUP.md` ends with a short "Reading the guides" note (from the repository template), and its `README.md` points to it. This is what the note covers:
 
 | Where you read | Mermaid | Excalidraw / diagrams.net files |
 |---|---|---|

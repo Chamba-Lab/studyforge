@@ -96,6 +96,19 @@ def test_a_starter_with_fewer_cases_than_the_solution_is_fine(repo: Path) -> Non
     assert "[warn]" not in result.stdout
 
 
+def test_sections_that_add_nothing_can_be_left_out(repo: Path) -> None:
+    # "In real projects" is optional in a challenge, and an exploration keeps its answers
+    # in the "What you should see" blocks, so neither section is forced.
+    write(repo, f"{LAB}/README.md", CHALLENGE_README.replace("## 💼 En proyectos reales\n", ""))
+    write(repo, "labs/01-basics/03-tour/README.md", "\n".join([
+        "# 🔭 1.3 · T", "## 🎯 O", "## 💡 P", "## 📍 D", "## 🧠 C", "## 📚 D", "## 🧭 E",
+        "## 🧪 X", "## 🎤 A", ""]))
+    (repo / "labs/01-basics/03-tour/demo").mkdir(parents=True)
+    write(repo, "SYLLABUS.md", "| 1.1 | a |\n| 1.2 | b |\n| 1.3 | c |\n")
+    result = verify(repo, "--structure", "--strict")
+    assert result.returncode == 0, result.stdout
+
+
 def test_structure_problems_are_reported(repo: Path) -> None:
     write(repo, "labs/01-basics/02-mindset/README.md", "# 💭 1.2 · M\n## 🎯 O\n")
     (repo / "labs/01-basics/3-Bad_Name").mkdir()

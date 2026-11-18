@@ -15,11 +15,13 @@ Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/decisions.m
 3. **Audit.** For each lab in scope:
    - Run `python tools/verify.py --lab <ID>` for the structure, the green solution and the red starter.
    - **Orphan concepts:** a command, operator, flag or annotation used in an exercise but not explained in the README or `CONCEPT.md`.
-   - **Explanation:** concepts listed as bare definitions, with no problem or example before the task that needs them; a tool shown before the idea it expresses; terms of art translated literally or used without a gloss; section titles that differ from the reference table in [writing](../references/writing.md#section-anchors).
+   - **Explanation:** concepts listed as bare definitions, with no problem or example before the task that needs them; a tool shown before the idea it expresses; terms of art or acronyms translated literally or used without a gloss; section titles that differ from the reference table in [writing](../references/writing.md#section-anchors).
+   - **Spoilers before a prediction:** in Concepts, in the scenario's tables, in the dissection or in the starter.
+   - **Noise:** optional sections with nothing of their own, ideas explained twice, boilerplate repeated across labs, long sections without `###` parts, identical commands duplicated per shell.
    - **Syllabus readability:** API names or terms taught later in topics and outcomes, uneven technicality across rows, blocks that mix levels, and a path that plans only the blocks already built.
    - **Unverified claims:** outputs, defaults or error messages with no run behind them, or written for an older version.
    - **Tests that pass for the wrong reason**, and starter tests that are not red.
-   - **Missing teaching devices:** a trap, a "predict first" step, "In real projects", the self-assessment, the command dissection for new syntax, or cleanup.
+   - **Missing teaching devices:** a trap, a "predict first" step, the self-assessment, the command dissection when there is new syntax, or cleanup when the lab creates resources.
    - **Broken or outdated** links, versions and diagrams.
    - **Ownership:** the lab re-teaches something another lab owns.
 4. **Present the findings** ranked by impact on the learner, with a recommendation. Fix immediately whatever is clearly a defect. Wait for the person's decision on anything that changes scope or the syllabus.
