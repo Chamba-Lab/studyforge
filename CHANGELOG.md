@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.0.1...studyforge-v1.1.0) (2026-11-18)
+
+
+### Features
+
+* **skill:** add rules for explaining concepts and a learner-first syllabus ([#9](https://github.com/Chamba-Lab/studyforge/issues/9)) ([210e341](https://github.com/Chamba-Lab/studyforge/commit/210e341923af0a386da4a19cb5dc98276ac4c8f0))
+
 ## [1.0.1](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.0.0...studyforge-v1.0.1) (2026-11-18)
 
 
