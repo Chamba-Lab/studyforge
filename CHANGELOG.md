@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.4.1...studyforge-v1.4.2) (2026-11-18)
+
+
+### Bug Fixes
+
+* **skill:** guard the global environment and close the gaps of the second upgrade run ([#21](https://github.com/Chamba-Lab/studyforge/issues/21)) ([f4a2dcf](https://github.com/Chamba-Lab/studyforge/commit/f4a2dcffe92ceaa4b556f2069bcf12bc9f4430ec))
+
 ## [1.4.1](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.4.0...studyforge-v1.4.1) (2026-11-18)
 
 
