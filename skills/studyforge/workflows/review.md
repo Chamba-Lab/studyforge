@@ -7,7 +7,7 @@ Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/decisions.m
 ## Steps
 
 1. **Define the scope:** one lab (`<ID>`), a block, everything, or one rule applied everywhere.
-2. **Check the framework version.** If `studyforge` in `studyforge.toml` is older than this skill's version, follow [upgrading](../references/upgrading.md): it lists, version by version, what to copy, which rules built labs must now meet, and when to rebuild a block instead of patching it. The notes of each version join the audit below.
+2. **Check the framework version.** If `studyforge` in `studyforge.toml` is older than this skill's version, follow [upgrading](../references/upgrading.md): it lists, version by version, what to copy, which rules built labs must now meet, and when to rebuild a block instead of patching it. For an upgrade alone, the audit below covers only what those notes touch; the whole checklist runs when the person asks for a full review.
 3. **Audit.** For each lab in scope:
    - Run `python tools/verify.py --lab <ID>` for the structure, the green solution and the red starter.
    - **Orphan concepts:** a command, operator, flag or annotation used in an exercise but not explained in the README or `CONCEPT.md`.

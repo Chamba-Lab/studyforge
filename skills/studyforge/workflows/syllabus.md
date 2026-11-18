@@ -37,7 +37,7 @@ Read first: [method](../references/method.md), [syllabus](../references/syllabus
    - [ ] Every block has 3–7 labs and a project with a one-line idea of its domain.
    - [ ] The lab types fit (not everything is a challenge, and concept labs are rare).
    - [ ] Versions are pinned and current.
-   - [ ] Every library outside the stack's platform passes the checklist in [dependencies](../references/dependencies.md#choosing-a-library).
+   - [ ] Every library the plan pins passes the checklist in [dependencies](../references/dependencies.md#choosing-a-library).
 6. **Present it.** Show the blocks as a short table, the key decisions with your recommendation, and the open questions. Iterate until the person agrees.
 7. **Write it.** In an existing repository, update `SYLLABUS.md` (renumbering only items that are still `pending`), update `docs/decisions.md` when a decision changed, and commit with `docs(syllabus): …`. With no repository yet, hand the draft to [init](init.md).
 
