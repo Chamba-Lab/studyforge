@@ -119,4 +119,4 @@ Lessons learned while building labs are the most valuable contribution: open an 
 
 ## 📄 License
 
-[MIT](LICENSE) © Chamba Lab. Made by the [Chamba Lab](https://chambalab.org) community: *Connect. Inspire. Grow.*
+[MIT](LICENSE) © Chamba Lab. The characters and the Chamba Lab brand are not covered by it: see [NOTICE.md](NOTICE.md). Made by the [Chamba Lab](https://chambalab.org) community: *Connect. Inspire. Grow.*
