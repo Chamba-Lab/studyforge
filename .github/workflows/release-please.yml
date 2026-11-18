@@ -34,5 +34,19 @@ jobs:
           permission-issues: write
 
       - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        id: release
         with:
           token: ${{ steps.app-token.outputs.token }}
+
+      # The CODEOWNERS request to the Admins team did not reach the maintainer's
+      # inbox for pull requests opened by the App. Assigning the person whose merge produced
+      # the release pull request does: it is a direct notification ("assigned").
+      - name: Assign the release pull request
+        if: steps.release.outputs.prs_created == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          PR_JSON: ${{ steps.release.outputs.pr }}
+          ASSIGNEE: ${{ github.actor }}
+        run: |
+          number=$(jq -r '.number' <<< "$PR_JSON")
+          gh pr edit "$number" --repo "$GITHUB_REPOSITORY" --add-assignee "$ASSIGNEE"
