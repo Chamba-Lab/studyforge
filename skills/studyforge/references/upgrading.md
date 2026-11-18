@@ -22,6 +22,12 @@ A study repository records the StudyForge version it follows in `studyforge.toml
 
 ## Notes by version
 
+### 1.4.0
+
+- **For built labs:** check every library the repository pins, outside the stack's platform, against the new checklist in [dependencies](dependencies.md#choosing-a-library), and record the result in `docs/decisions.md`.
+- **Mechanical:** add the ecosystem's audit tool to CI (for Python, `pip-audit` on every `requirements*.txt`), on every change and weekly.
+- For new labs: the `syllabus` self-review asks for the checklist before a library enters the plan.
+
 ### 1.3.0
 
 - **For built labs:** none.
