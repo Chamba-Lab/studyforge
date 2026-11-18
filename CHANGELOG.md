@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.1.0...studyforge-v1.2.0) (2026-11-18)
+
+
+### Features
+
+* **skill:** keep labs lean: sections only when they add, ### inside sections, no spoilers in Concepts ([#12](https://github.com/Chamba-Lab/studyforge/issues/12)) ([05b7ff0](https://github.com/Chamba-Lab/studyforge/commit/05b7ff0ffb382a24d652d584e01dcfc5f470fc5c))
+
 ## [1.1.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.0.1...studyforge-v1.1.0) (2026-11-18)
 
 
