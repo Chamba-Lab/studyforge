@@ -13,10 +13,24 @@ Labs that use the same toolchain can share their build configuration or keep it 
 - **Projects never inherit.** They are atomic (see [projects](projects.md)), even under `shared-parent`.
 - **One version of each library across the repository.** Upgrade all labs together, never one by one. The only exception is a lab whose topic *is* an older version (an upgrade lab), and the README says so.
 - **Prefer the platform's own version management** (a BOM, a constraints file) over pinning each library. A library outside it needs an explicit version and a written justification in the lab README.
-- **Security baseline**: stable, patched versions, with no known vulnerabilities in what you pin. Check before pinning.
+- **Security baseline**: stable, patched versions, with no known vulnerabilities in what you pin. Check before pinning, with the checklist below.
 - **A shared parent manages versions, not behavior.** For example, test-runner configuration that one kind of module needs can break another kind. Keep plugin configuration in the modules that need it.
 - **Upgrading** follows a checklist in `AGENTS.md`:
   1. Read the release notes and the migration guide.
   2. Change every lab.
   3. Run `tools/verify.py`.
   4. Re-check every claim that quotes the old version.
+
+## Choosing a library
+
+Every library a lab adds runs on the learner's machine, so pick it as you would for a production project. Before you pin one that the stack's platform does not already bring, check it and record the result in the study repository's `docs/decisions.md`:
+
+- [ ] **No known vulnerabilities**, in the library and in what it pulls in. Run the ecosystem's audit tool on the pinned file (`pip-audit -r requirements.txt`, `npm audit`, the OWASP `dependency-check` plugin for Maven) and query [OSV](https://osv.dev).
+- [ ] **Maintained:** a release in the last year, a repository that is not archived, and more than one person or an organization behind it.
+- [ ] **Adopted:** used by the community (downloads, dependents), so the learner meets it at work and can find answers. When a less used option wins, write why (for example, "the popular one does not run on Windows").
+- [ ] **Compatible license** with the study repository (MIT, Apache-2.0, BSD).
+- [ ] **Runs on the learner's environment** from `studyforge.toml` (operating system, shells, containers), checked by running it, not by reading its docs.
+- [ ] **Few dependencies of its own.** Each one is one more thing to audit and upgrade; prefer the standard library when it teaches the same thing.
+- [ ] **Tools that change code or files** (mutation testing, formatters, code generators) are tried first in a scratch copy: check what they modify, and what is left behind if a run is cut halfway.
+
+Then keep checking: add the audit tool to the repository's CI, on every change and on a weekly schedule, so a new advisory shows up even when nobody touches the labs.
