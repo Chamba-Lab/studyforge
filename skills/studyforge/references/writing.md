@@ -39,6 +39,8 @@ Each section heading starts with a fixed emoji, followed by a title in the conte
 
 The Spanish column is the reference translation. For another content language, translate the same way and write the titles once in the study repository's `AGENTS.md`, so every lab uses the same ones.
 
+The title line is `# <type emoji> <ID> · <Title>`, for example `# 🧩 1.2 · Configuration and profiles`. A metadata table follows it: ⏱️ duration, 🧪 type, 🏷️ kind, and the pinned stack versions.
+
 **"When it adds" means: only if the section has content of its own.** A section that restates what another section said, or that exists because the template has it, is noise: leave it out. Examples: a concept lab with no commands has no command dissection; an exploration whose 👀 blocks already answer every prediction needs no ✔️; a lab with nothing to say about teams or production has no 💼. The order of the sections that remain does not change.
 
 ## Structure inside a section
@@ -47,7 +49,7 @@ A long section reads as a flat wall unless its parts are visible. Inside a secti
 
 - **🧠 Concepts:** one `### <Name> (*term of art*)` per concept, for example `### Parametrizar (*parametrize*)`. The heading shows the learner how many ideas the lab has, and GitHub lists it in the file outline.
 - **🧭 Scenario:** when it has more than one part, `###` for each, for example "the code" and "how your work is checked" (mutants, structure checks).
-- **✅ Tasks** and **🧪 Experiments** already use `### Task N · <Title>`.
+- **✅ Tasks** and **🧪 Experiments** already use `### Task N · <Title>` and `### Experiment N · <Title>`.
 - No `####`. A section under about 15 lines needs no `###`. `tools/verify.py` reads only `## <emoji>` lines, so `###` headings are free.
 
 ## Say each thing once
@@ -57,8 +59,6 @@ Each idea has one home in the lab. Concepts explain it, the task uses it, the hi
 - 🔍 explaining again what the Concepts examples already showed. It is a reference card: one line per item, with options and defaults.
 - A note repeated right under a table that already says it.
 - Boilerplate copied into every lab (the same diagram, the same paragraph): say it once in the first lab or in the repository README, and link to it.
-
-The title line is `# <type emoji> <ID> · <Title>`, for example `# 🧩 1.2 · Configuration and profiles`. A metadata table follows it: ⏱️ duration, 🧪 type, 🏷️ kind, and the pinned stack versions.
 
 ## Commands
 
