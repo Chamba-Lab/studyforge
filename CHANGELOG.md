@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.0.0...studyforge-v1.0.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* **skill:** require capitalized diagram labels and a proofreading pass ([#6](https://github.com/Chamba-Lab/studyforge/issues/6)) ([838c0f2](https://github.com/Chamba-Lab/studyforge/commit/838c0f2985c3e61e26e4ef76e21b3520dc277a2a))
+
 ## [1.0.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v0.1.0...studyforge-v1.0.0) (2026-11-17)
 
 
