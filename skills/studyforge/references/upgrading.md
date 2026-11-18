@@ -28,6 +28,11 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ## Notes by version
 
+### 1.4.2
+
+- **For built labs and repository files:** none.
+- When an agent verifies or upgrades a repository, it checks `sys.prefix` (or the stack's equivalent) before installing anything, and never installs into the person's global environment ([Python](../stacks/python.md)).
+
 ### 1.4.1
 
 - **Repository files:** the dependency checklist now has gates (vulnerabilities, license, runs on the learner's environment) and signals that need judgment ([dependencies](dependencies.md#choosing-a-library)). In `docs/decisions.md`, replace a 1.4.0 per-library table with only the exceptions that need a reason. Re-run the gates rather than copying the 1.4.0 results. A weak copyleft library installed unmodified is fine and closes a license decision 1.4.0 left pending; record it.
