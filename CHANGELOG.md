@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.4.0...studyforge-v1.4.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* **skill:** close the gaps found by the first upgrade run ([#18](https://github.com/Chamba-Lab/studyforge/issues/18)) ([52f9836](https://github.com/Chamba-Lab/studyforge/commit/52f983688cc0a7c157eb36aee74e4e8ecff78a33))
+
 ## [1.4.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.3.0...studyforge-v1.4.0) (2026-11-18)
 
 
