@@ -50,7 +50,7 @@ A long section reads as a flat wall unless its parts are visible. Inside a secti
 - **🧠 Concepts:** one `### <Name> (*term of art*)` per concept, for example `### Parametrizar (*parametrize*)`. The heading shows the learner how many ideas the lab has, and GitHub lists it in the file outline.
 - **🧭 Scenario:** when it has more than one part, `###` for each, for example "the code" and "how your work is checked" (mutants, structure checks).
 - **✅ Tasks** and **🧪 Experiments** already use `### Task N · <Title>` and `### Experiment N · <Title>`.
-- No `####`. A section under about 15 lines needs no `###`. `tools/verify.py` reads only `## <emoji>` lines, so `###` headings are free.
+- `####` rarely: a part that needs a fourth level is too long for the README, so move it to `CONCEPT.md` or split it into more `###` parts. On GitHub a `####` looks almost like bold body text, so it adds little hierarchy. A section under about 15 lines needs no `###`. `tools/verify.py` reads only `## <emoji>` lines, so `###` headings are free.
 
 ## Say each thing once
 
