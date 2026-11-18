@@ -14,6 +14,8 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
 
 1. **Design it.** Write down, for yourself:
    - the learning objectives (3–6);
+   - the new concepts, and for each one the problem it solves, a minimal example and the term of art (see [writing](../references/writing.md#explaining));
+   - the bridge from the previous lab;
    - the trap or traps;
    - the starting point;
    - the tasks or experiments, and the test or observation that proves each one.
@@ -34,9 +36,10 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
    - Run `python tools/verify.py --lab <ID>`.
    - Run the type's checks from the definition of done in [quality](../references/quality.md).
    - Check that the diagrams render.
-   - **Read the lab as a learner.** Can you follow it without guessing? Does anything near a prediction give its answer away? Is every concept a task needs taught here or in an earlier lab? If your agent offers subagents, a reviewer without your context finds these faster. Do it at least once per block.
+   - **Read the lab as a learner** at the level the syllabus sets for this point. Can you follow it without guessing? Is every new concept introduced with its problem and an example before a task needs it, or taught in an earlier lab? Is every term of art glossed the first time? Does anything near a prediction give its answer away? If your agent offers subagents, a reviewer without your context finds these faster. Do it at least once per block.
 7. **Update the memory.**
-   - In `SYLLABUS.md`: set the status to `🟨 built`, add the link to the README, and update the "Notes for the next labs".
+   - In `SYLLABUS.md`: set the status to `🟨 built`, add the link to the README, and update the build map and the "Notes for the next labs".
+   - In `GLOSSARY.md`, when the repository has one: add the terms of art this lab owns.
    - In `docs/lessons.md`: add anything worth keeping.
    - In `docs/decisions.md`: add any decision someone could undo without knowing why.
 8. **Commit** with `feat(lab-<ID>): <what the lab teaches>`. Push only at milestones or when asked.

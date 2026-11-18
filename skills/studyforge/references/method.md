@@ -20,16 +20,17 @@ A study path is a **syllabus** split into **blocks**. A block is a group of **la
 
 ## Principles
 
-1. **Syllabus first.** The syllabus is refined before any code: blocks, topics, kinds, sizes and starting points. Its order is the plan, so build the next pending item without asking which one.
+1. **Syllabus first.** The syllabus is refined before any code: every block from the starting level to the goal, with topics, kinds, sizes and starting points. Blocks are then built one at a time. Its order is the plan, so build the next pending item without asking which one.
 2. **Short sessions.** A lab fits in 1–2 hours. If it grows, split it into two labs. Optional material goes into the "Stretch goal" section.
 3. **Use the smallest app that makes the topic visible.** A lab continues an earlier domain only when that domain *is* the topic (REST, then validation, then persistence). Otherwise it starts from a minimal app. Time the learner spends understanding a domain instead of the topic is a bug.
 4. **No application grows through every lab.** Integration happens in the project that closes each block. The project is atomic and self-contained, and it inherits nothing.
-5. **Every topic has one owner lab.** Other labs may touch the topic, but they refer to its owner instead of teaching it again.
-6. **Learn by predicting and by falling into traps.** Each lab has at least one situation where the intuitive answer fails. The learner writes down a prediction, runs the code, and only then reads why.
-7. **Aim for job level, not just the mechanism.** Cover what a real project, an interview and production expect: how it runs outside development mode, typical mistakes, and what a team would do.
-8. **Verify; do not remember.** Every claim in a lab was run on the pinned versions. Rigor lives in scripts (`tools/verify.py`), not only in prose (see [quality](quality.md)).
-9. **The learner solves; the agent builds.** Solutions are visible on purpose, and the learner decides when to look. Feedback arrives asynchronously, and building never waits for it.
-10. **Keep the memory in files.** Rules, state and decisions live in the repository, so any agent can continue in a fresh session.
+5. **Every topic has one owner lab.** The owner is the lab that *teaches* the topic: introduces it, practices it and verifies it. Other labs may *use* it as often as they need, with a one-line reminder and a link to the owner, but they do not teach it again. Sharing is expected; re-teaching is what the rule prevents. It keeps one explanation to maintain (a fix lands in one place, and two labs cannot contradict each other), it keeps each lab's 1–2 h for what is new, it tells the learner where to go back, and it sends feedback to the right lab.
+6. **Explain before practicing.** Every new concept is introduced from a problem the learner recognizes, with an example, before a task needs it. The idea comes first in terms independent of the tool, then how the tool expresses it (see [writing](writing.md#explaining)).
+7. **Learn by predicting and by falling into traps.** Each lab has at least one situation where the intuitive answer fails. The learner writes down a prediction, runs the code, and only then reads why.
+8. **Aim for job level, not just the mechanism.** Cover what a real project, an interview and production expect: how it runs outside development mode, typical mistakes, and what a team would do.
+9. **Verify; do not remember.** Every claim in a lab was run on the pinned versions. Rigor lives in scripts (`tools/verify.py`), not only in prose (see [quality](quality.md)).
+10. **The learner solves; the agent builds.** Solutions are visible on purpose, and the learner decides when to look. Feedback arrives asynchronously, and building never waits for it.
+11. **Keep the memory in files.** Rules, state and decisions live in the repository, so any agent can continue in a fresh session.
 
 ## The files that hold the memory
 

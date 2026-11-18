@@ -8,13 +8,15 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 2. **At least one explicit trap**: a situation where the intuitive answer fails (precedence, build time vs run time, defaults, ordering…). The learner discovers it, and the README explains it afterwards.
 3. **Predict before running.** Experiments ask the learner to write down a prediction first.
 4. **Verified claims only.** Every command, output, error message, default value and trap quoted in the README was produced by running it on the pinned versions. Nothing comes from memory, and nothing comes only from a guide's example.
-5. **Direct and short.** 1–2 h. Optional material goes into the "Stretch goal" section.
-6. **"In real projects" and "Self-assessment" sections** in every challenge and exploration (see [writing](writing.md)).
+5. **Explained, not only exercised.** Every new concept is introduced with the problem it solves and an example before a task needs it (see [writing](writing.md#explaining)).
+6. **Direct and short.** 1–2 h. Optional material goes into the "Stretch goal" section.
+7. **"In real projects" and "Self-assessment" sections** in every challenge and exploration (see [writing](writing.md)).
 
 ## Definition of done
 
 **Every lab**
-- [ ] The README follows the template of its type, and every required section anchor is present ([writing](writing.md)).
+- [ ] The README follows the template of its type, and every required section anchor is present, with the reference titles ([writing](writing.md)).
+- [ ] Read as a learner at this point of the path: every new concept is introduced (problem, idea, example, name) before a task needs it, and every term of art is glossed the first time ([writing](writing.md#explaining)).
 - [ ] Every command and quoted output in the README was run, in the learner's shells from `studyforge.toml`.
 - [ ] Every claim was checked against [sources](sources.md), and every link opens.
 - [ ] Diagrams render on GitHub ([visuals](visuals.md)).

@@ -15,6 +15,8 @@ Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/decisions.m
 3. **Audit.** For each lab in scope:
    - Run `python tools/verify.py --lab <ID>` for the structure, the green solution and the red starter.
    - **Orphan concepts:** a command, operator, flag or annotation used in an exercise but not explained in the README or `CONCEPT.md`.
+   - **Explanation:** concepts listed as bare definitions, with no problem or example before the task that needs them; a tool shown before the idea it expresses; terms of art translated literally or used without a gloss; section titles that differ from the reference table in [writing](../references/writing.md#section-anchors).
+   - **Syllabus readability:** API names or terms taught later in topics and outcomes, uneven technicality across rows, blocks that mix levels, and a path that plans only the blocks already built.
    - **Unverified claims:** outputs, defaults or error messages with no run behind them, or written for an older version.
    - **Tests that pass for the wrong reason**, and starter tests that are not red.
    - **Missing teaching devices:** a trap, a "predict first" step, "In real projects", the self-assessment, the command dissection for new syntax, or cleanup.

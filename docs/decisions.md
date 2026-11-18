@@ -24,6 +24,14 @@ Short record of the decisions that shape StudyForge, and why. Only decisions som
 - **The framework is written in English; lab content uses a configurable language; code is always English.** Early-career learners read the generated labs, not the framework internals, so the content language is what reaches them. `README.es.md` serves the Spanish-speaking community.
 - **Keys stay in English in every language, with an emoji.** Status (`pending`, `built`, `done`), topic kind, lab type and section anchors are read by workflows and `verify.py`. A key that changed per language would need every workflow to understand every language. Only legends are translated.
 - **Section anchors are emoji.** They are language-neutral, so `verify.py` checks README structure in Spanish, English or any other language without translations.
+- **Terms of art and the method's own names stay in English; other headings are translated from a reference table** (1.1). The first review of pytest-lab found literal translations that read oddly ("Disección de comandos") and terms a learner could not search for. Learners meet the English terms at work and in the docs. Writing every heading in English would be the other extreme: it would make beginners' material harder to read.
+
+## Teaching
+
+- **Explaining has rules, not only practicing** (1.1). Up to 1.0 the writing rules covered predicting, traps and verification, and only one line covered explaining. The first review of pytest-lab, by a reader who knows testing, found labs that listed definitions and then asked for tasks. Every concept now goes problem → idea → example → name, and the idea comes before the tool.
+- **The syllabus has a learner part and a build map** (1.1). In the same review, the "Owns / builds on" and "Starts from" columns, written for the agent, made the syllabus hard to read, and so did outcomes listed as API names. Nothing parses those columns mechanically, so moving them is not a breaking change.
+- **Plan the whole path, build one block at a time** (1.1). pytest-lab planned one block and squeezed unit, acceptance, coverage and flakiness into it. A full plan shows the learner where the path goes and keeps each block on one focus.
+- **One owner per topic means one lab teaches it, not that only one lab uses it.** The rule keeps a single explanation to maintain and keeps each lab's time for what is new. The glossary is an index that points to owners, so it does not become a second explanation.
 - **Three statuses, not five.** Statuses track the author's lifecycle. `done` needs a learner, which is what proves a lab works. Each learner's progress lives in their branch or fork.
 
 ## Layout
