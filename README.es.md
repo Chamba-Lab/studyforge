@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/banner.webp" alt="Tres compañeros de estudio animados en un escritorio: un búho que presenta una tarjeta clavada, un mapache con un lápiz y una oveja con una lista de tareas" width="720">
+
 # 🔥 StudyForge
 
 **Forja caminos de estudio prácticos con cualquier agente de IA.**

@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/banner.webp" alt="Three cartoon study mates at a desk: an owl presenting a pinned card, a raccoon with a pencil, and a sheep holding a checklist" width="720">
+
 # 🔥 StudyForge
 
 **Forge hands-on study paths with any AI agent.**
