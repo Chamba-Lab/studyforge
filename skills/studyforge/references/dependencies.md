@@ -23,15 +23,22 @@ Labs that use the same toolchain can share their build configuration or keep it 
 
 ## Choosing a library
 
-Every library a lab adds runs on the learner's machine, so pick it as you would for a production project. Check every library the repository pins, including the one the path teaches: only the language runtime and its standard library are exempt. Record the result in the study repository's `docs/decisions.md` as a dated section with one table row per library (version, the result of each item, and how it was checked):
+Every library a lab adds runs on the learner's machine, so pick it as you would for a production project. Check every library the repository pins; only the language runtime and its standard library are exempt.
+
+**Gates.** A library that fails one of these enters only by the person's decision:
 
 - [ ] **No known vulnerabilities**, in the library and in what it pulls in. Run the ecosystem's audit tool on every file that pins versions (`pip-audit -r requirements.txt`, `npm audit`, the OWASP `dependency-check` plugin for Maven) and query [OSV](https://osv.dev).
-- [ ] **Maintained:** a release in the last 12 months, a repository that is not archived, and an organization or at least two people committing in the last year.
-- [ ] **Adopted:** among the most used of its alternatives (monthly downloads, dependents), so the learner meets it at work and can find answers. When a less used option wins, write why (for example, "the popular one does not run on Windows").
-- [ ] **Compatible license** with the study repository. Permissive licenses (MIT, Apache-2.0, BSD, ISC) are fine. A weak copyleft license (LGPL, MPL) is fine for a library the learner installs unmodified and the repository never copies; write it down. A strong copyleft license (GPL, AGPL) needs the person's decision.
+- [ ] **Compatible license** with the study repository. Permissive licenses (MIT, Apache-2.0, BSD, ISC) are fine. A weak copyleft license (LGPL, MPL) is fine for a library the learner installs unmodified and the repository never copies. A strong copyleft license (GPL, AGPL) needs the person's decision.
 - [ ] **Runs on the learner's environment** from `studyforge.toml` (operating system, shells, containers), checked by running it, not by reading its docs.
-- [ ] **Few dependencies of its own.** Each one is one more thing to audit and upgrade; prefer the standard library when it teaches the same thing.
-- [ ] **Tools that change code or files** (mutation testing, formatters, code generators) are tried first in a scratch copy: check what they modify, and what is left behind if a run is cut halfway.
+
+**Signals.** These need judgment, not a threshold. A weak signal asks for a closer look and a written reason, not a veto:
+
+- **Maintained.** What matters is that security reports and serious bugs get an answer. Recent releases and several maintainers are good signs, but a stable, finished library can go years without a release, and many standard libraries rest on one maintainer. An archived repository, or security reports left unanswered, is a real problem.
+- **Adopted.** The learner should meet it at work and find answers when stuck: prefer the one the job market uses. A newer option that is displacing it is fine with a stable release and a reason in the lab.
+- **Few dependencies of its own.** Each one is one more thing to audit and upgrade; prefer the standard library when it teaches the same thing.
+- **Tools that change code or files** (mutation testing, formatters, code generators) are tried first in a scratch copy: check what they modify, and what is left behind if a run is cut halfway.
+
+**Record only what needs a reason**, in the study repository's `docs/decisions.md`: a gate the person decided, or a weak signal accepted (one maintainer, a long gap between releases, a less used option, a weak copyleft license). Do not copy versions, dates or download counts there: they go stale with every upgrade, and the audit in CI already watches vulnerabilities.
 
 When a library already in built labs fails an item, present the options (replace it, or keep it and record why) and let the person decide.
 

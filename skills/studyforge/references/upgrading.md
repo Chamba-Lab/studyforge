@@ -29,7 +29,7 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ### 1.4.1
 
-- **For built labs:** if the 1.4.0 checklist left a license pending, decide it with the license rule now in [dependencies](dependencies.md#choosing-a-library): a weak copyleft library installed unmodified is fine, and is recorded.
+- **For built labs:** the dependency checklist now has gates (vulnerabilities, license, runs on the learner's environment) and signals that need judgment ([dependencies](dependencies.md#choosing-a-library)). In `docs/decisions.md`, replace a 1.4.0 per-library table with only the exceptions that need a reason; a weak copyleft library installed unmodified is fine and is recorded.
 - The procedure above now prepares the environment before verifying, keeps an upgrade to the version notes, and asks for a fresh-eyes review only when labs changed. pytest-lab's upgrade from 1.2.0 to 1.4.0, run by an agent without prior context, found these gaps.
 
 ### 1.4.0
