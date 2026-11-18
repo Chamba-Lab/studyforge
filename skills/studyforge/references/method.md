@@ -13,7 +13,7 @@ flowchart LR
         L1[Lab 1.1] --> L2[Lab 1.2] --> L3[Lab 1.3] --> P1[🏗️ Project]
     end
     B1 --> B2[Block 2 …]
-    P1 -. learner feedback .-> S
+    P1 -. Learner feedback .-> S
 ```
 
 A study path is a **syllabus** split into **blocks**. A block is a group of **labs** of 1–2 hours each, and every block ends with an **integrator project**. The learner works through the labs in order. Their feedback improves the lab they solved, the earlier labs and the labs still to come.

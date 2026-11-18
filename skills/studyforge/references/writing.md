@@ -63,4 +63,6 @@ The title line is `# <type emoji> <ID> · <Title>`, for example `# 🧩 1.2 · C
 - **Concise and concrete.** Use one idea per paragraph, and a table when you are comparing.
 - **Use emoji as signposts, not decoration**: the section anchors and an occasional marker (🔮, ⚠️). Never add emoji inside code or commands.
 - Use tables for comparisons, Mermaid for flows, and a single diagram per idea (see [visuals](visuals.md)).
+- **Write diagram labels as prose.** Node and edge labels start with a capital letter in the content language (`Your tests`, `Tus pruebas`, `Yes` / `No`, `Sí` / `No`). Code identifiers, commands and workflow names keep their exact spelling (`settle`, `weight_kg > 2?`, `build`), and the line after them is capitalized (`build<br/>Next lab`).
+- **Proofread before you commit.** Read the text once only for form: capital letters in headings, list items, table cells and diagram labels; proper nouns as their owners write them (Git, GitHub, Python, PowerShell); accents and punctuation of the content language. Form mistakes cost the learner's trust as much as wrong facts.
 - No filler, no hype, no promises. If something is uncertain, say what was measured and where.
