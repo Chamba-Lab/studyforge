@@ -36,7 +36,8 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
    - Run `python tools/verify.py --lab <ID>`.
    - Run the type's checks from the definition of done in [quality](../references/quality.md).
    - Check that the diagrams render.
-   - **Read the lab as a learner** at the level the syllabus sets for this point. Can you follow it without guessing? Is every new concept introduced with its problem and an example before a task needs it, or taught in an earlier lab? Is every term of art glossed the first time? Does anything near a prediction give its answer away? If your agent offers subagents, a reviewer without your context finds these faster. Do it at least once per block.
+   - **Read the lab as a learner** at the level the syllabus sets for this point. Can you follow it without guessing? Is every new concept introduced with its problem and an example before a task needs it, or taught in an earlier lab? Is every term of art and acronym glossed the first time? Does anything the learner reads before a prediction give its answer away?
+   - **Read it once more as an editor**, only for form: does every optional section add something of its own, is any idea explained twice, does a long section show its parts with `###`, and do the counts and names in the README and the starter's comments match the files?
 7. **Update the memory.**
    - In `SYLLABUS.md`: set the status to `🟨 built`, add the link to the README, and update the build map and the "Notes for the next labs".
    - In `GLOSSARY.md`, when the repository has one: add the terms of art this lab owns.
@@ -48,7 +49,18 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
    - what was verified (tests, mutations, runs);
    - what is pending, if anything.
 
-   If it closed a block, add the block reminder (see [syllabus](../references/syllabus.md)).
+   If it closed a block, run the block review below before the block reminder (see [syllabus](../references/syllabus.md)).
+
+## Review a block with fresh eyes
+
+When the project of a block is `built`, and before you tell the learner the block is ready, have the whole block read by a reviewer who did not build it. The author no longer sees what they wrote, and every defect this review finds would otherwise reach the learner.
+
+- **If your agent offers subagents,** start one without your context. Otherwise, ask the person whether a fresh session or another person can do it. As a last resort, do it yourself in a separate pass, with only the files open, reading the labs in order.
+- **The reviewer gets:** the repository path, who the learner is (from `AGENTS.md`), and this brief. It reads the block in order (syllabus, every lab, the project) as the learner, may run commands only in a scratch copy, edits nothing, and reports findings ranked by impact on the learner:
+  - **Defects:** a claim, count or name that does not match the files; a concept or acronym used before it is taught; an answer given away before its prediction (Concepts, tables, dissection, starter); something the project needs that no lab taught.
+  - **Readability:** sections that add nothing of their own, ideas explained twice, boilerplate repeated across labs, walls of text without `###` parts, commands duplicated per shell when they are identical.
+  - **What works**, briefly, so it is kept.
+- **Act on it** like on learner feedback: fix the defects in every lab that has them, re-run the verifier, and send rules that would have prevented a finding to the `feedback` workflow's upstream step.
 
 ## Build a project
 
