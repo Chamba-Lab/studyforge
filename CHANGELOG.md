@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.2.0...studyforge-v1.3.0) (2026-11-18)
+
+
+### Features
+
+* **skill:** add upgrade notes by version and when to rebuild instead of patch ([#14](https://github.com/Chamba-Lab/studyforge/issues/14)) ([7fa61d7](https://github.com/Chamba-Lab/studyforge/commit/7fa61d7cf4e999784e7ec0770cdec8a6a87fba02))
+
 ## [1.2.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.1.0...studyforge-v1.2.0) (2026-11-18)
 
 
