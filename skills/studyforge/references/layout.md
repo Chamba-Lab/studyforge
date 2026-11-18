@@ -46,6 +46,7 @@
 
 - **The short ID is `<block>.<lab>`**: `1.2`, `1.2b`, and `1.P` for the project. Use it in conversation, in the syllabus and in commits.
 - **IDs freeze when a lab becomes `built`.** Learners keep their solutions in branches and forks, and a rename makes their merges painful.
+  - Exception: a block nobody depends on yet (no feedback issues, no known forks or solution branches, no lab `done`) may be rebuilt with new IDs. Record why in `docs/decisions.md`.
   - Before `built`: renumber freely, then search the repository for old references (`grep -rn "lab 1\.4"`).
   - After `built`: insert with a letter (`02b`, `02c`). The letter only says *where* the lab goes; its kind (deep-dive, alternative…) lives in the syllabus.
   - Retired labs leave a gap, and their ID is never reused.

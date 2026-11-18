@@ -21,6 +21,7 @@ This repository is the StudyForge framework: an Agent Skill, plus a Claude Code 
 - **One source of truth.** The method lives in `references/`; the READMEs summarize and link, they do not duplicate rules.
 - **Keys are an interface.** Status, topic kind and lab type keys, section anchors, folder names and `studyforge.toml` fields are read by workflows and `verify.py`. Changing one is a breaking change (major version) and needs migration notes.
 - **The verifier stays stdlib-only Python 3.11+.** Every change to it gets a test in `tests/test_verify.py`.
+- **Every release says what it means for existing study repositories.** A change that alters what a lab, the syllabus or the repository files should look like adds its note to `skills/studyforge/references/upgrading.md` in the same pull request, under the version release-please will propose (next minor for `feat:`, next patch for `fix:`). Check the release pull request's version before merging it, and fix the heading if it differs.
 - **Starting values are labeled.** Stack notes not yet proven by a pilot say so; prove them before removing the label.
 
 ## Versions and releases

@@ -42,6 +42,7 @@ Short record of the decisions that shape StudyForge, and why. Only decisions som
 
 - **One folder per block, with two-digit numbers and a project last.** In the earlier repositories, projects ended up after every lab or in a separate folder, `000` was duplicated, and numbering had gaps. Block folders show the syllabus in any file explorer. `project-<domain>` sorts after the numbered labs because letters sort after digits.
 - **IDs freeze at `built`, and insertions take a letter (`02b`).** Learners merge updates into their solution branches, and renames turn those merges into conflicts. quarkus-lab paid for renumbering with cross-reference searches.
+- **A block nobody depends on may be rebuilt with new IDs** (1.3). pytest-lab renumbered its built block 1 when it was rebuilt for 1.1: there were no feedback issues, forks or labs in `done`, so no learner's merge could break. The freeze protects learners, and with no learners it only blocks a better block.
 - **`studyforge.toml`, not YAML.** Python reads TOML with the standard library (`tomllib`), so the verifier needs no dependency.
 - **The verifier is stdlib-only Python 3.11+.** `verify.ps1` only worked on Windows. Authors and agents need Python. Learners only need their stack's own test command.
 
@@ -65,5 +66,6 @@ Short record of the decisions that shape StudyForge, and why. Only decisions som
   - It needs no Node or `package.json`, unlike release-it.
   - It releases through a pull request that a person merges, unlike semantic-release, which publishes on every merge.
   - The action is pinned to a commit SHA, with minimal permissions and only the built-in token.
+- **Upgrade notes live in the skill, not only in the changelog** (1.3). Upgrading pytest-lab from 1.0 to 1.2 meant reading the skill's diff: the changelog lives outside the skill folder and lists commit titles, not what an existing lab must change. `references/upgrading.md` says, per version, what to copy, which rules built labs must meet, and when to rebuild instead of patching.
 - **0.x until the showcase validates 1.0.0.** `adopt` and upgrade help come in 1.x, and `adopt` will be tested by migrating a real repository from the MeloStudy generations.
 - **MIT for everything.** If Chamba Lab's mascot or brand ever appears here, a `NOTICE.md` will exclude them from the license, as in `Chamba-Lab/chambalab-skills`.

@@ -7,11 +7,7 @@ Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/decisions.m
 ## Steps
 
 1. **Define the scope:** one lab (`<ID>`), a block, everything, or one rule applied everywhere.
-2. **Check the framework version.**
-   - If `studyforge` in `studyforge.toml` is older than this skill's version, list what changed in between, using the StudyForge changelog.
-   - **MINOR and PATCH** changes are additive: offer them.
-   - **MAJOR** changes come with migration notes: follow those.
-   - Update `tools/verify.py` from the skill.
+2. **Check the framework version.** If `studyforge` in `studyforge.toml` is older than this skill's version, follow [upgrading](../references/upgrading.md): it lists, version by version, what to copy, which rules built labs must now meet, and when to rebuild a block instead of patching it. The notes of each version join the audit below.
 3. **Audit.** For each lab in scope:
    - Run `python tools/verify.py --lab <ID>` for the structure, the green solution and the red starter.
    - **Orphan concepts:** a command, operator, flag or annotation used in an exercise but not explained in the README or `CONCEPT.md`.
@@ -28,6 +24,6 @@ Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/decisions.m
 5. **Fix with minimal changes.** Learners may have to merge them (see [learners](../references/learners.md)). After any change, re-run the solution (green) and the starter (red where expected), and re-check every claim the change touched.
 6. **Record.**
    - Lessons go in `docs/lessons.md`, and rule changes in `AGENTS.md` and `docs/decisions.md`.
-   - Set `studyforge` in `studyforge.toml` to the new version.
+   - Set `studyforge` in `studyforge.toml` to the new version, and merge only once that version is released.
    - Commit with `fix(lab-<ID>): …` or `chore: upgrade to StudyForge <version>`.
 7. **Report** what changed, what was verified, and which labs learners may need to re-merge.

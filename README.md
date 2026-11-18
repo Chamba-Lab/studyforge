@@ -111,7 +111,7 @@ The [visual gallery](docs/visuals.md) shows every format StudyForge recommends, 
 ## 🛣️ Roadmap
 
 - **1.0:** the method, the five workflows, templates, the verifier, and the showcase [pytest-lab](https://github.com/Chamba-Lab/pytest-lab).
-- **1.x:** `adopt` (bring an existing lab repository under the method), help with upgrades between versions, running acceptance tests against a live reference, and more proven stacks (Node, notebooks, containers, Maven). These are additive; anything that would break an existing study repository waits for 2.0.
+- **1.x:** `adopt` (bring an existing lab repository under the method), running acceptance tests against a live reference, and more proven stacks (Node, notebooks, containers, Maven). These are additive; anything that would break an existing study repository waits for 2.0.
 
 ## 🤝 Contributing
 
