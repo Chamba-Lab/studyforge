@@ -8,11 +8,12 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 1. **Read the notes of every version** newer than the repository's, oldest first. Several versions are applied in one pull request, with one commit per version that changes files.
 2. **Prepare the environment, then verify.**
-   - Install the repository's pinned dependencies as its `SETUP.md` says, and check that the interpreter and tools that run are the environment's (the stack notes say how, for example [Python](../stacks/python.md)). A new block may have added libraries since the environment was created.
+   - Install the repository's pinned dependencies as its `SETUP.md` says, only after checking that the interpreter and tools that run are the environment's; never install into the person's global environment (the stack notes say how, for example [Python](../stacks/python.md)). A new block may have added libraries since the environment was created.
    - Copy `scripts/verify.py` to `tools/verify.py`, run `python tools/verify.py --strict`, and fix what it reports. A failure that disappears once the environment is right came from the environment, not the repository; if learners can hit it too, write it in `docs/lessons.md` and fix the guide that should have prevented it.
    - The verifier does not depend on the shell: run it once. Commands that the upgrade adds to or changes in a README are run in every shell from `studyforge.toml`.
 3. **Sort each note** into one of three kinds:
    - **Mechanical:** a file to copy or add. Do it; if it is already there, check that it matches the note and move on.
+   - **Repository files** (`docs/`, CI, `SETUP.md`): update them; no lab changes.
    - **For new labs only:** nothing to change now. The next `build` follows it.
    - **For built labs:** a rule that existing labs break. Audit every lab in scope for it, as in the review workflow.
 4. **Patch or rebuild, per block.**
@@ -23,13 +24,18 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
    - Set `studyforge` in `studyforge.toml` to the new version.
    - Write what the upgrade found in `docs/lessons.md`, and any rebuild and its reason in `docs/decisions.md`.
    - Commit with `chore: upgrade to StudyForge <version>`.
-7. **Merge only after that version is released.** A repository must never declare a version that does not exist yet. Released versions are listed at [StudyForge releases](https://github.com/Chamba-Lab/studyforge/releases), with tags `studyforge-vX.Y.Z`.
+7. **Merge only after that version is released.** A repository must never declare a version that does not exist yet. Released versions are listed at [StudyForge releases](https://github.com/Chamba-Lab/studyforge/releases), with tags `studyforge-vX.Y.Z`. If you cannot check it, say so to the person instead of assuming.
 
 ## Notes by version
 
+### 1.4.2
+
+- **For built labs and repository files:** none.
+- When an agent verifies or upgrades a repository, it checks `sys.prefix` (or the stack's equivalent) before installing anything, and never installs into the person's global environment ([Python](../stacks/python.md)).
+
 ### 1.4.1
 
-- **For built labs:** the dependency checklist now has gates (vulnerabilities, license, runs on the learner's environment) and signals that need judgment ([dependencies](dependencies.md#choosing-a-library)). In `docs/decisions.md`, replace a 1.4.0 per-library table with only the exceptions that need a reason; a weak copyleft library installed unmodified is fine and is recorded.
+- **Repository files:** the dependency checklist now has gates (vulnerabilities, license, runs on the learner's environment) and signals that need judgment ([dependencies](dependencies.md#choosing-a-library)). In `docs/decisions.md`, replace a 1.4.0 per-library table with only the exceptions that need a reason. Re-run the gates rather than copying the 1.4.0 results. A weak copyleft library installed unmodified is fine and closes a license decision 1.4.0 left pending; record it.
 - The procedure above now prepares the environment before verifying, keeps an upgrade to the version notes, and asks for a fresh-eyes review only when labs changed. pytest-lab's upgrade from 1.2.0 to 1.4.0, run by an agent without prior context, found these gaps.
 
 ### 1.4.0

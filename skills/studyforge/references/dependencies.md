@@ -28,7 +28,7 @@ Every library a lab adds runs on the learner's machine, so pick it as you would 
 **Gates.** A library that fails one of these enters only by the person's decision:
 
 - [ ] **No known vulnerabilities**, in the library and in what it pulls in. Run the ecosystem's audit tool on every file that pins versions (`pip-audit -r requirements.txt`, `npm audit`, the OWASP `dependency-check` plugin for Maven) and query [OSV](https://osv.dev).
-- [ ] **Compatible license** with the study repository. Permissive licenses (MIT, Apache-2.0, BSD, ISC) are fine. A weak copyleft license (LGPL, MPL) is fine for a library the learner installs unmodified and the repository never copies. A strong copyleft license (GPL, AGPL) needs the person's decision.
+- [ ] **Compatible license** with the study repository, for the library and what it pulls in. Permissive licenses (MIT, Apache-2.0, BSD, ISC) are fine. A weak copyleft license (LGPL, MPL) is fine for a library the learner installs unmodified and the repository never copies. A strong copyleft license (GPL, AGPL) needs the person's decision.
 - [ ] **Runs on the learner's environment** from `studyforge.toml` (operating system, shells, containers), checked by running it, not by reading its docs.
 
 **Signals.** These need judgment, not a threshold. A weak signal asks for a closer look and a written reason, not a veto:
