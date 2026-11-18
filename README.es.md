@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/banner.webp" alt="Tres compañeros de estudio animados en un escritorio: un búho que presenta una tarjeta clavada, un mapache con un lápiz y una oveja con una lista de tareas" width="720">
+
 # 🔥 StudyForge
 
 **Forja caminos de estudio prácticos con cualquier agente de IA.**
@@ -121,4 +123,4 @@ Lo más valioso que puedes aportar son las lecciones aprendidas al construir lab
 
 ## 📄 Licencia
 
-[MIT](LICENSE) © Chamba Lab. Hecho por la comunidad [Chamba Lab](https://chambalab.org): *Connect. Inspire. Grow.*
+[MIT](LICENSE) © Chamba Lab. Los personajes y la marca Chamba Lab no están cubiertos por ella: ver [NOTICE.md](NOTICE.md). Hecho por la comunidad [Chamba Lab](https://chambalab.org): *Connect. Inspire. Grow.*

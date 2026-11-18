@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/banner.webp" alt="Three cartoon study mates at a desk: an owl presenting a pinned card, a raccoon with a pencil, and a sheep holding a checklist" width="720">
+
 # 🔥 StudyForge
 
 **Forge hands-on study paths with any AI agent.**
@@ -117,4 +119,4 @@ Lessons learned while building labs are the most valuable contribution: open an 
 
 ## 📄 License
 
-[MIT](LICENSE) © Chamba Lab. Made by the [Chamba Lab](https://chambalab.org) community: *Connect. Inspire. Grow.*
+[MIT](LICENSE) © Chamba Lab. The characters and the Chamba Lab brand are not covered by it: see [NOTICE.md](NOTICE.md). Made by the [Chamba Lab](https://chambalab.org) community: *Connect. Inspire. Grow.*
