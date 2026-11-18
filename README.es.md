@@ -115,7 +115,7 @@ La [galería visual](docs/visuals.md) muestra renderizado cada formato que recom
 ## 🛣️ Hoja de ruta
 
 - **1.0:** el método, los cinco workflows, las plantillas, el verificador y el showcase [pytest-lab](https://github.com/Chamba-Lab/pytest-lab).
-- **1.x:** `adopt` (traer un repositorio de labs existente al método), ayuda para actualizar entre versiones, correr las pruebas de aceptación contra la referencia en vivo y más stacks probados (Node, notebooks, contenedores, Maven). Todo eso se suma sin romper; lo que rompiera un repositorio de estudio existente espera a la 2.0.
+- **1.x:** `adopt` (traer un repositorio de labs existente al método), correr las pruebas de aceptación contra la referencia en vivo y más stacks probados (Node, notebooks, contenedores, Maven). Todo eso se suma sin romper; lo que rompiera un repositorio de estudio existente espera a la 2.0.
 
 ## 🤝 Contribuir
 

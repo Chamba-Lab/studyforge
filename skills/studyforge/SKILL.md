@@ -17,7 +17,7 @@ StudyForge turns "I want to learn X" into a study path that a person can follow,
 
 Look for `studyforge.toml` at the root of the current repository.
 
-- **Found:** this is a study repository. Before anything else, read its `AGENTS.md` and `SYLLABUS.md`: they hold the rules and the state. Then compare the `studyforge` version in `studyforge.toml` with this skill's `metadata.version`. If the repository is older, say so and offer the `review` workflow.
+- **Found:** this is a study repository. Before anything else, read its `AGENTS.md` and `SYLLABUS.md`: they hold the rules and the state. Then compare the `studyforge` version in `studyforge.toml` with this skill's `metadata.version`. If the repository is older, say so and offer the `review` workflow, which upgrades it with [upgrading](references/upgrading.md).
 - **Not found:** this is a new path. Start with the `syllabus` workflow.
 
 ## 2. Pick the workflow
@@ -61,5 +61,6 @@ Read a reference when a workflow points to it.
 | [visuals](references/visuals.md) | Which visual to use when, and how readers see it |
 | [sources](references/sources.md) | Which sources to trust, and safety rules |
 | [learners](references/learners.md) | How learners work, progress and give feedback |
+| [upgrading](references/upgrading.md) | Bringing a study repository to a newer StudyForge: procedure and notes by version |
 
 Also available: stack notes in [stacks/](stacks/README.md), templates in [templates/](templates/), and the verifier in [scripts/verify.py](scripts/verify.py). `init` copies the verifier into each study repository as `tools/verify.py`.
