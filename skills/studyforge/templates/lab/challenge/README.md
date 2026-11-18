@@ -27,7 +27,16 @@ pwd
 ```
 
 ## 🧠 Concepts
-- <Concept> — <one line>. <Link CONCEPT.md when the theory is long.>
+<!-- studyforge: Not a dictionary. Open with one sentence that bridges from the previous lab. Each new concept: the problem → the idea → a minimal example on a case different from the tasks → its name (term of art, glossed the first time). More than three or four concepts, or one with mechanics: move them to CONCEPT.md and summarize here. -->
+<Bridge from the previous lab: "In lab X you…; here…".>
+
+**<Concept>.** <The problem it solves, from something the learner knows. The idea in plain words.>
+
+```<language>
+<minimal example, not the task's case>
+```
+
+<Its name in the trade, glossed. Link CONCEPT.md when the theory is long.>
 
 ## 📚 Documentation
 - [<Official guide, exact page>](<url>)

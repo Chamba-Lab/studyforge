@@ -19,6 +19,7 @@ Read first: [layout](../references/layout.md), [method](../references/method.md)
    - `docs/decisions.md`: the dependency strategy, the pinned versions and the reason for each, and anything someone could undo without knowing why.
    - `docs/lessons.md`: an empty structure.
    - `.github/ISSUE_TEMPLATE/lab-feedback.yml`: written in the content language.
+   - `GLOSSARY.md` is not copied yet. `build` adds it when the path accumulates terms of art (see [writing](../references/writing.md#explaining)).
 3. **Copy the verifier.** Copy [scripts/verify.py](../scripts/verify.py) to `tools/verify.py`, unchanged.
 4. **Add the stack's ignore rules** to `.gitignore` (build output, IDE files, `.env`), following the stack notes.
 5. **Do not create lab folders yet.** `build` creates each one when its time comes.

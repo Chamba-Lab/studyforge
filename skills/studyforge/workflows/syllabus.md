@@ -19,9 +19,16 @@ Read first: [method](../references/method.md), [syllabus](../references/syllabus
    - stable or LTS versions and their support window;
    - what is current and what is legacy (so legacy is not taught as the default);
    - what has changed recently enough to deserve a 🆕 `modern` topic.
-3. **Draft blocks and topics.** For each row, fill in: topic, kind, type, what is practiced, owns / builds on, starts from, and a 1–2 h size. End every block with a project. Apply the design rules in [syllabus](../references/syllabus.md).
+3. **Draft the whole path, then each block.**
+   - First the blocks, from the starting level to the goal, each with one focus the learner can name ("pruebas unitarias", then "pruebas de integración"). Do not squeeze the subject into one block because only one will be built first.
+   - Then the rows of every block: topic, kind, type, what the learner will be able to do, and a 1–2 h size; and for the build map, what it owns, builds on and starts from. End every block with a project that uses only what the block taught.
+   - Open each block with the ideas it needs, independent of the tool, then alternate idea and tool.
+   - Apply the design rules in [syllabus](../references/syllabus.md).
 4. **Choose the dependency strategy** and the stack verification commands (see [stacks](../stacks/README.md)).
 5. **Self-review the draft before showing it:**
+   - [ ] Every block from the starting level to the goal is planned, and each has one focus.
+   - [ ] Read as a learner at the starting level, every topic title and outcome makes sense: no API names, no term taught later, the same level of technicality across rows.
+   - [ ] Each block introduces its concepts before its tools, and the learner runs something in its first or second lab.
    - [ ] The core path stands alone.
    - [ ] Every row fits 1–2 h, and no row needs "and" three times.
    - [ ] Every concept has exactly one owner.
@@ -35,4 +42,4 @@ Read first: [method](../references/method.md), [syllabus](../references/syllabus
 
 ## Done when
 
-The person has agreed to the syllabus. Every row has all its columns filled. The dependency strategy and the verification commands are chosen.
+The person has agreed to the syllabus. Every block of the path is planned, and every row has all its columns filled, in the block tables and in the build map. The dependency strategy and the verification commands are chosen.

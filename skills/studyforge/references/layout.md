@@ -9,6 +9,7 @@
 ├── README.md              landing page for learners
 ├── SETUP.md               tools, versions, checks
 ├── SYLLABUS.md            plan and status
+├── GLOSSARY.md            optional: terms of art, each linked to its owner lab
 ├── studyforge.toml        configuration (see below)
 ├── docs/
 │   ├── decisions.md

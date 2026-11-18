@@ -27,7 +27,10 @@ pwd
 ```
 
 ## 🧠 Concepts
-- <Concept> — <one line>.
+<!-- studyforge: Not a dictionary. Each new concept: the problem → the idea → a minimal example → its name (references/writing.md#explaining). Long theory goes to CONCEPT.md. -->
+<Bridge from the previous lab.>
+
+**<Concept>.** <The problem it solves and the idea in plain words, with a minimal example.>
 
 ## 📚 Documentation
 - [<Official page>](<url>)

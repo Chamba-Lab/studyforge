@@ -17,6 +17,7 @@ This repository is a study path built with [StudyForge](https://github.com/Chamb
 
 ## Working agreement
 - Chat in <the learner's language>; lab content in `language.content` (`<es>`); code, identifiers, folders and commits in English.
+- Terms of art stay in English, glossed the first time (StudyForge `references/writing.md`). Section titles: <the reference titles in the content language, or "the Spanish column of the reference table">.
 - Decide and recommend; do not hand decisions back. Scope, depth and anything outward-facing (remote repositories, publishing, CI) are the learner's call: compare briefly, recommend, wait.
 - One lab at a time. Labs stay 🟨 `built` until a learner solved them and their feedback was applied; only then ✅ `done`.
 - Report outcomes faithfully: what passed, what failed, what was not run.
