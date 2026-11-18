@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.3.0...studyforge-v1.4.0) (2026-11-18)
+
+
+### Features
+
+* **skill:** add a checklist for choosing a library and auditing dependencies ([#16](https://github.com/Chamba-Lab/studyforge/issues/16)) ([55b8ea0](https://github.com/Chamba-Lab/studyforge/commit/55b8ea0e0f931745edef72a044aed06bc83168f4))
+
 ## [1.3.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.2.0...studyforge-v1.3.0) (2026-11-18)
 
 
