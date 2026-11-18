@@ -37,6 +37,7 @@ The README states both paths and recommends one based on the learner's time.
 - **Black box only.** It talks to the contract (HTTP, messages, CLI) and never to internal classes, so it judges any implementation.
 - It is required when the project exposes a stable interface. Otherwise `BRIEF.md` says why it does not exist and how the learner can check their work by hand.
 - It runs green against `reference/` before the project is `built`. The README says how to point it at another implementation (URL, port, command).
+- **When the path teaches testing, the project is turned around too.** The deliverable is a test suite, so `reference/` holds the finished application and its reference suite, the learner writes theirs in a folder of the project (for example `your-suite/`), and `acceptance/` is a mutant hunt over a whole suite: it must pass against the real application and fail against each mutant copy of it. Otherwise a weak suite "passes" as long as the application works. See the project of pytest-lab, block 1.
 
 ## `reference/`
 

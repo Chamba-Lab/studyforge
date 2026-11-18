@@ -12,7 +12,7 @@ Primero un sílabo bien afinado, luego laboratorios cortos que puedes correr, ro
 </div>
 
 > [!NOTE]
-> **Probado de punta a punta.** [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) es un camino de estudio completo construido con el propio StudyForge: cinco labs y un proyecto, verificados en Python 3.12 y 3.15 y revisados con ojos de aprendiz (ver [`examples/`](examples/)).
+> **Probado de punta a punta.** [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) es un camino de estudio completo construido con el propio StudyForge: un plan de cuatro bloques con el primero construido (seis labs y un proyecto), verificados en Python 3.12 y 3.15 y revisados con ojos de aprendiz (ver [`examples/`](examples/)).
 
 ## 💡 Qué es
 

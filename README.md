@@ -12,7 +12,7 @@ A refined syllabus first, then short labs you can run, break and verify, and a p
 </div>
 
 > [!NOTE]
-> **Proven end to end.** [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) is a complete study path built with StudyForge itself: five labs plus a project, verified on Python 3.12 and 3.15 and reviewed through a learner's eyes (see [`examples/`](examples/)).
+> **Proven end to end.** [pytest-lab](https://github.com/Chamba-Lab/pytest-lab) is a complete study path built with StudyForge itself: a four-block plan with its first block built (six labs and a project), verified on Python 3.12 and 3.15 and reviewed through a learner's eyes (see [`examples/`](examples/)).
 
 ## 💡 What it is
 

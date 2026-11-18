@@ -25,7 +25,8 @@ timeout = 300
 ## Making a starter
 
 - **Code labs:** the function under study raises `NotImplementedError("TODO")`. The module still imports, so pytest collects every test and the target tests fail.
-- **Testing labs** (the learner writes the tests): stubs call `pytest.skip("TODO …")`, and the learner's tests are validated by a *mutant hunt*. A test runs the learner's test file in a subprocess, first against the real module (it must pass) and then against each mutant (it must fail). A `conftest.py` puts the mutant first on `sys.path` when an environment variable names it. With `skip` instead of `fail`, each task turns its own mutants green, so the progressive check works. pytest-lab labs 1.2–1.4 are working examples.
+- **Testing labs** (the learner writes the tests): stubs call `pytest.skip("TODO …")`, and the learner's tests are validated by a *mutant hunt*. A test runs the learner's test file in a subprocess, first against the real module (it must pass) and then against each mutant (it must fail). A `conftest.py` puts the mutant first on `sys.path` when an environment variable names it. With `skip` instead of `fail`, each task turns its own mutants green, so the progressive check works. pytest-lab labs 1.2–1.5 are working examples.
+- **A mutant hunt over a whole suite** (a testing project): run the suite with `-o pythonpath=` and put the application, or a mutant copy of its package, on `PYTHONPATH`. On Windows, an absolute path in `-o pythonpath=<path>` did not work in pytest 9.2; emptying the option and using the environment variable does, on every system. pytest-lab's project 1.P is the working example.
 
 ## Ignore rules
 
