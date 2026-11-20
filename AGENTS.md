@@ -10,12 +10,13 @@ This repository is the StudyForge framework: an Agent Skill, plus a Claude Code 
 | `.claude-plugin/` | Plugin manifest and marketplace for Claude Code (the plugin root is the repository root) |
 | `docs/decisions.md` | Why the framework is the way it is; read it before undoing anything |
 | `docs/visuals.md` | Gallery of every recommended visual, rendered; also the proof that GitHub renders them |
+| `docs/talks/` | Material of community talks about StudyForge (slides, their assets and a guide to try the demo yourself), one folder per talk. The run sheet of each talk lives in the team's Notion |
 | `examples/` | The showcase study path (arrives before 1.0.0) |
 | `scripts/check_repo.py`, `tests/` | Repository checks and tests of the verifier; CI runs both |
 
 ## Rules
 
-- **English** for everything in the framework (it is read by agents and people worldwide). `README.es.md` mirrors `README.md` for Spanish speakers; update both in the same commit.
+- **English** for everything in the framework (it is read by agents and people worldwide). `README.es.md` mirrors `README.md` for Spanish speakers; update both in the same commit. Talk material in `docs/talks/` is written in the language the talk is given in.
 - **The skill folder is self-contained.** Everything it needs lives under `skills/studyforge/`, with relative links, so copying that one folder installs it anywhere. Nothing there may depend on files outside it (links to the GitHub repository are fine).
 - **Write workflows tool-agnostic.** Say what to do ("run the tests", "use a scratch copy"), not which tool of which agent to call. Optional extras are phrased "if your agent offers…".
 - **One source of truth.** The method lives in `references/`; the READMEs summarize and link, they do not duplicate rules.

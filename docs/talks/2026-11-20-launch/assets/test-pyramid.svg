@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Pirámide de pruebas</title>
+  <desc id="desc">Tres niveles. Base ancha: muchas pruebas unitarias, rápidas y baratas. Medio: menos pruebas de integración. Cima estrecha: pocas pruebas de extremo a extremo o de aceptación, lentas y costosas. A la derecha, una flecha indica que hacia arriba aumentan el costo y la lentitud, y hacia abajo la cantidad.</desc>
+  <rect width="640" height="360" rx="16" fill="#ffffff"/>
+  <polygon points="200,40 260,40 300,120 160,120" fill="#f4a261" stroke="#1d3557" stroke-width="2"/>
+  <polygon points="160,120 300,120 345,210 115,210" fill="#e9c46a" stroke="#1d3557" stroke-width="2"/>
+  <polygon points="115,210 345,210 395,310 65,310" fill="#2a9d8f" stroke="#1d3557" stroke-width="2"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" fill="#1d3557" text-anchor="middle">
+    <text x="230" y="90" font-size="15" font-weight="700">E2E /</text>
+    <text x="230" y="108" font-size="15" font-weight="700">aceptación</text>
+    <text x="230" y="172" font-size="17" font-weight="700">Integración</text>
+    <text x="230" y="268" font-size="19" font-weight="700" fill="#ffffff">Unitarias</text>
+  </g>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" fill="#1d3557" font-size="14">
+    <line x1="450" y1="300" x2="450" y2="55" stroke="#1d3557" stroke-width="2"/>
+    <polygon points="443,60 457,60 450,44" fill="#1d3557"/>
+    <text x="470" y="62">más lentas</text>
+    <text x="470" y="80">más costosas</text>
+    <text x="470" y="98">más realistas</text>
+    <text x="470" y="270">más rápidas</text>
+    <text x="470" y="288">más baratas</text>
+    <text x="470" y="306">muchas más</text>
+  </g>
+</svg>
