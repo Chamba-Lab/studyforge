@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyForge · Presentación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080D1A;
+    --bg-2: #0E1528;
+    --glass: rgba(255, 255, 255, 0.045);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --text: #E8ECF5;
+    --muted: #9AA4BC;
+    --brand: #FACC15;
+    --brand-soft: rgba(250, 204, 21, 0.14);
+    --green: #4ADE80;
+    --red: #F87171;
+    --head: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+    --body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", Consolas, "Cascadia Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--body); overflow: hidden; }
+  #viewport { position: fixed; inset: 0; display: grid; place-items: center; }
+  #stage { width: 1280px; height: 720px; position: relative; transform-origin: center center; }
+  .slide {
+    position: absolute; inset: 0; padding: 56px 72px 52px;
+    display: flex; flex-direction: column; justify-content: center; gap: 24px;
+    opacity: 0; visibility: hidden; transition: opacity .35s ease, transform .35s ease; transform: translateY(8px);
+    background:
+      radial-gradient(700px 420px at 85% -10%, rgba(250, 204, 21, 0.13), transparent 70%),
+      radial-gradient(600px 400px at -10% 110%, rgba(88, 101, 242, 0.12), transparent 70%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .slide.active { opacity: 1; visibility: visible; transform: none; }
+  .kicker { font: 600 15px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand); }
+  .kicker .part { color: var(--muted); }
+  h1 { font: 800 76px/1.02 var(--head); letter-spacing: -0.02em; }
+  h2 { font: 800 42px/1.1 var(--head); letter-spacing: -0.015em; }
+  h3 { font: 700 21px/1.25 var(--head); }
+  p, li { font-size: 21px; line-height: 1.5; color: var(--text); }
+  .muted { color: var(--muted); }
+  .accent { color: var(--brand); }
+  .lead { font-size: 25px; line-height: 1.45; color: var(--muted); max-width: 980px; }
+  ul.clean { list-style: none; display: grid; gap: 12px; }
+  ul.clean li { padding-left: 30px; position: relative; }
+  ul.clean li::before { content: ""; position: absolute; left: 4px; top: 12px; width: 10px; height: 10px; border-radius: 3px; background: var(--brand); }
+  ul.clean.sm li { font-size: 18px; }
+  code, .mono { font-family: var(--mono); font-size: .88em; }
+  code { background: rgba(255,255,255,.07); padding: 2px 8px; border-radius: 6px; }
+  .card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px; padding: 20px 22px; }
+  .card p, .card li { font-size: 17px; color: var(--muted); }
+  .card h3 { margin-bottom: 6px; }
+  .card.hl { border-color: rgba(250,204,21,.38); }
+  .grid { display: grid; gap: 18px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .emoji { font-size: 30px; line-height: 1; margin-bottom: 10px; display: block; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); font: 600 15px/1.2 var(--body); }
+  .pill.ghost { background: rgba(255,255,255,.06); color: var(--muted); }
+  .pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .term { background: #050912; border: 1px solid var(--glass-border); border-radius: 14px; padding: 16px 20px; font: 400 15.5px/1.6 var(--mono); color: #CBD3E6; white-space: pre; overflow: hidden; }
+  .term .prompt { color: var(--brand); }
+  .term .ok { color: var(--green); }
+  .term .bad { color: var(--red); }
+  .term .dim { color: #6B7590; }
+  .term .key { color: #93C5FD; }
+  .term-title { font: 600 13px/1 var(--body); color: var(--muted); margin-bottom: 8px; letter-spacing: .04em; }
+  .shot { display: block; max-width: 100%; border-radius: 14px; border: 1px solid var(--glass-border); box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+  .caption { font-size: 15px; color: var(--muted); margin-top: 8px; }
+  .row { display: flex; gap: 32px; align-items: center; }
+  .row > * { min-width: 0; }
+
+  /* Portada */
+  .cover { gap: 22px; }
+  .cover h1 span { color: var(--brand); }
+  .cover .banner { position: absolute; right: -40px; bottom: -10px; width: 600px; mask-image: linear-gradient(to left, #000 60%, transparent); -webkit-mask-image: linear-gradient(to left, #000 60%, transparent); }
+  .cover .text { max-width: 640px; position: relative; z-index: 1; display: grid; gap: 22px; }
+
+  /* Agenda */
+  .agenda { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .agenda .card { min-height: 270px; display: flex; flex-direction: column; gap: 10px; }
+  .agenda .num { font: 800 52px/1 var(--head); color: var(--brand); }
+  .agenda .time { font: 600 15px/1 var(--mono); color: var(--muted); margin-top: auto; }
+
+  /* Flujo */
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .step { position: relative; }
+  .step .card { height: 100%; padding: 18px; }
+  .step h3 { font-size: 19px; }
+  .step h3 code { font-size: 17px; background: none; padding: 0; color: var(--brand); }
+  .step p { font-size: 16px; }
+  .step:not(:last-child)::after { content: "→"; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--brand); font: 700 22px var(--head); z-index: 2; }
+
+  /* Estructura del sílabo */
+  .tree { display: grid; gap: 10px; }
+  .tree .lvl { display: grid; grid-template-columns: 150px 1fr; gap: 16px; align-items: center; padding: 12px 18px; border-radius: 12px; background: var(--glass); border: 1px solid var(--glass-border); }
+  .tree .lvl b { font: 700 17px var(--head); color: var(--brand); }
+  .tree .lvl p { font-size: 17px; color: var(--text); }
+  .tree .lvl p span { color: var(--muted); }
+
+  /* Candidatos */
+  .cands { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .cands .card { padding: 18px 20px; }
+  .cands .card h3 { font-size: 20px; }
+  .cands .card p { font-size: 15.5px; }
+  .cands .card.extra { border-style: dashed; }
+
+  /* Ganador */
+  .winner { align-items: center; text-align: center; }
+  .winner .trophy { font-size: 88px; line-height: 1; }
+  .winner .name { font: 800 64px/1.1 var(--head); color: var(--brand); min-width: 520px; padding: 10px 28px; border-radius: 18px; border: 2px dashed rgba(250,204,21,.35); outline: none; cursor: text; }
+  .winner .name:focus { border-color: var(--brand); background: rgba(250,204,21,.06); }
+
+  /* Ataque */
+  .attack { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; gap: 0; }
+  .attack .arrow { text-align: center; font: 700 30px var(--head); color: var(--brand); }
+
+  #progress { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--brand); transition: width .3s ease; z-index: 10; }
+  #counter { position: fixed; right: 18px; bottom: 12px; font: 500 13px var(--mono); color: #4A5470; z-index: 10; }
+  #hint { position: fixed; left: 18px; bottom: 12px; font: 500 13px var(--body); color: #4A5470; z-index: 10; transition: opacity 1s; }
+  @media print {
+    html, body { overflow: visible; height: auto; }
+    #viewport { position: static; display: block; }
+    #stage { transform: none !important; height: auto; }
+    .slide { position: relative; opacity: 1; visibility: visible; transform: none; page-break-after: always; height: 720px; }
+    #progress, #counter, #hint { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+
+<!-- 1 · Portada -->
+<section class="slide cover">
+  <img class="banner" src="../../assets/banner.webp" alt="Tres compañeros de estudio animados en un escritorio: un búho, un mapache y una oveja">
+  <div class="text">
+    <span class="kicker">Chamba Lab · Presentación en vivo</span>
+    <h1>🔥 Study<span>Forge</span></h1>
+    <p class="lead">De «quiero aprender X» a labs que corres, rompes y verificas, con cualquier agente de IA. Hoy elegimos el próximo laboratorio y lo empezamos en vivo.</p>
+    <div class="pills">
+      <span class="pill">Viernes 20 nov · 18:00 Lima</span>
+      <span class="pill ghost">github.com/Chamba-Lab/studyforge</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Agenda -->
+<section class="slide">
+  <span class="kicker">Agenda</span>
+  <h2>Cuatro partes</h2>
+  <div class="agenda">
+    <div class="card"><span class="num">01</span><h3>StudyForge</h3><p class="muted" style="font-size:17px">Qué es y qué te ahorra.</p><span class="time">18:02</span></div>
+    <div class="card"><span class="num">02</span><h3>El ejemplo: pytest-lab</h3><p class="muted" style="font-size:17px">El sílabo, las guías, los diagramas y el código.</p><span class="time">18:17</span></div>
+    <div class="card"><span class="num">03</span><h3>Elegimos el tema</h3><p class="muted" style="font-size:17px">Las propuestas del hilo y la decisión.</p><span class="time">18:27</span></div>
+    <div class="card hl"><span class="num">04</span><h3 class="accent">Lo construimos en vivo</h3><p class="muted" style="font-size:17px">Sílabo, repositorio y primer lab del bloque 1.</p><span class="time">18:33</span></div>
+  </div>
+  <p class="muted" style="font-size:18px">💬 Deja tus preguntas en el chat: las respondemos al final.</p>
+</section>
+
+<!-- 3 · Por qué -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Por qué</span>
+  <h2 style="font-size:50px; max-width:1060px">Lo que más se queda no es lo que leímos, sino lo que <span class="accent">corrimos, rompimos y arreglamos</span>.</h2>
+  <div class="grid g2" style="margin-top:10px">
+    <div class="card"><span class="emoji">🔁</span><h3>Sin StudyForge</h3><p>Le pides a la IA «hazme un curso de X» y luego iteras: que explique mejor, que no regale la respuesta, que el código corra, que las versiones existan, que no instale cualquier cosa…</p></div>
+    <div class="card hl"><span class="emoji">⚒️</span><h3 class="accent">Con StudyForge</h3><p>Todo eso ya viene decidido. Es lo que aprendimos en varias generaciones de labs (Quarkus, Kafka, MongoDB, contenedores…), escrito como reglas que el agente sigue.</p></div>
+  </div>
+</section>
+
+<!-- 4 · Qué es -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Qué es</span>
+  <h2>Una <span class="accent">Agent Skill</span>: instrucciones que tu agente lee</h2>
+  <div class="grid g2" style="align-items:start">
+    <ul class="clean">
+      <li>No es una app ni un servicio: Markdown, plantillas y un verificador en Python.</li>
+      <li>Funciona con <b>Claude Code, Codex, Gemini CLI, Copilot, Cursor</b>… cualquier agente que lea skills.</li>
+      <li>Se lo pides en lenguaje natural, en tu idioma.</li>
+      <li>Y si tu agente no lee skills, cada repositorio lleva sus reglas en <code>AGENTS.md</code>.</li>
+      <li>Software libre (MIT), hecho por la comunidad.</li>
+    </ul>
+    <div>
+      <div class="term-title">Instalar y usar</div>
+      <div class="term"><span class="dim"># Claude Code, como plugin</span>
+<span class="prompt">/plugin</span> marketplace add Chamba-Lab/studyforge
+<span class="prompt">/plugin</span> install studyforge@studyforge
+
+<span class="dim"># Cualquier agente que lea skills</span>
+<span class="prompt">$</span> npx skills add Chamba-Lab/studyforge
+
+<span class="dim"># Y luego, al agente:</span>
+<span class="ok">«Usa StudyForge para diseñar un
+ camino de estudio de Kafka»</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Configuras una vez -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Configuras una vez</span>
+  <h2>Tu idioma, tu máquina, tu tema</h2>
+  <div class="row">
+    <div style="flex:1">
+      <ul class="clean">
+        <li>El agente te pregunta <b>solo lo que cambia el plan</b>: para qué, tu nivel, cuánto tiempo, tu sistema y tu idioma, y propone un valor por defecto para cada cosa.</li>
+        <li>Todo queda en <code>studyforge.toml</code>: cualquier sesión, o cualquier agente, sigue desde ahí.</li>
+        <li>Las guías van en tu idioma; el código, siempre en inglés.</li>
+        <li>Los comandos salen para <b>tus</b> terminales.</li>
+      </ul>
+    </div>
+    <div style="flex:1">
+      <div class="term-title">studyforge.toml · pytest-lab</div>
+      <div class="term">studyforge = <span class="ok">"1.4.2"</span>
+
+[path]
+title = <span class="ok">"Testing en Python con pytest"</span>
+
+[language]
+content = <span class="ok">"es"</span>
+
+[learner]
+os = <span class="ok">"windows"</span>
+shells = [<span class="ok">"powershell"</span>, <span class="ok">"bash"</span>]
+containers = <span class="ok">"none"</span>
+
+[dependencies]
+strategy = <span class="ok">"shared-parent"</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Primero el sílabo -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Primero el sílabo</span>
+  <h2>Un plan antes que una línea de código</h2>
+  <div class="row" style="align-items:start">
+    <div class="tree" style="flex:1.25">
+      <div class="lvl"><b>Camino</b><p>De tu nivel de hoy a tu meta <span>· se planifica entero</span></p></div>
+      <div class="lvl"><b>Bloques</b><p>Uno por foco que puedas nombrar <span>· «pruebas unitarias», luego «de integración»</span></p></div>
+      <div class="lvl"><b>Labs</b><p>3–7 por bloque, de 1–2 h <span>· primero la idea, después la herramienta</span></p></div>
+      <div class="lvl" style="border-color:rgba(250,204,21,.38)"><b>Proyecto</b><p>Cierra cada bloque <span>· usa solo lo que el bloque enseñó</span></p></div>
+    </div>
+    <div style="flex:1; display:grid; gap:12px">
+      <div class="card"><h3>Tipos de tema</h3><p>🎯 core · 🔬 deep-dive · 🔀 alternative · ➕ elective · 🆕 modern</p></div>
+      <div class="card"><h3>Un dueño por concepto</h3><p>Cada idea se enseña en un solo lab; los demás la usan y enlazan.</p></div>
+      <div class="card"><h3>Revisión antes de mostrarlo</h3><p>Versiones actuales, prerrequisitos en orden, nada de jerga antes de tiempo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Cinco workflows -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Cómo funciona</span>
+  <h2>Cinco workflows, un ciclo</h2>
+  <div class="flow">
+    <div class="step"><div class="card"><span class="emoji">🎯</span><h3>Lo que quiero aprender</h3><p>Un tema, tu nivel y tu tiempo.</p></div></div>
+    <div class="step"><div class="card"><span class="emoji">🗺️</span><h3><code>syllabus</code></h3><p>Acuerdas el plan con el agente.</p></div></div>
+    <div class="step"><div class="card"><span class="emoji">📦</span><h3><code>init</code></h3><p>Crea el repo: guía, reglas y verificador.</p></div></div>
+    <div class="step"><div class="card"><span class="emoji">🔨</span><h3><code>build</code></h3><p>«Siguiente lab»: construido, verificado y commiteado.</p></div></div>
+    <div class="step"><div class="card"><span class="emoji">🧑‍🎓</span><h3>Quien aprende</h3><p>Lo resuelve y cuenta cómo le fue.</p></div></div>
+  </div>
+  <div class="grid g2">
+    <div class="card" style="display:flex; gap:14px; align-items:center"><span class="emoji" style="margin:0">💬</span><p><code>feedback</code> mejora ese lab, los demás, el plan <b class="accent">y la propia StudyForge</b>.</p></div>
+    <div class="card" style="display:flex; gap:14px; align-items:center"><span class="emoji" style="margin:0">🔍</span><p><code>review</code> audita un bloque o lo actualiza a la última versión.</p></div>
+  </div>
+</section>
+
+<!-- 8 · Tipos de lab y proyecto -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Las piezas</span>
+  <h2>Cuatro tipos de lab</h2>
+  <div class="grid g4">
+    <div class="card"><span class="emoji">🧩</span><h3>Reto</h3><p>Un punto de partida con pruebas que fallan, y su solución.</p></div>
+    <div class="card"><span class="emoji">🔭</span><h3>Exploración</h3><p>Una demo terminada para activar, romper y observar.</p></div>
+    <div class="card"><span class="emoji">💭</span><h3>Concepto</h3><p>Sin código: explicación a fondo y autoevaluación.</p></div>
+    <div class="card hl"><span class="emoji">🏗️</span><h3 class="accent">Proyecto</h3><p>El consolidador que cierra cada bloque.</p></div>
+  </div>
+  <div class="card hl">
+    <h3>🏗️ El proyecto consolidador</h3>
+    <p><b>BRIEF</b> (el enunciado) · <b>acceptance/</b> (pruebas de caja negra: tu versión cumple o no) · <b>reference/</b> (una solución mantenida) · <b>REVIEW</b> (una revisión guiada: decisiones, trampas y «rómpelo tú»). Lo construyes y comparas, o solo lo revisas.</p>
+  </div>
+</section>
+
+<!-- 9 · Didáctica incluida -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Didáctica incluida</span>
+  <h2>Lo que ya no tienes que pedirle cada vez</h2>
+  <div class="grid g3">
+    <div class="card"><span class="emoji">🧠</span><h3>Explica antes de pedir</h3><p>Cada concepto va problema → idea → ejemplo → nombre, en un caso distinto al de la tarea.</p></div>
+    <div class="card"><span class="emoji">🔮</span><h3>Predice primero</h3><p>Antes de correr algo, te pide adivinar qué pasará. Y nada de lo que lees antes regala la respuesta.</p></div>
+    <div class="card"><span class="emoji">🪤</span><h3>Trampas verificadas</h3><p>Los errores típicos, provocados y explicados con la salida real.</p></div>
+    <div class="card"><span class="emoji">🏷️</span><h3>El vocabulario del oficio</h3><p>Los términos en inglés, explicados la primera vez, y un glosario que apunta al lab dueño.</p></div>
+    <div class="card"><span class="emoji">🎤</span><h3>Autoevaluación</h3><p>Cinco preguntas de entrevista al final de cada lab.</p></div>
+    <div class="card"><span class="emoji">👀</span><h3>Revisión con ojos frescos</h3><p>Al cerrar un bloque, un revisor sin el contexto del autor lo lee como estudiante.</p></div>
+  </div>
+</section>
+
+<!-- 10 · Verificado y seguro -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Verificado y seguro</span>
+  <h2>Verificado, <span class="accent">no recordado</span></h2>
+  <div class="grid g2" style="align-items:start">
+    <div class="card">
+      <h3>✅ Cada lab, ejecutado</h3>
+      <ul class="clean sm" style="margin-top:8px">
+        <li>Cada comando, salida y trampa se corrió con las versiones fijadas.</li>
+        <li>La solución en <b style="color:var(--green)">verde</b> y el reto en <b style="color:var(--red)">rojo por la razón correcta</b>, comprobado por <code>verify.py</code>.</li>
+        <li>Nunca una API escrita de memoria: documentación oficial de la versión exacta.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🔒 Dependencias seguras</h3>
+      <ul class="clean sm" style="margin-top:8px">
+        <li>Cada librería pasa tres filtros: sin vulnerabilidades conocidas, licencia compatible y que corra en tu máquina.</li>
+        <li>Auditoría en CI (<code>pip-audit</code>) en cada cambio y cada semana.</li>
+        <li>Nunca instala en tu entorno global: siempre en el del repositorio.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · Mejora con cada uso -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 1 ·</span> Mejora con cada uso</span>
+  <h2>Cada error encontrado se vuelve una regla</h2>
+  <div class="grid g3">
+    <div class="card"><span class="emoji">📈</span><h3><span class="accent">9 versiones</span> en 2 días</h3><p>De la 0.1.0 a la 1.4.2, cada una nacida de construir pytest-lab.</p></div>
+    <div class="card"><span class="emoji">🔄</span><h3>Actualizar es una receta</h3><p>Notas por versión: qué copiar, qué revisar y cuándo reconstruir. pytest-lab ya va en la 1.4.2.</p></div>
+    <div class="card"><span class="emoji">🧑‍🎓</span><h3>Falta lo más importante</h3><p>Que lo resuelvan personas. Su feedback cierra el ciclo.</p></div>
+  </div>
+</section>
+
+<!-- 12 · Sílabo de pytest-lab -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 2 ·</span> El ejemplo: pytest-lab</span>
+  <h2>Testing en Python, en español</h2>
+  <div class="row">
+    <div style="flex:1.15">
+      <img class="shot" src="assets/syllabus.webp" alt="Tabla «El camino de un vistazo» del sílabo en GitHub: bloques 1 y 2 construidos, 3 y 4 pendientes">
+      <p class="caption">El sílabo en GitHub: los cuatro bloques planificados, dos construidos.</p>
+    </div>
+    <div style="flex:1">
+      <img class="shot" src="assets/test-pyramid.svg" alt="Pirámide de pruebas: unitarias en la base, integración en el medio y aceptación en la cima" style="background:#fff">
+      <ul class="clean sm" style="margin-top:16px">
+        <li>Un bloque por nivel de la pirámide.</li>
+        <li>Bloques 1 y 2: <b>11 labs y 2 proyectos</b>.</li>
+        <li>Los retos van al revés: <span class="accent">el código funciona y tú escribes las pruebas</span>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · Cómo enseña -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 2 ·</span> Cómo enseña</span>
+  <h2>Primero entender, después practicar</h2>
+  <div class="row">
+    <div style="flex:1.35"><img class="shot" style="max-height:470px; width:100%; object-fit:cover; object-position:top" src="assets/concepts12.webp" alt="Sección de conceptos del lab 1.2: una prueba con assert, cómo falla y cómo leer el fallo"></div>
+    <div style="flex:1">
+      <ul class="clean sm">
+        <li><b>El problema:</b> una conversión con un bug.</li>
+        <li><b>La idea:</b> una prueba es una función que termina con un <code>assert</code>.</li>
+        <li><b>El ejemplo:</b> otra función, <code>to_celsius</code>, para que la tarea siga siendo tuya.</li>
+        <li><b>El nombre:</b> introspección del <code>assert</code>.</li>
+        <li>Y el fallo real, para aprender a leerlo.</li>
+      </ul>
+      <p class="caption">Lab 1.2 · Primeras pruebas con pytest</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · Predice primero -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 2 ·</span> Las guías</span>
+  <h2>Tareas claras y <span class="accent">predicciones</span></h2>
+  <div class="grid g2" style="align-items:start">
+    <div><img class="shot" src="assets/predict12.webp" alt="Tarea 1 del lab 1.2: meta, prueba que la valida, pasos y una predicción"><p class="caption">Reto 1.2: cada tarea dice qué prueba la valida y te pide predecir.</p></div>
+    <div><img class="shot" src="assets/exp16.webp" alt="Experimento 4 del lab 1.6: 100% de cobertura de ramas con un bug vivo"><p class="caption">Exploración 1.6: 100% de cobertura de ramas… con un bug vivo.</p></div>
+  </div>
+</section>
+
+<!-- 15 · Diagramas -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 2 ·</span> Diagramas</span>
+  <h2>Diagramas donde ayudan <span class="muted" style="font:500 18px var(--body)">· Mermaid: GitHub los dibuja y se editan como texto</span></h2>
+  <div class="row" style="align-items:center; gap:28px">
+    <div style="flex:1; display:grid; gap:16px">
+      <div><img class="shot" src="assets/diagram-mutants.webp" alt="Diagrama de la caza de mutantes" style="max-height:230px; margin:auto"><p class="caption">1.1 · La caza de mutantes</p></div>
+      <div><img class="shot" src="assets/diagram-integration.webp" alt="Diagrama de qué prueba cada nivel: unitarias con un doble, integración con lo real" style="max-height:190px; margin:auto"><p class="caption">2.1 · Qué cambia al integrar</p></div>
+    </div>
+    <div style="width:170px; text-align:center">
+      <img class="shot" src="assets/diagram-coverage.webp" alt="Diagrama de flujo con las ramas de la función de costo de envío" style="max-height:470px; margin:auto">
+      <p class="caption">1.6 · Las ramas de la cobertura</p>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · El código -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 2 ·</span> El código</span>
+  <h2>Del <span style="color:var(--red)">rojo</span> al <span style="color:var(--green)">verde</span></h2>
+  <div class="grid g2" style="align-items:start">
+    <div>
+      <div class="term-title">starter/tests/test_grades.py · así lo recibes</div>
+      <div class="term" style="font-size:14px"><span class="key">def</span> test_average_of_decimal_grades():
+    pytest.skip(<span class="ok">"TODO task 1: average([0.1, 0.2]) is 0.15"</span>)
+
+<span class="key">def</span> test_average_of_no_grades_is_an_error():
+    pytest.skip(<span class="ok">"TODO task 2: average([]) raises ValueError"</span>)
+
+<span class="prompt">&gt;</span> python -m pytest -q
+<span class="bad">FAILED</span> …catch[m1-integer-division]
+<span class="bad">FAILED</span> …catch[m2-empty-returns-zero]
+<span class="dim">… 5 mutantes vivos</span>
+<span class="bad">5 failed</span>, <span class="ok">1 passed</span>, 6 skipped</div>
+    </div>
+    <div>
+      <div class="term-title">solution/tests/test_grades.py · así lo dejas</div>
+      <div class="term" style="font-size:14px"><span class="key">def</span> test_average_of_decimal_grades():
+    <span class="key">assert</span> average([0.1, 0.2]) == pytest.approx(0.15)
+
+<span class="key">def</span> test_average_of_no_grades_is_an_error():
+    <span class="key">with</span> pytest.raises(ValueError,
+                       match=<span class="ok">"must not be empty"</span>):
+        average([])
+
+<span class="prompt">&gt;</span> python -m pytest -q
+<span class="ok">............</span>                   [100%]
+<span class="ok">12 passed</span>   <span class="dim"># 5 mutantes muertos</span></div>
+    </div>
+  </div>
+  <p class="muted" style="font-size:16px">Un mutante es una copia del código con un bug sembrado. El único verde del inicio es el guardián: tus pruebas pasan con el código real.</p>
+</section>
+
+<!-- 17 · Todo verificado -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 2 ·</span> Verificado</span>
+  <h2>Los 14 labs, en una corrida</h2>
+  <div class="term" style="font-size:14.5px"><span class="prompt">&gt;</span> python tools/verify.py --strict
+<span class="ok">[ok]</span> 1.1  concept      structure only
+<span class="ok">[ok]</span> 1.2  challenge    solution <span class="ok">green</span> (12 tests, 0 failing) · starter <span class="bad">red</span> (12 tests, 5 failing)
+<span class="ok">[ok]</span> 1.3  challenge    solution <span class="ok">green</span> (18 tests, 0 failing) · starter <span class="bad">red</span> (15 tests, 7 failing)
+<span class="ok">[ok]</span> 1.4  challenge    solution <span class="ok">green</span> (17 tests, 0 failing) · starter <span class="bad">red</span> (17 tests, 6 failing)
+<span class="ok">[ok]</span> 1.5  challenge    solution <span class="ok">green</span> (14 tests, 0 failing) · starter <span class="bad">red</span> (14 tests, 7 failing)
+<span class="ok">[ok]</span> 1.6  exploration  demo <span class="ok">green</span> (3 tests, 0 failing)
+<span class="ok">[ok]</span> 1.P  project      reference <span class="ok">green</span> (46 tests, 0 failing)
+<span class="ok">[ok]</span> 2.1  concept      structure only
+<span class="ok">[ok]</span> 2.2  challenge    solution <span class="ok">green</span> (12 tests, 0 failing) · starter <span class="bad">red</span> (12 tests, 6 failing)
+<span class="ok">[ok]</span> 2.3  challenge    solution <span class="ok">green</span> (12 tests, 0 failing) · starter <span class="bad">red</span> (12 tests, 6 failing)
+<span class="ok">[ok]</span> 2.4  challenge    solution <span class="ok">green</span> (13 tests, 0 failing) · starter <span class="bad">red</span> (13 tests, 7 failing)
+<span class="ok">[ok]</span> 2.5  exploration  demo <span class="ok">green</span> (6 tests, 0 failing)
+<span class="ok">[ok]</span> 2.P  project      reference <span class="ok">green</span> (16 tests, 0 failing)
+
+<span class="ok">0 problem(s), 0 warning(s).</span></div>
+  <p class="muted" style="font-size:16px">Verificado en Python 3.12 y 3.15. El CI de StudyForge corre su verificador sobre pytest-lab: un cambio que lo rompa no sale.</p>
+</section>
+
+<!-- 18 · Elegimos -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 3 ·</span> Elegimos</span>
+  <h2>¿Qué laboratorio armamos ahora?</h2>
+  <div class="cands">
+    <div class="card"><h3>🗃️ SQL práctico</h3><p>Consultas, joins y agregaciones, respondiendo preguntas de un negocio.</p></div>
+    <div class="card"><h3>🌿 Git y GitHub en equipo</h3><p>Ramas, pull requests, conflictos y deshacer errores sin miedo.</p></div>
+    <div class="card"><h3>🔌 APIs REST con FastAPI</h3><p>Endpoints, validación y pruebas: la continuación de pytest-lab.</p></div>
+    <div class="card"><h3>🐳 Docker para desarrolladores</h3><p>Imágenes, Dockerfile y compose, hasta contenerizar una app con su base.</p></div>
+    <div class="card hl"><h3>🛡️ Seguridad web práctica</h3><p>Atacar y arreglar una app vulnerable en tu máquina: inyección SQL, XSS, autenticación.</p></div>
+    <div class="card extra"><h3 contenteditable="true" spellcheck="false" style="outline:none">💡 Propuesta del hilo</h3><p>Si un tema juntó más apoyo que algún candidato, entra aquí.</p></div>
+  </div>
+  <p class="muted" style="font-size:17px">🧵 Lo que dijeron en el hilo «Temas para el próximo laboratorio» de 💬general</p>
+</section>
+
+<!-- 19 · Ganador -->
+<section class="slide winner">
+  <span class="kicker">El próximo laboratorio es…</span>
+  <div class="trophy">🏆</div>
+  <div class="name" contenteditable="true" spellcheck="false">🛡️ Seguridad web práctica</div>
+  <p class="lead" style="text-align:center">Y ahora mismo empezamos su bloque 1, en vivo.</p>
+</section>
+
+<!-- 20 · Plan en vivo -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 4 ·</span> En vivo</span>
+  <h2>Del tema al bloque 1, en tres pasos</h2>
+  <div class="flow" style="grid-template-columns: repeat(3, 1fr)">
+    <div class="step"><div class="card"><span class="emoji">🗺️</span><h3><code>syllabus</code> · 10 min</h3><p>Pegamos el pedido con las respuestas ya listas. El agente investiga, propone el camino completo y lo afinamos juntos.</p></div></div>
+    <div class="step"><div class="card"><span class="emoji">📦</span><h3><code>init</code> · 4 min</h3><p>Crea el repositorio: reglas, configuración, preparación y verificador. Primer commit.</p></div></div>
+    <div class="step"><div class="card hl"><span class="emoji">🔨</span><h3><code>build</code> · lo que quede</h3><p>Empieza el primer reto de ataque. Lo que no termine hoy sigue en el Code &amp; Coffee.</p></div></div>
+  </div>
+  <p class="muted" style="font-size:17px">Nada se publica hoy: el repositorio se revisa antes de subirlo a la organización.</p>
+</section>
+
+<!-- 21 · Cómo será un lab de seguridad -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 4 ·</span> El diseño</span>
+  <h2>Un camino de estudio, con un proyecto que lo cierra</h2>
+  <div class="attack">
+    <div class="card">
+      <h3 style="color:var(--red)">🔓 La app es vulnerable</h3>
+      <p>Cada reto trae una app pequeña con una falla. La prueba-ataque está en <b style="color:var(--red)">rojo</b>: el ataque funciona.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card">
+      <h3 style="color:var(--green)">🛡️ Tú la arreglas</h3>
+      <p>La prueba-ataque pasa a <b style="color:var(--green)">verde</b>: el ataque queda bloqueado. Las pruebas funcionales siguen en verde: arreglar no es borrar la función.</p>
+    </div>
+  </div>
+  <div class="grid g3">
+    <div class="card"><h3>🧩 Retos de ataque</h3><p>Es la caza de mutantes al revés: ahí tus pruebas atrapaban bugs, aquí tu código tiene que resistir ataques.</p></div>
+    <div class="card hl"><h3>🏗️ El «mini proyecto»</h3><p>Es el proyecto del bloque 1: endurecer una app hasta que ningún ataque de la suite funcione.</p></div>
+    <div class="card"><h3>🏠 Todo en tu máquina</h3><p>Se ataca solo la app del propio lab, nunca sistemas de terceros. Sin Docker para empezar.</p></div>
+  </div>
+</section>
+
+<!-- 22 · El pedido -->
+<section class="slide">
+  <span class="kicker"><span class="part">Parte 4 ·</span> El pedido al agente</span>
+  <h2>Lo que le pegamos al agente</h2>
+  <div class="term" style="font-size:15px; white-space:pre-wrap; line-height:1.55">Usa StudyForge para diseñar un camino de estudio de <span class="ok">seguridad web práctica</span>.
+<span class="dim">·</span> Para qué: personas Early Career que empiezan en ciberseguridad o en desarrollo y quieren escribir código seguro.
+<span class="dim">·</span> Punto de partida: Python básico y nociones de HTTP y SQL; nada de seguridad.
+<span class="dim">·</span> Enfoque: atacar y arreglar una app vulnerable que corre en local. En cada reto, una <span class="ok">prueba-ataque</span> falla mientras la app es vulnerable y pasa cuando el arreglo la bloquea; las pruebas funcionales siguen en verde.
+<span class="dim">·</span> El bloque 1 cierra con un proyecto: <span class="ok">endurecer una app pequeña</span> hasta que ningún ataque de la suite funcione.
+<span class="dim">·</span> Sesiones de 1–2 h, dos por semana. Windows, PowerShell y Bash, Python 3.12+, sin Docker en el camino principal.
+<span class="dim">·</span> Contenido en español. Todo se ataca en local, nunca a terceros.
+Planifica el camino completo y deja el bloque 1 listo para construir.</div>
+</section>
+
+<!-- 23 · Cómo sumarte -->
+<section class="slide">
+  <span class="kicker">Siguiente paso</span>
+  <h2>Cómo sumarte</h2>
+  <div class="grid g2">
+    <div class="card"><span class="emoji">🧑‍🎓</span><h3>Aprende</h3><p>Resuelve el lab 1.1 de pytest-lab (45 min, sin código) y abre un issue «Feedback de lab». Tu feedback lo pasa de 🟨 a ✅.</p></div>
+    <div class="card"><span class="emoji">🛡️</span><h3>Construye el de seguridad</h3><p>Ven al Code &amp; Coffee donde seguimos el bloque 1, y sé de las primeras personas en resolverlo.</p></div>
+    <div class="card"><span class="emoji">🔨</span><h3>Arma el tuyo</h3><p>Instala StudyForge, arma el laboratorio de algo que quieras aprender y cuéntalo en 🛠proyectos-comunidad.</p></div>
+    <div class="card"><span class="emoji">🧭</span><h3>Mejora el método</h3><p>Issues «Lesson or improvement» y notas para más stacks: Node, notebooks, contenedores, Java.</p></div>
+  </div>
+</section>
+
+<!-- 24 · Gracias -->
+<section class="slide cover">
+  <img class="banner" src="../../assets/banner.webp" alt="">
+  <div class="text">
+    <span class="kicker">Gracias</span>
+    <h1>¿Preguntas?</h1>
+    <div style="display:grid; gap:8px; font-size:21px">
+      <span>⚒️ <span class="mono">github.com/Chamba-Lab/studyforge</span></span>
+      <span>🧪 <span class="mono">github.com/Chamba-Lab/pytest-lab</span></span>
+      <span>📝 <span class="mono">chambalab.org/blog/studyforge</span></span>
+    </div>
+    <p class="lead" style="font-style:italic">Connect. Inspire. Grow.</p>
+  </div>
+</section>
+
+</div></div>
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="hint">← → para avanzar · F pantalla completa</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const stage = document.getElementById('stage');
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  let current = 0;
+
+  function fit() {
+    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    stage.style.transform = `scale(${scale})`;
+  }
+
+  function show(index) {
+    current = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    counter.textContent = `${current + 1} / ${slides.length}`;
+    history.replaceState(null, '', `#${current + 1}`);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.isContentEditable) {
+      if (e.key === 'Escape') e.target.blur();
+      return;
+    }
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(current + 1); }
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(current - 1); }
+    else if (e.key === 'Home') show(0);
+    else if (e.key === 'End') show(slides.length - 1);
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
+    }
+  });
+
+  document.getElementById('viewport').addEventListener('click', (e) => {
+    if (e.target.closest('[contenteditable]')) return;
+    show(current + (e.clientX > window.innerWidth / 3 ? 1 : -1));
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+  show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+  setTimeout(() => { document.getElementById('hint').style.opacity = 0; }, 4000);
+</script>
+</body>
+</html>
