@@ -31,7 +31,7 @@
 ## Naming rules
 
 1. **Each level uses two digits with a leading zero** (`01`…`99`). This makes alphabetical order match the syllabus order on GitHub, in editors and in file explorers.
-2. **A block is a folder: `NN-<slug>`.** Labs go inside it as `NN-<slug>` or `NNx-<slug>` (where `x` is a letter `b`–`z`).
+2. **A block is a folder: `NN-<slug>`**, numbered from `01`; `00-<slug>` is only for the express fundamentals of [prerequisites](syllabus.md#prerequisites). Labs go inside it as `NN-<slug>` or `NNx-<slug>` (where `x` is a letter `b`–`z`).
 3. **The project is named `project-<domain>`.** Letters sort after digits, so the project lands at the end of its block without a number. There is one project per block, and a final capstone gets its own block.
 4. **Slugs** are kebab-case, English, ASCII only, at most four words, and contain no version numbers: `02-configuration`, not `02-config-quarkus-3-40`. Titles inside the README are written in the content language.
 5. **Fixed names inside a lab:**

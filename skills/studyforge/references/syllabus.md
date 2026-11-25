@@ -69,7 +69,7 @@ The syllabus has two readers: the **learner**, who decides whether the path is f
 - **Order by prerequisites.** A lab only uses what an earlier lab owns or what `SETUP.md` installs.
 - **The core path must stand alone.** Someone who skips every deep-dive, alternative and elective still gets a coherent path.
 - **Place extras after the core topic they extend.** They take the next free number, or a letter suffix when IDs are frozen (see [layout](layout.md)).
-- **Blocks have 3–7 labs and one project.** A final capstone is its own block.
+- **Blocks have 3–7 labs and one project.** A final capstone is its own block. Block `00` is the exception (see [Prerequisites](#prerequisites)).
 - **One owner per topic.** If two rows teach the same thing, merge them or point one to the other. Owning means *teaching*; any later lab may *use* the topic with a link to its owner (see principle 5 in [method](method.md)).
 - **Size every lab at 1–2 h.** A row that needs "and" three times is two labs.
 - **Pick the starting point per lab**: a generated project, a minimal app, an earlier lab, or from scratch. Write it in "Starts from" in the build map (see principle 3 in [method](method.md)).
@@ -77,6 +77,17 @@ The syllabus has two readers: the **learner**, who decides whether the path is f
 - **Decide the dependency strategy** with the syllabus and record it (see [dependencies](dependencies.md)).
 - **Read it as the learner.** Before presenting the draft, read the top part as someone at the starting level. Every title and outcome should make sense to them without the labs at hand.
 - **Present the draft with a recommendation**, iterate, and only then write the file.
+
+## Prerequisites
+
+A path starts where the learner is, not where block 1 assumes they are. The [syllabus workflow](../workflows/syllabus.md) checks the prerequisites of the whole path before drafting it.
+
+- **A prerequisite comes from another subject.** It is what courses and docs of this subject assume (the terminal for Git, programming for security). What they usually teach (HTTP in web security) belongs to the path. Decide this before drafting, so no topic has two owners.
+- **A gap is sized by the labs it needs** for what this path uses, given what the learner already knows. Each gap is sized on its own.
+- **"Somewhat" needs no lab:** the first lab that uses it gives a one-line reminder and a link to a good external resource.
+- **Block `00` covers the small gaps:** express fundamentals in 1–3 labs in total, with IDs `0.1`, `0.2`… Concept labs are fine there. It teaches only what the path uses, owns those topics like any lab, and has no project, because the projects of later blocks use them. A learner who has the prerequisites skips it. It counts in the path's size, not in its number of blocks.
+- **A large gap is another path**, planned in its own repository once this plan is agreed. A block `00` would squeeze it.
+- **A gap the person accepts is written down.** The notes of `SYLLABUS.md` say which labs will be hard without it and what to read first.
 
 ## Keeping it alive
 
