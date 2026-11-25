@@ -54,6 +54,7 @@ A reply in the chat is read once, on the spot, often by someone who is stuck. It
 - **Say only what changes for the person.** Not the list of everything you read or ran, and not a recap of what they just said.
 - **End with the next step.** The last line says what the person does now, in one sentence: "Tu siguiente paso: corre las pruebas del lab 1.2 y dime qué falla." When nothing is pending on their side, say what you will do next.
 
+## Tone
 
 - **Concise and concrete.** One idea per paragraph, and a table when you are comparing.
 - **Proofread before you share.** Read the text once only for form: capital letters in headings, list items and table cells; proper nouns as their owners write them (Git, GitHub, Python, PowerShell); accents and punctuation of the content language. Form mistakes cost the learner's trust as much as wrong facts.

@@ -12,7 +12,7 @@ This repository is the StudyForge framework: an Agent Skill, plus a Claude Code 
 | `docs/visuals.md` | Gallery of every recommended visual, rendered; also the proof that GitHub renders them |
 | `docs/talks/` | Material of community talks about StudyForge (slides, their assets and a guide to try the demo yourself), one folder per talk. The run sheet of each talk lives in the team's Notion |
 | `examples/` | The showcase study path (arrives before 1.0.0) |
-| `scripts/check_repo.py`, `tests/` | Repository checks and tests of the verifier; CI runs both |
+| `scripts/check_repo.py`, `tests/` | Repository checks (frontmatter, versions, links and their anchors) and tests of the verifier and the checks; CI runs both |
 
 ## Rules
 

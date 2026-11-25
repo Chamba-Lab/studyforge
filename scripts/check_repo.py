@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Checks this repository (not a study repository): skill frontmatter, manifests,
-version consistency and relative Markdown links. Stdlib only, Python 3.11+.
+version consistency and relative Markdown links with their anchors. Stdlib only, Python 3.11+.
 
 Usage: python scripts/check_repo.py
 """
@@ -74,6 +74,35 @@ def check_versions(skill_version: str | None) -> None:
 LINK = re.compile(r"\]\(([^)\s]+)\)")
 
 
+def slug(heading: str) -> str:
+    """GitHub's anchor for a heading: lowercase, drop punctuation and emoji, spaces to hyphens."""
+    text = re.sub(r"`|\*|\[([^\]]*)\]\([^)]*\)", lambda m: m.group(1) or "", heading)
+    text = "".join(ch for ch in text.strip().lower() if ch.isalnum() or ch in " -_")
+    return text.replace(" ", "-")
+
+
+_anchors: dict[Path, set[str]] = {}
+
+
+def anchors(path: Path) -> set[str]:
+    if path not in _anchors:
+        found: set[str] = set()
+        counts: dict[str, int] = {}
+        in_fence = False
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.lstrip().startswith("```"):
+                in_fence = not in_fence
+                continue
+            match = None if in_fence else re.match(r"^#{1,6}\s+(.*?)\s*#*\s*$", line)
+            if match:
+                base = slug(match.group(1))
+                n = counts.get(base, 0)
+                counts[base] = n + 1
+                found.add(base if n == 0 else f"{base}-{n}")
+        _anchors[path] = found
+    return _anchors[path]
+
+
 def check_links() -> None:
     for md in ROOT.rglob("*.md"):
         relative = md.relative_to(ROOT).as_posix()
@@ -87,13 +116,16 @@ def check_links() -> None:
             if in_fence:
                 continue
             for target in LINK.findall(line):
-                if target.startswith(("http://", "https://", "mailto:", "#", "<")):
+                if target.startswith(("http://", "https://", "mailto:", "<")):
                     continue
                 if target.startswith("labs/"):  # example paths of a study repository
                     continue
-                path = (md.parent / target.split("#")[0]).resolve()
+                file, _, anchor = target.partition("#")
+                path = (md.parent / file).resolve() if file else md
                 if not path.exists():
                     problems.append(f"{relative}:{number}: broken link {target}")
+                elif anchor and path.suffix == ".md" and anchor not in anchors(path):
+                    problems.append(f"{relative}:{number}: no heading for anchor #{anchor} in {target}")
 
 
 def check_bom() -> None:
