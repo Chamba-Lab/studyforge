@@ -45,7 +45,7 @@ This repository is a study path built with [StudyForge](https://github.com/Chamb
 
 ## Upgrading the stack
 1. Read the release notes and the migration guide; prefer LTS.
-2. Change the version in every lab (<where: each pom.xml / package.json / pyproject>), `SETUP.md`, `SYLLABUS.md` and this file.
+2. Change the version in every lab (<where: each pom.xml / package.json / pyproject>), `SETUP.md`, `SYLLABUS.md`, `TUTOR.md` (it names the versions) and this file.
 3. Run `python tools/verify.py`; re-check every claim that quotes the old version.
 4. Commit `chore: upgrade <stack> to <version>`.
 

@@ -67,7 +67,7 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 
 ## Teaching offensive techniques
 
-Security paths teach attacks (scanning, exploitation, cracking, phishing simulations). A learner who follows a lab against the wrong target commits a crime, so these labs have rules of their own:
+Security paths teach attacks (scanning, exploitation, cracking, phishing simulations). These rules apply to every lab where the learner runs an attack; a lab that only names one (SQL injection as the reason for query parameters) does not need them. A learner who follows a lab against the wrong target commits a crime, so these labs have rules of their own:
 
 - **Only targets the learner owns or is allowed to attack.** Labs run against local, intentionally vulnerable targets: containers or virtual machines the lab starts, or practice platforms within their terms of use. Never a public address, a shared network, a real service or a third party's system, not even "just to look".
 - **Every lab that attacks says what makes it legal.** One line before the first command: whose target it is and why attacking it is allowed. A target that the lab does not start is named with its terms of use.
