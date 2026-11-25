@@ -6,13 +6,22 @@ Read first: [method](../references/method.md), [syllabus](../references/syllabus
 
 ## Steps
 
-1. **Understand the goal.** Ask only what changes the plan, and propose a default for each question:
-   - **What for:** a job, a certification, a project, teaching others, or curiosity.
-   - **Level:** what they already know, and where they want to end up (basics, job-ready, expert).
-   - **Depth:** topics to go deep on and topics to skip. Do they want modern or alternative topics?
-   - **Time:** session length (default: 1–2 h), sessions per week, and any deadline.
-   - **Environment:** operating system, shells, container runtime, and versions they must use (for example, the one at their job).
-   - **Language** of the lab content.
+1. **Understand the goal with three questions at most.** The person may be learning, and most planning details are yours to decide. Ask only what is still missing from their request, in one message, numbered, each with an example or options (see [didactics](../references/didactics.md#in-the-conversation)):
+   1. **What do you want to learn?** For example: "Kafka", "testing en Python", "ciberseguridad ofensiva". A broad field ("ciberseguridad", "cloud") is not an answer yet: ask which part, with 3–4 options.
+   2. **What for?** Your current job · getting a job or changing careers · a project of your own · teaching a group · curiosity.
+   3. **What have you already done with something close to it?** For example: "uso Docker en el trabajo, pero nunca Kubernetes", or "nada todavía".
+
+   Ask them in the person's language, translating the examples. When the answer to question 2 is teaching a group, question 3 asks what the group already knows; if levels are mixed, plan for the less experienced part, and mark as `deep-dive` or `elective` what the others may skip.
+
+   A question is answered only when the request says it plainly: a specific topic, a purpose, and experience with the topic or something close to it ("uso Spring Boot y Docker" counts for Kafka). If the request answers all three, ask nothing: say in one line that you will research and come back with a plan, then go on.
+
+   Do not ask the rest; decide it, and list it later as assumptions the person can correct:
+   - **Level and goal:** from questions 2 and 3. Current job, getting a job and teaching a group aim at job-ready; a project of your own aims at what the project needs; curiosity at solid basics.
+   - **Scope:** what is in and what is left out, with the depth, modern and alternative topics you propose from the research in step 2.
+   - **Time:** sessions of 1–2 h; no deadline unless they mention one.
+   - **Content language:** the language they write in.
+   - **Environment:** when the person will study the path themselves and you can run commands, detect it: the operating system, the shells available, the container runtime, virtualization when the path needs it (WSL, virtual machines), and the versions already installed of the tools the path needs, including the build tool. When the path is for a group, or you cannot run commands, assume PowerShell and Bash, and Docker if a container runtime is needed.
+   - **Pinned versions** come from step 2. When the goal is their current job, confirm the versions of the main tools and where they run: "I will use Kafka 4.1 and Spring Boot 4.0, self-hosted; tell me if your job uses other versions or a managed service."
 
    For a refinement, read `SYLLABUS.md`, `docs/decisions.md` and the feedback first, and ask only about the change.
 2. **Research the current state** of the technology, following [sources](../references/sources.md):
@@ -24,7 +33,7 @@ Read first: [method](../references/method.md), [syllabus](../references/syllabus
    - Then the rows of every block: topic, kind, type, what the learner will be able to do, and a 1–2 h size; and for the build map, what it owns, builds on and starts from. End every block with a project that uses only what the block taught.
    - Open each block with the ideas it needs, independent of the tool, then alternate idea and tool.
    - Apply the design rules in [syllabus](../references/syllabus.md).
-4. **Choose the dependency strategy** and the stack verification commands (see [stacks](../stacks/README.md)).
+4. **Choose the dependency strategy** and the stack verification commands (see [stacks](../stacks/README.md)). These are your decisions; do not ask the person.
 5. **Self-review the draft before showing it:**
    - [ ] Every block from the starting level to the goal is planned, and each has one focus.
    - [ ] Read as a learner at the starting level, every topic title and outcome makes sense: no API names, no term taught later, the same level of technicality across rows.
@@ -38,7 +47,13 @@ Read first: [method](../references/method.md), [syllabus](../references/syllabus
    - [ ] The lab types fit (not everything is a challenge, and concept labs are rare).
    - [ ] Versions are pinned and current.
    - [ ] Every library the plan pins passes the checklist in [dependencies](../references/dependencies.md#choosing-a-library).
-6. **Present it.** Show the blocks as a short table, the key decisions with your recommendation, and the open questions. Iterate until the person agrees.
+6. **Present it**, in this order:
+   1. The blocks as a short table: block, focus, number of labs, and the project's idea.
+   2. **The size:** total labs and an estimate of the hours (labs × 1–2 h). When the path is long for the goal (more than about six blocks, or more than the deadline allows), offer a shorter first milestone, for example the first three blocks.
+   3. **What I assumed:** level and goal, scope, time, content language and environment, one line each, so the person can correct any of them. Name versions only when the person will care (their current job); otherwise name the tools, and the versions go into `SYLLABUS.md` and `docs/decisions.md`.
+   4. At most three open questions, each with your recommendation. Ask only what is the person's to decide: scope, depth, time, and how or where they will practice or publish.
+
+   Keep technical decisions out of this message (dependency strategy, build tools, verification commands): they are yours, and they go into `docs/decisions.md`. Iterate until the person agrees.
 7. **Write it.** In an existing repository, update `SYLLABUS.md` (renumbering only items that are still `pending`), update `docs/decisions.md` when a decision changed, and commit with `docs(syllabus): …`. With no repository yet, hand the draft to [init](init.md).
 
 ## Done when

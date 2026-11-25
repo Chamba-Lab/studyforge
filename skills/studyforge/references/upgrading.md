@@ -32,6 +32,7 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 - **For built labs and repository files:** none. The rules for explaining moved from [writing](writing.md) to a new [didactics](didactics.md) reference; links into `writing.md#explaining` and `writing.md#tone` now point there.
 - **For new labs only:** [didactics](didactics.md) adds two sets of rules. *One idea at a time*: one idea per unit, lead with the point, show instead of listing. *Questions that make the learner think*: predictions and self-assessment ask for retrieval or reasoning, one idea per question, wrong options are real mistakes, and answers explain why. A later review may apply them to built labs when the person asks for it.
+- **For new paths and syllabus refinements:** the [syllabus workflow](../workflows/syllabus.md) asks at most three questions and shows the rest as assumptions, with the path's size in labs and hours. Built labs need nothing.
 
 ### 1.4.2
 

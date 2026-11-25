@@ -60,15 +60,7 @@ The syllabus has two readers: the **learner**, who decides whether the path is f
 
 ## Designing a syllabus
 
-- **Interview before drafting.** Ask only what changes the plan:
-  - The goal: a job, a certification, a project, or curiosity.
-  - Current and target level.
-  - Topics to go deep on.
-  - Time per week and session length.
-  - Deadline.
-  - Stack constraints.
-  - Operating system and tools.
-  - Content language.
+- **Ask little, assume the rest.** The person answers at most three questions (what, what for, what they have done); level, time, language, environment and versions are assumptions they can correct when the plan is shown. The [syllabus workflow](../workflows/syllabus.md) says how.
 
   Propose defaults instead of asking open questions.
 - **Research current versions** before naming them. Prefer LTS or stable releases, write down the support window, and follow [sources](sources.md).
