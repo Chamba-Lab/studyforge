@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.6.0...studyforge-v1.6.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* **skill:** make upgrade notes stand alone and close the gaps of the 1.6.0 upgrade run ([#48](https://github.com/Chamba-Lab/studyforge/issues/48)) ([ae3d233](https://github.com/Chamba-Lab/studyforge/commit/ae3d233cf325b9051a0d636fb77475d671e2412f))
+
 ## [1.6.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.5.0...studyforge-v1.6.0) (2026-11-25)
 
 
