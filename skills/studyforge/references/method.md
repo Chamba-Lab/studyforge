@@ -29,7 +29,7 @@ A study path is a **syllabus** split into **blocks**. A block is a group of **la
 7. **Learn by predicting and by falling into traps.** Each lab has at least one situation where the intuitive answer fails. The learner writes down a prediction, runs the code, and only then reads why.
 8. **Aim for job level, not just the mechanism.** Cover what a real project, an interview and production expect: how it runs outside development mode, typical mistakes, and what a team would do.
 9. **Verify; do not remember.** Every claim in a lab was run on the pinned versions. Rigor lives in scripts (`tools/verify.py`), not only in prose (see [quality](quality.md)).
-10. **The learner solves; the agent builds.** Solutions are visible on purpose, and the learner decides when to look. Feedback arrives asynchronously, and building never waits for it.
+10. **The learner solves; the agent builds.** Solutions are visible on purpose, and the learner decides when to look; a learner short on time may read a solved lab instead of solving it. Feedback arrives asynchronously, and building never waits for it.
 11. **Keep the memory in files.** Rules, state and decisions live in the repository, so any agent can continue in a fresh session.
 
 ## The files that hold the memory

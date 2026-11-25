@@ -1,6 +1,6 @@
 ---
 name: studyforge
-description: Builds hands-on study paths. It starts with a refined syllabus and then builds verifiable labs (a challenge with a starter and a solution, a guided exploration, or a concept-only lab) plus an integrator project that closes each block. Use it when someone wants to learn or teach a technology through practice. It covers designing or refining a syllabus, creating the study repository, building the next lab or project, reviewing labs against the standard, and applying learner feedback. Any stack works (Java, Node, Python, notebooks, containers).
+description: Builds hands-on study paths, practical courses made of labs. It starts with a refined syllabus and then builds verifiable labs (a challenge with a starter and a solution, a guided exploration, or a concept-only lab) plus an integrator project that closes each block. Use it when someone wants to learn or teach a technology through practice. It covers designing or refining a syllabus, creating the study repository, building the next lab or project, reviewing labs against the standard, and applying learner feedback. Any stack works (Java, Node, Python, notebooks, containers).
 license: MIT
 compatibility: Any agent that reads Agent Skills. Building labs needs git, Python 3.11+ (for tools/verify.py) and the toolchain of the stack being taught.
 metadata:
@@ -11,7 +11,7 @@ metadata:
 
 # StudyForge
 
-StudyForge turns "I want to learn X" into a study path that a person can follow, run and verify. A refined syllabus comes first. Short labs follow it, and a project consolidates each block. You (the agent) design and build. The learner solves the labs and gives feedback, and the path improves with every round.
+StudyForge turns "I want to learn X" into a study path that a person can follow, run and verify. A refined syllabus comes first. Short labs follow it, and a project consolidates each block. You (the agent) design and build, for whoever creates or maintains the course. Learners and reviewers only need the study repository: they solve the labs and give feedback, and the path improves with every round.
 
 ## 1. Find where you are
 

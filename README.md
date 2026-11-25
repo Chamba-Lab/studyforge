@@ -16,12 +16,17 @@ A refined syllabus first, then short labs you can run, break and verify, and a p
 
 ## 💡 What it is
 
-StudyForge is an [Agent Skill](https://agentskills.io) that teaches your agent (Claude Code, Codex, Gemini CLI, Copilot, or any agent that reads skills) how to build **study labs that actually teach**:
+StudyForge is an [Agent Skill](https://agentskills.io) that teaches your agent (Claude Code, Codex, Gemini CLI, Copilot, or any agent that reads skills) how to build **practical courses made of labs**: a syllabus, short labs with their explanations, and the solutions at hand.
 
 - **🗺️ A syllabus first.** Blocks and topics sized for 1–2 h sessions, sorted into core, deep-dive, alternative and elective, with one owner per concept and a starting point per lab.
 - **🧪 Labs of four kinds.** A 🧩 **challenge** (starter with failing tests + solution), a 🔭 **exploration** (a finished demo to switch, break and observe), a 💭 **concept** (no code, deep explanation + self-assessment), and a 🏗️ **project** that closes each block.
-- **✅ Verified, not remembered.** Every command, output and trap in a lab was run on the pinned versions. A verifier checks that solutions are green and starters are red *for the right reason*.
+- **📖 Solutions at hand.** Solve each lab yourself and compare, or, when time is short, read the solved labs to learn faster.
+- **✅ Labs that work.** Every command, output and trap in a lab was run on the pinned versions, and a verifier checks that solutions are green and starters are red *for the right reason*.
 - **🔁 Better with every learner.** Feedback improves the lab, the earlier labs, the labs still to come, and the method itself.
+
+**Who uses what.** Whoever creates or maintains a course uses the skill. Learners and reviewers only need the course repository: they follow its labs and give feedback in its issues.
+
+StudyForge does not try to be a chat tutor, a quiz app or a slide maker; ChatGPT, Claude and NotebookLM already do that well. It focuses on lab-based courses.
 
 It is the distilled version of several generations of personal study labs (Quarkus, Kafka, reactive programming, MongoDB, containers…). The heavy spec-per-lab process was dropped along the way, and every rule that made labs better was kept.
 
