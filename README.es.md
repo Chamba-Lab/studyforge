@@ -16,7 +16,7 @@ Primero un sílabo bien afinado, luego laboratorios cortos que puedes correr, ro
 
 ## 💡 Qué es
 
-StudyForge es una [Agent Skill](https://agentskills.io) que le enseña a tu agente (Claude Code, Codex, Gemini CLI, Copilot o cualquiera que lea skills) a construir **laboratorios de estudio que de verdad enseñan**:
+StudyForge es una [Agent Skill](https://agentskills.io) que le enseña a tu agente (Claude Code, Codex, Gemini CLI, Copilot o cualquiera que lea skills) a construir **cursos prácticos hechos de laboratorios**: un sílabo, labs cortos con sus explicaciones y las soluciones a mano.
 
 - **🗺️ Primero el sílabo.** Bloques y temas pensados para sesiones de 1–2 h, clasificados en núcleo, profundización, alternativa y electiva. Cada concepto tiene un único lab dueño y cada lab un punto de partida.
 - **🧪 Labs de cuatro tipos:**
@@ -24,8 +24,13 @@ StudyForge es una [Agent Skill](https://agentskills.io) que le enseña a tu agen
   - 🔭 **exploración**: una demo terminada para activar, romper y observar;
   - 💭 **concepto**: sin código, con explicación a fondo y autoevaluación;
   - 🏗️ **proyecto**: cierra cada bloque.
-- **✅ Verificado, no recordado.** Cada comando, salida y trampa de un lab se ejecutó con las versiones fijadas. Un verificador comprueba que las soluciones estén en verde y los starters en rojo *por la razón correcta*.
+- **📖 Soluciones a mano.** Resuelve cada lab por tu cuenta y compara, o, si tienes poco tiempo, lee los labs resueltos para aprender más rápido.
+- **✅ Labs que funcionan.** Cada comando, salida y trampa de un lab se ejecutó con las versiones fijadas, y un verificador comprueba que las soluciones estén en verde y los starters en rojo *por la razón correcta*.
 - **🔁 Mejora con cada aprendiz.** El feedback mejora el lab, los anteriores, los que faltan y el propio método.
+
+**Quién usa qué.** Quien crea o mantiene un curso usa la skill. Quienes aprenden y quienes revisan solo necesitan el repositorio del curso: siguen sus labs y dan feedback en sus issues.
+
+StudyForge no busca ser un tutor de chat, una app de quizzes ni un generador de diapositivas; ChatGPT, Claude y NotebookLM ya lo hacen bien. Se enfoca en cursos basados en labs.
 
 Es la versión destilada de varias generaciones de labs de estudio personales (Quarkus, Kafka, programación reactiva, MongoDB, contenedores…). En el camino se quitó el proceso pesado de especificar cada lab y se conservó cada regla que hizo mejores los labs.
 

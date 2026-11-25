@@ -12,6 +12,12 @@ Short record of the decisions that shape StudyForge, and why. Only decisions som
   The third generation is the base. From the second, it brings back learning objectives, `CONCEPT.md`, command dissection, cleanup sections and links from READMEs to code.
 - **No per-lab `spec.md` / `plan.md` / `tasks.md`.** They were over-engineering for the need. A lab's design lives in its syllabus row and its README. The separate `architect`, `auditor` and `master-*` workflows became one `build` that designs, builds and self-audits. `governor` (propagating rule changes) lives on inside `review` and `feedback`.
 
+## Purpose
+
+- **StudyForge builds practical courses made of labs; it is not a tutor** (1.5). A market review (November 2026) found chat tutoring, quizzes, flashcards and slides done well by ChatGPT study mode, Claude's learning mode, Gemini Guided Learning and NotebookLM, and at least five tutor skills already published. What none of them builds is a lab-based course for any stack. Ideas from those tools may improve the writing rules; their deliverables stay out of scope.
+- **Verification is the guarantee, not the pitch** (1.5). What a learner gets is a syllabus, explained labs and solutions at hand. That labs work, because every command was run and `verify.py` checks starters and solutions, is what makes that trustworthy, so it stays mandatory. It is not the reason anyone picks the course.
+- **The skill serves the creator; the repository serves everyone else** (1.5). Whoever creates or maintains a course runs the skill. Learners and reviewers work in the course repository, often without the skill, so anything they need (how to study, how the agent should talk to them, how to give feedback) must live in the repository's own files.
+
 ## Format and portability
 
 - **One Agent Skill, not several.** Skills are copied folder by folder, and five skills that share templates break when only one is copied. A single folder with `SKILL.md` routing to `workflows/` installs anywhere in one step.
