@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.5.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.4.2...studyforge-v1.5.0) (2026-11-25)
+
+
+### Features
+
+* **skill:** ask three questions at most when planning a path ([#39](https://github.com/Chamba-Lab/studyforge/issues/39)) ([1f1602f](https://github.com/Chamba-Lab/studyforge/commit/1f1602f807d31113bd5a15d7a59f324ad6868137))
+* **skill:** check prerequisites before drafting a path and handle the gaps ([#42](https://github.com/Chamba-Lab/studyforge/issues/42)) ([3a0cd3c](https://github.com/Chamba-Lab/studyforge/commit/3a0cd3cd28f7c64dd12b01fdeeda6a6a05a0219c))
+* **skill:** define how the agent talks with creators and learners ([#38](https://github.com/Chamba-Lab/studyforge/issues/38)) ([759580a](https://github.com/Chamba-Lab/studyforge/commit/759580adb6c70260b6c47243140bfe4d3fdc42be))
+* **skill:** separate the didactics from the lab writing rules ([#36](https://github.com/Chamba-Lab/studyforge/issues/36)) ([945d439](https://github.com/Chamba-Lab/studyforge/commit/945d4390f648c0ba5c53cf2e80f3188dd462f0d1))
+
 ## [1.4.2](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.4.1...studyforge-v1.4.2) (2026-11-18)
 
 
