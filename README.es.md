@@ -68,10 +68,33 @@ npx skills add Chamba-Lab/studyforge
 
 **A mano:** copia la carpeta [`skills/studyforge/`](skills/studyforge/) en la carpeta de skills de tu agente (`~/.claude/skills/`, `.agents/skills/`…).
 
-Luego pídele a tu agente algo como *«Usa StudyForge para diseñar un camino de estudio de …»*.
-
 > [!TIP]
 > **¿Tu agente no soporta skills?** Cada repositorio de estudio que crea StudyForge lleva sus reglas en `AGENTS.md` (y un `CLAUDE.md` que lo importa). Así, cualquier agente que lea `AGENTS.md` puede seguir construyendo labs solo con el repositorio. En Gemini CLI, agrega `AGENTS.md` a `context.fileName` en su configuración.
+
+## 🚀 Inicio rápido
+
+Abre tu agente en una carpeta nueva y vacía, y copia estos prompts de uno en uno. Cambia el tema y los detalles por los tuyos.
+
+1. **Planifica el camino.** Di qué quieres aprender, para qué y qué sabes ya:
+
+   > Usa StudyForge para planificar un camino de estudio. Quiero aprender Kafka para mi trabajo de backend. Ya uso Spring Boot y Docker.
+
+   El agente te hace algunas preguntas y luego te muestra el camino completo como una tabla de bloques. Pide cambios hasta que se ajuste a ti.
+2. **Crea el repositorio** cuando estés de acuerdo con el plan:
+
+   > Crea el repositorio de estudio.
+
+   Recibes el sílabo, una guía de instalación y el verificador, en un primer commit. Todavía sin labs.
+3. **Construye el primer lab:**
+
+   > Construye el siguiente lab.
+
+   El agente construye un lab, lo ejecuta y lo commitea. Abre el `README.md` del lab y síguelo. Repite este prompt para cada lab.
+4. **Cuenta cómo te fue** al terminar un lab. Sé concreto:
+
+   > Resolví el lab 01-02. La sección de conceptos era muy larga y no entendí por qué se detiene el consumidor.
+
+   El agente corrige ese lab, revisa si los labs anteriores o los siguientes tienen el mismo problema y registra la lección.
 
 ## 🧱 Las piezas
 

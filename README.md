@@ -64,10 +64,33 @@ npx skills add Chamba-Lab/studyforge
 
 **By hand:** copy the [`skills/studyforge/`](skills/studyforge/) folder into your agent's skills folder (`~/.claude/skills/`, `.agents/skills/`, …).
 
-Then ask your agent something like *"Use StudyForge to design a study path for …"*.
-
 > [!TIP]
 > **No skill support at all?** Every study repository StudyForge creates carries its rules in `AGENTS.md` (with `CLAUDE.md` importing it), so any agent that reads `AGENTS.md` can keep building labs from the repository alone. For Gemini CLI, add `AGENTS.md` to `context.fileName` in its settings.
+
+## 🚀 Quick start
+
+Open your agent in a new, empty folder and copy these prompts one at a time. Change the subject and the details to yours.
+
+1. **Plan the path.** Say what you want to learn, what for, and what you already know:
+
+   > Use StudyForge to plan a study path. I want to learn Kafka for my backend job. I already use Spring Boot and Docker.
+
+   The agent asks a few questions, then shows the whole path as a table of blocks. Ask for changes until it fits you.
+2. **Create the repository** once you agree with the plan:
+
+   > Create the study repository.
+
+   You get the syllabus, a setup guide and the verifier, in one first commit. No labs yet.
+3. **Build the first lab:**
+
+   > Build the next lab.
+
+   The agent builds one lab, runs it, and commits it. Open the lab's `README.md` and follow it. Repeat this prompt for every lab.
+4. **Say how it went** after solving a lab. Be concrete:
+
+   > I solved lab 01-02. The concepts section was too long, and I did not understand why the consumer stops.
+
+   The agent fixes that lab, checks whether earlier or later labs have the same problem, and records the lesson.
 
 ## 🧱 The building blocks
 
