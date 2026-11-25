@@ -16,6 +16,7 @@ Read first: [layout](../references/layout.md), [method](../references/method.md)
    - `SYLLABUS.md`: the agreed syllabus, with the legend translated to the content language.
    - `SETUP.md`: tools, exact versions, and one command to check each, in the learner's shells.
    - `README.md`: the landing page for learners, in the content language. It covers what the path is, how to start, how to keep solutions (branch or fork), and how to read the guides.
+   - `TUTOR.md`: the prompt for learners who study in a chat instead of a coding agent, in the content language, filled with the title, the repository URL, the goal, the learner, the stack and the link to the lab feedback issue form.
    - `docs/decisions.md`: the dependency strategy, the pinned versions and the reason for each, and anything someone could undo without knowing why.
    - `docs/lessons.md`: an empty structure.
    - `.github/ISSUE_TEMPLATE/lab-feedback.yml`: written in the content language.

@@ -10,7 +10,11 @@
 ## 🚀 Start
 1. Install the tools in [SETUP.md](SETUP.md).
 2. Keep your work in your own branch (`git switch -c solutions/<your-name>`) or in a fork.
-3. Open [SYLLABUS.md](SYLLABUS.md) and start with lab 1.1.
+3. Open [SYLLABUS.md](SYLLABUS.md) and start with the first lab.
+
+<!-- studyforge: keep this tip in the content language. -->
+> [!TIP]
+> No coding agent? Study with Claude, ChatGPT or Gemini as your tutor: see [TUTOR.md](TUTOR.md).
 
 ## 🧭 How the labs work
 - 🧩 **Challenge:** `starter/` has TODOs and failing tests; make them green. `solution/` is there on purpose: you decide when to look.

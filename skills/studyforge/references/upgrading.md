@@ -28,6 +28,10 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ## Notes by version
 
+### 1.6.0
+
+- **Repository files:** copy [TUTOR.md](../templates/repo/TUTOR.md) to the repository root and fill it in the content language (title, repository URL, goal, learner, stack and versions, the feedback form link, the next-step line). Add the tip that links to it under *Start* in `README.md`. In *Talking with the learner* of `AGENTS.md`, add the lines about predictions, checking understanding and `TUTOR.md` from the [template](../templates/repo/AGENTS.md). Built labs need nothing.
+
 ### 1.5.0
 
 - **For built labs and repository files:** none. The rules for explaining moved from [writing](writing.md) to a new [didactics](didactics.md) reference; links into `writing.md#explaining` and `writing.md#tone` now point there.
