@@ -17,6 +17,7 @@ A stack note tells the workflows how to build and verify labs for one toolchain.
 3. **Making a starter**: it builds and runs, and its target tests fail.
 4. **Ignore rules** for `.gitignore`.
 5. **Gotchas** worth knowing before the first lab.
+6. **Watch mode**, only when the test runner has one built in and marked stable: then `SETUP.md` may mention it as optional, to rerun the tests on save. Do not add a dependency for it. In November 2026 none of the stacks here qualifies: Node's `node --test --watch` is experimental, pytest has no built-in one (pytest-xdist's `--looponfail` is deprecated), and Maven has none.
 
 A repository can declare several `[[stack]]` tables (for example, Maven labs plus a containers exploration). `verify.py` uses the first one whose `detect` pattern matches inside each variant folder, so list the most specific stack first.
 
