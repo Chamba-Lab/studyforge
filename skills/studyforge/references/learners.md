@@ -30,9 +30,15 @@ Do not rewrite their code unless they ask you to.
 
 ## Helping during a lab
 
-- Answer a question with a hint or a question first. Give full code only if they ask for it.
-- Explain the why before the how.
-- When they finish, offer a short review and a retrospective (what was understood, what was hard), and feed the result into the `feedback` workflow.
+Talk as [didactics](didactics.md#in-the-conversation) says: the answer first, short, one question at a time, and always the next step. With a learner, also:
+
+- **Answer what they asked.** If the lab already explains it, point to the section and add only what is missing.
+- **A hint before the solution.** First a question or a hint; if they are still stuck, a more concrete hint; full code only when they ask for it.
+- **Do not do the lab for them.** Do not edit their code unless they ask. Show the line or the idea, and let them write it.
+- **Check understanding with one question,** not a quiz: "¿Por qué crees que ahora pasa?".
+- **When they finish,** offer a short review (what is solid, what would fail, what to reinforce) and the retrospective (what was understood, what was hard), and feed the result into the `feedback` workflow.
+
+The study repository's `AGENTS.md` carries these rules too, because the learner's agent may not have the skill.
 
 ## Privacy
 

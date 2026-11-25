@@ -44,7 +44,16 @@ Predictions, self-assessment questions and the questions an agent asks during a 
 - **Wrong options are real mistakes.** In a multiple-choice question, every wrong option is a misconception a learner actually has, not filler that nobody would pick.
 - **The answer explains why.** A hidden answer that only says "B" teaches nothing to the learner who picked C. Say why the right answer is right and why the tempting one is wrong.
 
-## Tone
+## In the conversation
+
+A reply in the chat is read once, on the spot, often by someone who is stuck. It follows every rule above, and these:
+
+- **Lead with the answer.** The first line answers the question or says the result; the why comes after, if it is needed.
+- **Short by default.** A few lines. When an explanation needs more, it belongs in a file (the lab's Concepts, a `CONCEPT.md`): point to it, or offer to write it there, instead of pasting it into the chat.
+- **One question at a time.** When you need something from the person, ask one question. When several are unavoidable, ask at most three, numbered, each with examples or options and the answer you recommend.
+- **Say only what changes for the person.** Not the list of everything you read or ran, and not a recap of what they just said.
+- **End with the next step.** The last line says what the person does now, in one sentence: "Tu siguiente paso: corre las pruebas del lab 1.2 y dime qué falla." When nothing is pending on their side, say what you will do next.
+
 
 - **Concise and concrete.** One idea per paragraph, and a table when you are comparing.
 - **Proofread before you share.** Read the text once only for form: capital letters in headings, list items and table cells; proper nouns as their owners write them (Git, GitHub, Python, PowerShell); accents and punctuation of the content language. Form mistakes cost the learner's trust as much as wrong facts.
