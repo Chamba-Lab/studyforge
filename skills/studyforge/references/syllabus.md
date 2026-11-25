@@ -66,6 +66,7 @@ The syllabus has two readers: the **learner**, who decides whether the path is f
 - **Research current versions** before naming them. Prefer LTS or stable releases, write down the support window, and follow [sources](sources.md).
 - **Plan the whole path; build one block at a time.** The syllabus lays out every block from the starting level to the goal, each with its rows and project as ⬜ `pending`. Only then does `build` start on block 1. A path of one block hides where the learner is going and tempts you to squeeze the whole subject into it.
 - **Concepts first, then the tool, alternating.** A block opens with the ideas it needs in terms independent of the tool (often a `concept` lab, or the first part of the first lab), then teaches how the tool expresses them. Later labs alternate: a new idea, then its tool. Do not front-load all the theory: the learner should run something in the first or second lab of every block.
+- **Paths that teach attacks** include, early, a lab on authorization, scope and responsible disclosure (see [quality](quality.md#teaching-offensive-techniques)).
 - **Order by prerequisites.** A lab only uses what an earlier lab owns or what `SETUP.md` installs.
 - **The core path must stand alone.** Someone who skips every deep-dive, alternative and elective still gets a coherent path.
 - **Place extras after the core topic they extend.** They take the next free number, or a letter suffix when IDs are frozen (see [layout](layout.md)).
