@@ -15,6 +15,7 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
 1. **Design it.** Write down, for yourself:
    - the learning objectives (3–6);
    - the new concepts, and for each one the problem it solves, a minimal example and the term of art (see [didactics](../references/didactics.md#explaining));
+   - for a lab that attacks something, the target, who owns it, and why attacking it is allowed (see [quality](../references/quality.md#teaching-offensive-techniques));
    - the bridge from the previous lab;
    - the trap or traps;
    - the starting point;

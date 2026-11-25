@@ -65,6 +65,15 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 - Name what you create (containers, images, namespaces, branches) after the lab, and remove only those. Never stop processes or containers by pattern.
 - Use realistic but obviously fake secrets. Secret scanners react to real-looking tokens.
 
+## Teaching offensive techniques
+
+Security paths teach attacks (scanning, exploitation, cracking, phishing simulations). A learner who follows a lab against the wrong target commits a crime, so these labs have rules of their own:
+
+- **Only targets the learner owns or is allowed to attack.** Labs run against local, intentionally vulnerable targets: containers or virtual machines the lab starts, or practice platforms within their terms of use. Never a public address, a shared network, a real service or a third party's system, not even "just to look".
+- **Every lab that attacks says what makes it legal.** One line before the first command: whose target it is and why attacking it is allowed. A target that the lab does not start is named with its terms of use.
+- **Authorization and scope are a topic of the path.** A path that teaches attacks has a lab, early, on permission, scope, and what to do when you find something outside it (responsible disclosure). Later labs link to it.
+- **The target stays contained.** Vulnerable services listen only on `localhost` or an isolated network, and the cleanup section removes them.
+
 ## Platform notes worth knowing
 
 - **Encodings:** never write a UTF-8 byte-order mark. Some Windows shells add one when writing files or piping text to programs.
