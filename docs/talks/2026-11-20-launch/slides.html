@@ -601,7 +601,8 @@ Planifica el camino completo y deja el bloque 1 listo para construir.</div>
   });
 
   document.getElementById('viewport').addEventListener('click', (e) => {
-    if (e.target.closest('[contenteditable]')) return;
+    if (e.target.closest('[contenteditable], a')) return;
+    if (!window.getSelection().isCollapsed) return; // selecting text is not navigating
     show(current + (e.clientX > window.innerWidth / 3 ? 1 : -1));
   });
 
