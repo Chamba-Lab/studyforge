@@ -33,6 +33,8 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 - **For built labs and repository files:** none. The rules for explaining moved from [writing](writing.md) to a new [didactics](didactics.md) reference; links into `writing.md#explaining` and `writing.md#tone` now point there.
 - **For new labs only:** [didactics](didactics.md) adds two sets of rules. *One idea at a time*: one idea per unit, lead with the point, show instead of listing. *Questions that make the learner think*: predictions and self-assessment ask for retrieval or reasoning, one idea per question, wrong options are real mistakes, and answers explain why. A later review may apply them to built labs when the person asks for it.
 
+- **Repository files:** add the *Talking with the learner* section of the [AGENTS.md template](../templates/repo/AGENTS.md) to the repository's `AGENTS.md`, after *Working agreement*, with the next-step line in the language the learner chats in. In *Working agreement*, the terms-of-art rule now points to `references/didactics.md`. The learner's agent reads these rules even without the skill: answers come first and short, one question at a time, a hint before the solution, and every reply ends with the next step ([didactics](didactics.md#in-the-conversation), [learners](learners.md#helping-during-a-lab)).
+
 ### 1.4.2
 
 - **For built labs and repository files:** none.

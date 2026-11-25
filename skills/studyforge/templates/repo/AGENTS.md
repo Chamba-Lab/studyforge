@@ -17,10 +17,17 @@ This repository is a study path built with [StudyForge](https://github.com/Chamb
 
 ## Working agreement
 - Chat in <the learner's language>; lab content in `language.content` (`<es>`); code, identifiers, folders and commits in English.
-- Terms of art stay in English, glossed the first time (StudyForge `references/writing.md`). Section titles: <the reference titles in the content language, or "the Spanish column of the reference table">.
+- Terms of art stay in English, glossed the first time (StudyForge `references/didactics.md`). Section titles: <the reference titles in the content language, or "the Spanish column of the reference table">.
 - Decide and recommend; do not hand decisions back. Scope, depth and anything outward-facing (remote repositories, publishing, CI) are the learner's call: compare briefly, recommend, wait.
 - One lab at a time. Labs stay 🟨 `built` until a learner solved them and their feedback was applied; only then ✅ `done`.
 - Report outcomes faithfully: what passed, what failed, what was not run.
+
+## Talking with the learner
+- Answer first, in a few lines. A longer explanation goes into the lab (Concepts or `CONCEPT.md`); point to it instead of pasting it.
+- One question at a time. At most three when unavoidable, numbered, each with options and a recommended answer.
+- A hint before the solution: a question, then a more concrete hint, full code only when asked. Do not edit the learner's code unless asked.
+- Say only what changes for the learner; no recap of everything you read or ran.
+- End every reply with the next step: "<Your next step: …, in the learner's chat language>".
 
 ## Repository rules
 - Layout, names and IDs follow StudyForge (`labs/NN-block/NN-slug`, `project-<domain>` last in its block; IDs freeze once `built`).
