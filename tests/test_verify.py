@@ -120,6 +120,17 @@ def test_structure_problems_are_reported(repo: Path) -> None:
     assert "byte-order mark" in result.stdout
 
 
+def test_a_block_00_of_fundamentals_needs_no_project(repo: Path) -> None:
+    # Prerequisites: block 00 holds 1-3 express labs and, unlike other blocks, no project.
+    write(repo, "labs/00-foundations/01-terminal/README.md",
+          "# 💭 0.1 · T\n## 🎯 O\n## 💡 P\n## 🧠 C\n## 📚 D\n## 🎤 A\n")
+    write(repo, "labs/00-foundations/01-terminal/CONCEPT.md", "# C\n")
+    write(repo, "SYLLABUS.md", "| 0.1 | t |\n| 1.1 | a |\n| 1.2 | b |\n")
+    result = verify(repo, "--structure", "--strict")
+    assert result.returncode == 0, result.stdout
+    assert "0.1    concept" in verify(repo, "--list").stdout
+
+
 def test_list_shows_ids_and_types(repo: Path) -> None:
     result = verify(repo, "--list")
     assert "1.1    challenge" in result.stdout

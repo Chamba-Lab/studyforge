@@ -69,7 +69,15 @@ The syllabus has two readers: the **learner**, who decides whether the path is f
 - **Order by prerequisites.** A lab only uses what an earlier lab owns or what `SETUP.md` installs.
 - **The core path must stand alone.** Someone who skips every deep-dive, alternative and elective still gets a coherent path.
 - **Place extras after the core topic they extend.** They take the next free number, or a letter suffix when IDs are frozen (see [layout](layout.md)).
-- **Blocks have 3–7 labs and one project.** A final capstone is its own block.
+- **Blocks have 3–7 labs and one project.** A final capstone is its own block. The only exception is block `00`.
+
+## Prerequisites
+
+A path starts where the learner is, not where block 1 assumes they are. The [syllabus workflow](../workflows/syllabus.md) checks what block 1 needs before the plan is shown.
+
+- **Block `00` covers small gaps:** express fundamentals in 1–3 labs, with IDs `0.1`, `0.2`… It teaches only what block 1 uses, owns those topics like any lab, and has no project, because block 1's project already uses them. A learner who has the prerequisites skips it.
+- **A large gap is another path.** When the missing knowledge needs more than three labs, or is a whole language or discipline (Python before security, the terminal before Git workflows), a block `00` would squeeze it. Recommend that path first.
+- **A gap the person accepts is written down.** The notes of `SYLLABUS.md` say which labs will be hard without it and what to read first.
 - **One owner per topic.** If two rows teach the same thing, merge them or point one to the other. Owning means *teaching*; any later lab may *use* the topic with a link to its owner (see principle 5 in [method](method.md)).
 - **Size every lab at 1–2 h.** A row that needs "and" three times is two labs.
 - **Pick the starting point per lab**: a generated project, a minimal app, an earlier lab, or from scratch. Write it in "Starts from" in the build map (see principle 3 in [method](method.md)).
