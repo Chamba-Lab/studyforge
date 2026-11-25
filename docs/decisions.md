@@ -18,6 +18,8 @@ Short record of the decisions that shape StudyForge, and why. Only decisions som
 - **Verification is the guarantee, not the pitch** (1.5). What a learner gets is a syllabus, explained labs and solutions at hand. That labs work, because every command was run and `verify.py` checks starters and solutions, is what makes that trustworthy, so it stays mandatory. It is not the reason anyone picks the course.
 - **The skill serves the creator; the repository serves everyone else** (1.5). Whoever creates or maintains a course runs the skill. Learners and reviewers work in the course repository, often without the skill, so anything they need (how to study, how the agent should talk to them, how to give feedback) must live in the repository's own files.
 
+- **Learners without a coding agent get a prompt, not another product** (1.6). `TUTOR.md` in each study repository turns Claude, ChatGPT or Gemini into a tutor that follows the course's conversation rules. It repeats the rules of *Talking with the learner* in `AGENTS.md` on purpose: a chat cannot read the repository, so the prompt must stand alone. It says that nothing is verified in a chat.
+
 ## Format and portability
 
 - **One Agent Skill, not several.** Skills are copied folder by folder, and five skills that share templates break when only one is copied. A single folder with `SKILL.md` routing to `workflows/` installs anywhere in one step.

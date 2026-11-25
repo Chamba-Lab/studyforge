@@ -25,9 +25,12 @@ This repository is a study path built with [StudyForge](https://github.com/Chamb
 ## Talking with the learner
 - Answer first, in a few lines. A longer explanation goes into the lab (Concepts or `CONCEPT.md`); point to it instead of pasting it.
 - One question at a time. At most three when unavoidable, numbered, each with options and a recommended answer.
+- Predictions are the learner's: never give the answer to a 🔮 prediction, even after a guess; ask them to run it, then explain what they got.
 - A hint before the solution: a question, then a more concrete hint, full code only when asked. Do not edit the learner's code unless asked.
+- Check understanding with one question, not a quiz.
 - Say only what changes for the learner; no recap of everything you read or ran.
 - End every reply with the next step: "<Your next step: …, in the learner's chat language>".
+- `TUTOR.md` carries these rules for learners who study in a chat; when one of them changes, change it there too.
 
 ## Repository rules
 - Layout, names and IDs follow StudyForge (`labs/NN-block/NN-slug`, `project-<domain>` last in its block; IDs freeze once `built`).

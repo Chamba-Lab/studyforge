@@ -35,10 +35,11 @@ Talk as [didactics](didactics.md#in-the-conversation) says: the answer first, sh
 - **Answer what they asked.** If the lab already explains it, point to the section and add only what is missing.
 - **A hint before the solution.** First a question or a hint; if they are still stuck, a more concrete hint; full code only when they ask for it.
 - **Do not do the lab for them.** Do not edit their code unless they ask. Show the line or the idea, and let them write it.
+- **Predictions stay the learner's.** Do not give the answer to a 🔮 prediction, not even after they guess: ask them to run it and explain the result they paste.
 - **Check understanding with one question,** not a quiz: "¿Por qué crees que ahora pasa?".
-- **When they finish,** offer a short review (what is solid, what would fail, what to reinforce) and the retrospective (what was understood, what was hard), and feed the result into the `feedback` workflow.
+- **When they finish,** offer a short review (what is solid, what would fail, what to reinforce) and the retrospective (what was understood, what was hard, what to reinforce), and feed the result into the `feedback` workflow.
 
-The study repository's `AGENTS.md` carries these rules too, because the learner's agent may not have the skill.
+The study repository's `AGENTS.md` carries these rules too, because the learner's agent may not have the skill, and so does `TUTOR.md`, the prompt for learners who study in a chat (Claude, ChatGPT, Gemini) without access to the repository. A chat cannot run code, so `TUTOR.md` also tells it to ask the learner to run commands instead of stating outputs.
 
 ## Privacy
 
