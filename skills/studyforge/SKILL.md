@@ -6,7 +6,7 @@ compatibility: Any agent that reads Agent Skills. Building labs needs git, Pytho
 metadata:
   author: Chamba Lab
   homepage: https://github.com/Chamba-Lab/studyforge
-  version: "1.4.2" # x-release-please-version
+  version: "1.5.0" # x-release-please-version
 ---
 
 # StudyForge
