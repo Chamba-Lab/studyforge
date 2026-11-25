@@ -28,6 +28,11 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ## Notes by version
 
+### 1.5.0
+
+- **For built labs and repository files:** none. The rules for explaining moved from [writing](writing.md) to a new [didactics](didactics.md) reference; links into `writing.md#explaining` and `writing.md#tone` now point there.
+- **For new labs only:** [didactics](didactics.md) adds two sets of rules. *One idea at a time*: one idea per unit, lead with the point, show instead of listing. *Questions that make the learner think*: predictions and self-assessment ask for retrieval or reasoning, one idea per question, wrong options are real mistakes, and answers explain why. A later review may apply them to built labs when the person asks for it.
+
 ### 1.4.2
 
 - **For built labs and repository files:** none.
@@ -66,13 +71,13 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 - **Mechanical:** add `GLOSSARY.md` at the root from the template.
 - **For built labs:**
-  - Concepts go problem → idea → example → name, with the idea before the tool ([writing](writing.md#explaining)). Concepts written as bare definitions are rewritten.
+  - Concepts go problem → idea → example → name, with the idea before the tool ([didactics](didactics.md#explaining)). Concepts written as bare definitions are rewritten.
   - Terms of art and the method's names stay in English; other section titles come from the reference table ([writing](writing.md#section-anchors)).
 - **`SYLLABUS.md`:** split it into the learner's table and the build map, plan every block of the path, and keep each block on one focus ([syllabus](syllabus.md)). If a built block mixes levels, this is a rebuild, not a patch.
 
 ### 1.0.1
 
-- **For built labs:** capitalize diagram labels as prose, and proofread every lab once only for form ([writing](writing.md#tone)).
+- **For built labs:** capitalize diagram labels as prose ([writing](writing.md#tone)), and proofread every lab once only for form ([didactics](didactics.md#tone)).
 
 ### 1.0.0
 

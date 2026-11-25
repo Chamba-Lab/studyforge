@@ -1,4 +1,4 @@
-<!-- studyforge: Optional in challenge and exploration labs, required in concept labs. Depth over definitions: explain the internal mechanics. Every concept goes problem → idea → example → name (references/writing.md#explaining). Source every non-obvious claim. Delete these comments. -->
+<!-- studyforge: Optional in challenge and exploration labs, required in concept labs. Depth over definitions: explain the internal mechanics. Every concept goes problem → idea → example → name (references/didactics.md#explaining). Source every non-obvious claim. Delete these comments. -->
 # 🧠 <Title>: concepts
 
 ## The problem

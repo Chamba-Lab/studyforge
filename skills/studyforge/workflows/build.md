@@ -14,7 +14,7 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
 
 1. **Design it.** Write down, for yourself:
    - the learning objectives (3–6);
-   - the new concepts, and for each one the problem it solves, a minimal example and the term of art (see [writing](../references/writing.md#explaining));
+   - the new concepts, and for each one the problem it solves, a minimal example and the term of art (see [didactics](../references/didactics.md#explaining));
    - the bridge from the previous lab;
    - the trap or traps;
    - the starting point;
