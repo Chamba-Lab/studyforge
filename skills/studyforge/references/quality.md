@@ -8,7 +8,7 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 2. **At least one explicit trap**: a situation where the intuitive answer fails (precedence, build time vs run time, defaults, ordering…). The learner discovers it, and the README explains it afterwards.
 3. **Predict before running.** Experiments ask the learner to write down a prediction first.
 4. **Verified claims only.** Every command, output, error message, default value and trap quoted in the README was produced by running it on the pinned versions. Nothing comes from memory, and nothing comes only from a guide's example.
-5. **Explained, not only exercised.** Every new concept is introduced with the problem it solves and an example before a task needs it (see [writing](writing.md#explaining)).
+5. **Explained, not only exercised.** Every new concept is introduced with the problem it solves and an example before a task needs it (see [didactics](didactics.md#explaining)).
 6. **Direct and short.** 1–2 h. Optional material goes into the "Stretch goal" section.
 7. **Lean.** Every section has content of its own, and each idea is said once (see [writing](writing.md)). A section added to fill the template, or a paragraph that repeats another one, costs the learner attention for nothing.
 
@@ -16,14 +16,14 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 
 **Every lab**
 - [ ] The README follows the template of its type, and every required section anchor is present, with the reference titles ([writing](writing.md)).
-- [ ] Read as a learner at this point of the path: every new concept is introduced (problem, idea, example, name) before a task needs it, and every term of art and acronym is glossed the first time ([writing](writing.md#explaining)).
+- [ ] Read as a learner at this point of the path: every new concept is introduced (problem, idea, example, name) before a task needs it, and every term of art and acronym is glossed the first time ([didactics](didactics.md#explaining)).
 - [ ] Nothing before a prediction answers it: not Concepts, not the scenario's tables, not the dissection, not the starter.
 - [ ] Every optional section has content of its own, no idea is explained twice, and long sections show their parts with `###` ([writing](writing.md#say-each-thing-once)).
 - [ ] Every number and name in the README and in the starter's comments matches the files (test counts, how many tests come written, which settings each `pyproject` or build file has).
 - [ ] Every command and quoted output in the README was run, in the learner's shells from `studyforge.toml`.
 - [ ] Every claim was checked against [sources](sources.md), and every link opens.
 - [ ] Diagrams render on GitHub ([visuals](visuals.md)).
-- [ ] Proofread for form: capitalization (headings, lists, tables, diagram labels), proper nouns, accents and punctuation in the content language ([writing](writing.md#tone)).
+- [ ] Proofread for form: capitalization (headings, lists, tables, diagram labels), proper nouns, accents and punctuation in the content language ([didactics](didactics.md#tone)).
 - [ ] No byte-order mark, no build output, no `.env`, no secret. Wrapper scripts (`mvnw`, `gradlew`) are executable in git.
 - [ ] `python tools/verify.py --lab <ID>` passes.
 - [ ] `SYLLABUS.md` says `🟨 built`, and its "Notes for the next labs" are updated.

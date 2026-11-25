@@ -57,7 +57,8 @@ Read a reference when a workflow points to it.
 | [projects](references/projects.md) | The integrator project that closes each block |
 | [dependencies](references/dependencies.md) | Shared parent, independent or per-block builds |
 | [quality](references/quality.md) | Definition of done, traps, verification, inherited lessons |
-| [writing](references/writing.md) | README structure, section anchors, commands, tone |
+| [didactics](references/didactics.md) | How to explain anything to a learner: concepts, terms, one idea at a time, questions, tone |
+| [writing](references/writing.md) | How lab material is written: README structure, section anchors, commands, teaching devices |
 | [visuals](references/visuals.md) | Which visual to use when, and how readers see it |
 | [sources](references/sources.md) | Which sources to trust, and safety rules |
 | [learners](references/learners.md) | How learners work, progress and give feedback |

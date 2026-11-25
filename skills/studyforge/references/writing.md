@@ -1,16 +1,15 @@
 # Writing labs
 
-Lab READMEs are learning material. They must be easy to scan, pleasant to follow and honest.
+Lab READMEs are learning material. They must be easy to scan, pleasant to follow and honest. This file says how lab material is written. How to explain anything to a learner, in a lab or in the conversation, lives in [didactics](didactics.md), and every rule there applies here.
 
 ## Language
 
 - **Lab content** (READMEs, `CONCEPT.md`, `BRIEF.md`, `REVIEW.md`) is written in `language.content` from `studyforge.toml`.
 - **Code, identifiers, test names, comments in code, folder names and commit messages** are always in English.
 - **Keys** (`pending`, `core`, `challenge`…) stay in English, followed by their emoji.
-- **Terms of art stay in English** when that is how the trade uses them (test suite, fixture, mock, stub, Arrange-Act-Assert, pull request, deployment). The first time a lab uses one, give it a short gloss in the content language: "un *fixture* (la preparación que una prueba necesita)". From then on, use the English term. A learner who only knows a literal translation cannot search the docs or follow a team conversation. Translate the term only when the content language has an established equivalent that practitioners use ("prueba unitaria" is used; "accesorio" for fixture is not).
+- **Terms of art stay in English**, glossed the first time ([didactics](didactics.md#terms-of-art)).
 - **StudyForge's own vocabulary stays in English**: the keys, the lab types and the names of its teaching devices (*Command dissection*, *Predict first*). They are the method's names, the same in every study path.
 - **Every other heading is translated** with the table in [Section anchors](#section-anchors), not improvised. A literal translation that sounds odd ("Disección de comandos") is a sign the term belongs to the method and stays in English.
-- Use plain, neutral language, without local slang. Use short sentences and active voice. Explain the *why* before the *how*.
 
 ## Section anchors
 
@@ -54,7 +53,7 @@ A long section reads as a flat wall unless its parts are visible. Inside a secti
 
 ## Say each thing once
 
-Each idea has one home in the lab. Concepts explain it, the task uses it, the hint points at it, and the verified answer shows what happened. If a second section needs it, it refers back in a few words; it does not explain it again. Watch for these repeats:
+Each idea has one home ([didactics](didactics.md#say-each-thing-once)). In a lab, Concepts explain it, the task uses it, the hint points at it, and the verified answer shows what happened. Watch for these repeats:
 - 💼 restating Concepts. It only adds what the lab did not say: team practice, production, security, tools beyond the lab.
 - 🔍 explaining again what the Concepts examples already showed. It is a reference card: one line per item, with options and defaults.
 - A note repeated right under a table that already says it.
@@ -71,23 +70,10 @@ Each idea has one home in the lab. Concepts explain it, the task uses it, the hi
 
 ## Explaining
 
-The teaching devices below make the learner practice. This section makes sure they understood what to practice first. A lab that only lists definitions and then asks for a task is a test, not a lesson.
+Every concept follows [didactics](didactics.md#explaining): problem, idea, example, name; concept before tool; a worked example before the task. In a lab README that takes this shape:
 
-- **Introduce before you use.** Every new concept arrives in this order:
-  1. **The problem**, starting from something the learner already knows: "comparar `0.1 + 0.2` con `0.3` da `False`; ¿por qué?".
-  2. **The idea** in one or two plain sentences.
-  3. **A minimal example** that shows it working, on a case different from the task's.
-  4. **The name**: the term of art, glossed the first time.
-
-  A concept that appears in a task, a command or a hint without this introduction (here or in its owner lab) is an orphan concept, and a defect.
-- **🧠 Concepts is not a dictionary.** Each concept follows the order above, under its own `###` heading, in a short paragraph and a small code block, not a one-line definition. Up to about five concepts stay in the README. A concept that needs a diagram or its internal mechanics, or a lab with more than five, moves the explanation to `CONCEPT.md` and keeps a short summary with a link in the README.
+- **🧠 Concepts is not a dictionary.** Each concept follows that order, under its own `###` heading, in a short paragraph and a small code block, not a one-line definition. Up to about five concepts stay in the README. A concept that needs a diagram or its internal mechanics, or a lab with more than five, moves the explanation to `CONCEPT.md` and keeps a short summary with a link in the README.
 - **Concepts say what something does, not what goes wrong without it.** When a 🔮 prediction asks what happens if the learner forgets a setting, misuses a tool or picks the wrong data, the Concepts section must not answer it: it presents the tool and how to use it, and the consequence of misusing it stays for the verified answer. The learner reads Concepts first, so a trap explained there is spoiled.
-- **Concept first, tool second.** Say what the idea is in terms independent of the tool, then show how the tool expresses it: "una prueba parametrizada es una misma prueba que corre con varios datos" before `@pytest.mark.parametrize`. The learner should be able to take the idea to another tool.
-- **A worked example before the task.** Before asking the learner to do something new, show it done once, complete and on a different case. The task then asks for the same skill on new data, not for guessing the syntax.
-- **Analogies only when they map.** Use one when it maps the mechanism, not just the mood, and say where it stops working: "como una alarma de humo… pero, a diferencia de la alarma, una prueba solo detecta lo que le pediste revisar".
-- **Bridge to the previous lab.** Open "Why it matters" or "Concepts" with one sentence that connects to what the learner already did: "En el lab 1.2 escribiste una prueba por caso; aquí…".
-- **Keep the jargon level even.** Titles, objectives and the syllabus use words the learner knows at that point. A term not yet taught gets a gloss or waits for its lab. Acronyms count as terms: the first "CI" or "API" a learner meets gets its gloss.
-- **Only what the lab uses.** A concept the lab's tasks do not need belongs to the lab that uses it. A short "you will use this in…" mention is fine; a full explanation is not.
 - **Glossary.** When a study path accumulates terms of art (as a rule of thumb, from about ten), add a `GLOSSARY.md` at the repository root from [the template](../templates/repo/GLOSSARY.md). Group it by block. Each entry is the term as the trade writes it, one line in the content language, and a link to the lab that owns it. It is an index, not a second explanation: the owner lab keeps the explanation.
 
 ## Teaching devices
@@ -102,14 +88,13 @@ The teaching devices below make the learner practice. This section makes sure th
 - **Links to code:** every scenario links its implementation and tests with relative paths.
 - **💼 In real projects:** professional judgment, security, operations, typical team mistakes, and how this is configured outside development mode. Only what the lab did not already say; leave the section out when there is nothing new.
 - **✔️ Verified answers** answer every prediction with the real output. They open with one line naming the versions they were run on, worded the same in every lab of the repository.
-- **🎤 Self-assessment:** 5 interview-level questions, to answer without looking at the code. In concept labs the answers go in `<details>` blocks.
+- **🎤 Self-assessment:** 5 interview-level questions, to answer without looking at the code, written as [questions that make the learner think](didactics.md#questions-that-make-the-learner-think). In concept labs the answers go in `<details>` blocks.
 - **🔁 Retrospective:** what did I understand, what was hard, what should I reinforce. It feeds the `feedback` workflow.
 
 ## Tone
 
-- **Concise and concrete.** Use one idea per paragraph, and a table when you are comparing.
+The tone rules in [didactics](didactics.md#tone) apply. Lab material adds these:
+
 - **Use emoji as signposts, not decoration**: the section anchors and an occasional marker (🔮, ⚠️). Never add emoji inside code or commands.
 - Use tables for comparisons, Mermaid for flows, and a single diagram per idea (see [visuals](visuals.md)).
 - **Write diagram labels as prose.** Node and edge labels start with a capital letter in the content language (`Your tests`, `Tus pruebas`, `Yes` / `No`, `Sí` / `No`). Code identifiers, commands and workflow names keep their exact spelling (`settle`, `weight_kg > 2?`, `build`), and the line after them is capitalized (`build<br/>Next lab`).
-- **Proofread before you commit.** Read the text once only for form: capital letters in headings, list items, table cells and diagram labels; proper nouns as their owners write them (Git, GitHub, Python, PowerShell); accents and punctuation of the content language. Form mistakes cost the learner's trust as much as wrong facts.
-- No filler, no hype, no promises. If something is uncertain, say what was measured and where.
