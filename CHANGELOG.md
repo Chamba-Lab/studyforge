@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.6.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.5.0...studyforge-v1.6.0) (2026-11-25)
+
+
+### Features
+
+* **skill:** add TUTOR.md so learners can study a path in a chat ([#43](https://github.com/Chamba-Lab/studyforge/issues/43)) ([28467ef](https://github.com/Chamba-Lab/studyforge/commit/28467ef96e7e60ec1072f57b5459b6060dda26f6))
+* **skill:** teach offensive security only against allowed targets ([#45](https://github.com/Chamba-Lab/studyforge/issues/45)) ([8c2da71](https://github.com/Chamba-Lab/studyforge/commit/8c2da71f353111dec575dca3c0d140678c50f407))
+
+
+### Bug Fixes
+
+* restore the Tone heading of didactics and check link anchors ([#44](https://github.com/Chamba-Lab/studyforge/issues/44)) ([acfbbd1](https://github.com/Chamba-Lab/studyforge/commit/acfbbd1acf4bc76c006f7de4792cbbee05cb1e6d))
+
 ## [1.5.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.4.2...studyforge-v1.5.0) (2026-11-25)
 
 
