@@ -15,8 +15,11 @@ The measured cost per lab, in millions of tokens reread from cache:
 | First version: a new builder applies the feedback | 6–10 | 1–2 | none | 2–4 | 9–15 |
 | Lean: the same builder applies the feedback | 3.5–7 | 0.4–0.8 | none | none | 4–8 |
 | This loop: briefs, turn budget, validator and checker in parallel | 3.7–3.9 | 0.5 | 0.6–0.7 | none | 4.8–5.0 |
+| Same loop, after rewriting the repository's lessons and notes as current rules (5 labs) | 2.8–3.5 | 0.3–0.7 | 0.4–1.2 | none | 3.6–5.1 |
 
-The last row comes from two labs of the second block, built with the rules below. Each builder stayed within its budget (29 and 28 turns, feedback round included). The validator and the checker found different problems: spoilers and wording for the validator, unsourced claims about another engine and unordered example queries for the checker. Neither found a blocker.
+The third row comes from two labs of the second block, built with the rules below. Each builder stayed within its budget (29 and 28 turns, feedback round included). The validator and the checker found different problems: spoilers and wording for the validator, unsourced claims about another engine and unordered example queries for the checker. Neither found a blocker.
+
+The fourth row is the rest of that block: builders took 17% fewer tokens than in the two labs before, once `docs/lessons.md` and the syllabus notes held only current rules. The project cost 7.7 million with its learner. The orchestrator did not get cheaper by starting a fresh session: it stayed at about 1.3 million per lab, about a fifth of the whole block, which is what the two orchestrator rules below address.
 
 ## Roles
 
@@ -83,6 +86,8 @@ sequenceDiagram
 - **Use the version matrix only for version-dependent output.** Run the repository's environment, the oldest supported version and the newest. More versions only for an output known to change between them.
 - **Read only what the role needs.** The builder reads the lab's syllabus row and "Notes for the next labs", not the whole syllabus; one previous README as a model, not all of them. The orchestrator reads the returned summaries, never the findings files themselves.
 - **Subagents work without narrating.** Nobody reads a subagent's messages between tool calls; the orchestrator gets only its final report, so progress messages are output it pays for and no one reads. The orchestrator writes to the person only at decisions and at the end.
+- **The orchestrator relays paths, not contents.** It sends the builder the paths of the validator's and checker's report files and which findings to apply, never a summary of them; the builder reads the files itself. Every line the orchestrator writes or reads stays in its context and is reread on each of its turns.
+- **The orchestrator answers only what needs it.** A subagent's report that needs no decision gets no reply to the person; one line per finished lab is enough. A progress reminder from the agent is answered in one line, without rereading files.
 - **Agents write their reports to files** outside the repository and return a few lines. The orchestrator does not copy long reports into the chat or into other files.
 - **Give the builder a budget.** About 30 turns for a lab and 40 for a project. A builder near its budget commits what is verified and reports what is left, instead of starting over.
 - **Run the learner once per block, on the project,** which uses everything the block taught. The validator and checker cover each lab.
