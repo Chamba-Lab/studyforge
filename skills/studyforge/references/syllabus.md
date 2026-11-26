@@ -50,7 +50,7 @@ The syllabus has two readers: the **learner**, who decides whether the path is f
 | 1.1 | Dev mode, live reload | — | Generated project |
 | 1.P | — | 1.1–1.4 | From scratch |
 
-6. **Notes for the next labs**: what the next lab should reuse, avoid or set up. Write it at the end of every lab so a fresh session can continue.
+6. **Notes for the next labs**: what the next lab should reuse, avoid or set up. Write it at the end of every lab so a fresh session can continue, and delete a note once the labs it serves are built.
 
 ### Writing the rows
 

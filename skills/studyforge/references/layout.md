@@ -57,7 +57,7 @@
 
 ```toml
 # StudyForge configuration. Read by the workflows and by tools/verify.py.
-studyforge = "0.1.0"            # framework version this repository follows
+studyforge = "<version>"        # framework version this repository follows
 
 [path]
 title = "Kafka, from zero to job-ready"

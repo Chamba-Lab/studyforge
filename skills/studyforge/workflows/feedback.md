@@ -22,7 +22,7 @@ Feedback can arrive at any moment, from the conversation or from a "Lab feedback
 3. **Apply it.**
    - Fix the lab with minimal changes, and look for the same issue in earlier labs.
    - Re-run `python tools/verify.py` on every lab you touch.
-   - Write what the next labs must do differently into the syllabus "Notes for the next labs".
+   - Write what the next labs must do differently into the syllabus "Notes for the next labs", and into `docs/lessons.md` as a rule under its topic.
 4. **Close the loop.**
    - Once the learner has solved the lab and their feedback is applied, set it to `✅ done` in `SYLLABUS.md`.
    - Commit with `fix(lab-<ID>): apply learner feedback` (or `docs(syllabus): …`).
