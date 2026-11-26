@@ -50,8 +50,9 @@ flowchart TD
     N -- yes --> B
     N -- no --> P[Builder builds the project]
     P --> PV[Validator and checker<br/>on the project]
-    PV --> L[Learner solves the project<br/>in its own branch]
-    L --> PF[Builder applies the feedback]
+    P --> L[Learner solves the project<br/>in its own branch]
+    PV --> PF[Same builder applies all<br/>three files in one round]
+    L --> PF
     PF --> PR[Orchestrator opens one<br/>pull request for the block]
     PR --> H([The person approves<br/>and merges])
 ```
@@ -89,17 +90,23 @@ sequenceDiagram
 - **The orchestrator relays paths, not contents.** It sends the builder the paths of the validator's and checker's report files and which findings to apply, never a summary of them; the builder reads the files itself. Every line the orchestrator writes or reads stays in its context and is reread on each of its turns.
 - **The orchestrator answers only what needs it.** A subagent's report that needs no decision gets no reply to the person; one line per finished lab is enough. A progress reminder from the agent is answered in one line, without rereading files.
 - **Agents write their reports to files** outside the repository and return a few lines. The orchestrator does not copy long reports into the chat or into other files.
-- **Give the builder a budget.** About 30 turns for a lab and 40 for a project. A builder near its budget commits what is verified and reports what is left, instead of starting over.
-- **Run the learner once per block, on the project,** which uses everything the block taught. The validator and checker cover each lab.
+- **Give every agent a budget.** About 30 turns for a builder on a lab and 40 on a project, 10 to 12 for the fix round, and about 10 for the validator and the checker. A builder near its budget commits what is verified and reports what is left, instead of starting over. Without a budget, a checker in the second block took 1.15 million tokens; with one, 0.35 to 0.6.
+- **Pass the review's rules forward.** When the validator or checker finds a kind of defect, the next builder's brief names it in one line, and the builder records it in `docs/lessons.md`. In the second block, the same giveaways stopped coming back after two labs.
+- **Run the learner once per block, on the project,** which uses everything the block taught. The validator and checker cover each lab. On the project, start the validator, the checker and the learner together, and send the builder all three files in one fix round: the learner reads only the starter, so it does not need the review's fixes first.
+
+## Quota and measurement
+
+- **A block does not fit in one usage window.** A whole block (five labs and a project) took about 29 million tokens of subagents, more than one five-hour window. When an agent stops on the limit, its work so far is saved: after the reset, send the same agent a message to continue instead of starting a new one. Its cache has expired, so the first turn rewrites it, which cost about 0.13 million in the pilot.
+- **Measure from the transcripts.** Each subagent's transcript is a `.jsonl` file in the session's `subagents/` folder. Sum the `usage` of each assistant message, counting each message id once, because a message with several tool calls repeats its usage on several lines. Cache reads are most of the total.
 
 ## Briefs
 
 The orchestrator starts each agent with a short brief, in the language the agent works in, never pasting the method itself.
 
 - **Builder:** the repository path and branch; the lab ID; "follow the build workflow of the StudyForge skill at `<path>`"; the turn budget; "do not publish, push or open issues"; "write your report to `<file>` and return at most 10 lines".
-- **Validator:** the commit; "do not edit or commit"; the checklist: (1) the repository's conventions from `AGENTS.md` and the syllabus notes; (2) whether anything before each prediction, or the step right after it, gives the answer away; (3) whether a beginner at this point can follow every step and term; (4) whether the lab's claims match its files. Each finding has file, quoted line, why, fix and severity (blocker, important, minor).
-- **Checker:** the commit; "do not edit or commit"; the external links to open and confirm; the claims about other tools to check against their documentation; 3 to 5 beginner wrong answers to run against the tests in a scratch copy; a search of the tracked files for personal data (user names, home paths, real e-mail addresses).
-- **Learner:** a persona (background, what they know, the language they write), the lab or project, the worktree branch, "read the README only up to the answers section; never print the whole file at once", "solve it, then write feedback in the shape of the repository's feedback form".
+- **Validator:** the commit; "do not edit or commit, and do not check out commits or switch branches"; about 10 turns; the checklist: (1) the repository's conventions from `AGENTS.md` and the syllabus notes; (2) whether anything before each prediction (objectives, table captions, task steps, hints, the prediction's own question, the concepts section) or the step right after it gives the answer away, names the trap or states the expected count, and whether each prediction is asked neutrally ("does it pass? if not, how many rows?"); (3) whether a beginner at this point can follow every step and term; (4) whether the lab's claims match its files, including every data table printed in the README against the seed, row for row. Each finding has file, quoted line, why, fix and severity (blocker, important, minor).
+- **Checker:** the commit; "do not edit or commit, and do not check out commits or switch branches"; about 10 turns; the external links to open and confirm, each anchor checked in the page's raw HTML (`id=` or `name=`), because text extracted from a page drops old-style `name` anchors and gave false "missing anchor" findings twice in the pilot; the claims about other tools to check against their documentation; 3 to 5 beginner wrong answers to run against the tests in a scratch copy, reporting apart a wrong answer that passes (a gap in the tests) and a different but equivalent correct answer (which the lab names as an alternative; the tests compare rows, not the text of the answer); a search of the tracked files for personal data (user names, home paths, real e-mail addresses).
+- **Learner:** a persona (background, what they know, the language they write), the lab or project, the worktree branch, "read the README only up to the answers section; never print the whole file at once", "solve it, then write feedback in the shape of the repository's feedback form", "report how many attempts each question took, not how long". An agent cannot measure a learner's minutes: in the pilot, one reported 2 h 45 min for a run of two minutes, while its attempts (5 of 6 questions failed the first time) were real. If the agent tool puts the worktree inside the repository (for example under `.claude/worktrees/`), remove it when the block is merged, or ignore that folder, so it never shows up in `git status`.
 
 ## What stays with the person
 
