@@ -45,4 +45,4 @@
 | 1.P | — | 1.1–1.N | From scratch |
 
 ## Notes for the next labs
-- <What the next lab should reuse, avoid or set up. Updated at the end of every lab.>
+- <What the next labs should reuse, avoid or set up. Updated at the end of every lab; a note is deleted once the labs it serves are built.>

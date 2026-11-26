@@ -4,6 +4,8 @@ Build the next lab or project in the syllabus, verify it and commit it.
 
 Read first: the study repository's `AGENTS.md`, `SYLLABUS.md` and `docs/lessons.md`. Then read [lab-types](../references/lab-types.md) or [projects](../references/projects.md), and [quality](../references/quality.md), [writing](../references/writing.md) and [visuals](../references/visuals.md).
 
+To build a whole block with no person at the keyboard between labs, when your agent can start subagents, follow [multi-agent build](../references/multi-agent-build.md): it splits this workflow into roles and keeps the cost down.
+
 ## Choose what to build
 
 Take the **first `⬜ pending` row in syllabus order**, unless the person names another one. Do not ask which one: the syllabus order is the plan. Build one item at a time.
@@ -40,9 +42,9 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
    - **Read the lab as a learner** at the level the syllabus sets for this point. Can you follow it without guessing? Is every new concept introduced with its problem and an example before a task needs it, or taught in an earlier lab? Is every term of art and acronym glossed the first time? Does anything the learner reads before a prediction give its answer away?
    - **Read it once more as an editor**, only for form: does every optional section add something of its own, is any idea explained twice, does a long section show its parts with `###`, and do the counts and names in the README and the starter's comments match the files?
 7. **Update the memory.**
-   - In `SYLLABUS.md`: set the status to `🟨 built`, add the link to the README, and update the build map and the "Notes for the next labs".
+   - In `SYLLABUS.md`: set the status to `🟨 built`, add the link to the README, and update the build map and the "Notes for the next labs": add what the next labs need and delete notes whose labs are now built.
    - In `GLOSSARY.md`, when the repository has one: add the terms of art this lab owns.
-   - In `docs/lessons.md`: add anything worth keeping.
+   - In `docs/lessons.md`: only when a rule changed, edit or replace the bullet under its topic. It holds the rules that still hold, not a diary of labs.
    - In `docs/decisions.md`: add any decision someone could undo without knowing why.
 8. **Commit** with `feat(lab-<ID>): <what the lab teaches>`. Push only at milestones or when asked.
 9. **Report briefly:**

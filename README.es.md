@@ -126,7 +126,7 @@ kafka-lab/
     └── 02-streams/ …
 ```
 
-Detalle (en inglés): [layout](skills/studyforge/references/layout.md) · [tipos de lab](skills/studyforge/references/lab-types.md) · [proyectos](skills/studyforge/references/projects.md) · [calidad](skills/studyforge/references/quality.md) · [redacción](skills/studyforge/references/writing.md) · [stacks](skills/studyforge/stacks/README.md).
+Detalle (en inglés): [layout](skills/studyforge/references/layout.md) · [tipos de lab](skills/studyforge/references/lab-types.md) · [proyectos](skills/studyforge/references/projects.md) · [calidad](skills/studyforge/references/quality.md) · [redacción](skills/studyforge/references/writing.md) · [construir con varios agentes](skills/studyforge/references/multi-agent-build.md) · [stacks](skills/studyforge/stacks/README.md).
 
 ## 📖 Cómo ver las guías
 

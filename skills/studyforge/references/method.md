@@ -40,8 +40,8 @@ A study path is a **syllabus** split into **blocks**. A block is a group of **la
 | `AGENTS.md` (+ `CLAUDE.md` importing it) | The rules of this repository: context, stack, versions, conventions | A rule changes |
 | `SYLLABUS.md` | The plan and the status of every lab, plus notes for the next labs | Every lab built or finished |
 | `SETUP.md` | Tools, versions and how to check them | Versions change |
-| `docs/decisions.md` | Decisions that someone could undo without knowing why | A decision is taken or changed |
-| `docs/lessons.md` | Lessons from building labs in this stack | After a lab or a feedback round |
+| `docs/decisions.md` | Decisions still in force that someone could undo without knowing why; a changed decision replaces the old one | A decision is taken or changed |
+| `docs/lessons.md` | The rules learned from building labs in this stack, by topic, not by lab; agents reread it every session, so it stays short | A rule is learned or changes |
 | `tools/verify.py` | The mechanical part of the definition of done | The framework is upgraded |
 | `labs/` | The labs and projects | Every lab |
 

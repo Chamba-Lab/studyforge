@@ -28,6 +28,11 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ## Notes by version
 
+### 1.7.0
+
+- **For new labs only:** nothing to change in the repository. A new reference, [multi-agent build](multi-agent-build.md), describes how to build a whole block with subagents (orchestrator, builder, validator, checker and learner), which model tier each role needs and the rules that keep the cost down.
+- **Keep `docs/lessons.md` and the syllabus notes short.** Agents reread them every session. Rewrite `docs/lessons.md` grouped by topic, not by lab: one rule per bullet, in the imperative, with its reason; merge duplicates and delete lessons that moved into `AGENTS.md`, a tool or StudyForge. In `SYLLABUS.md`, delete the "Notes for the next labs" whose labs are built. In `docs/decisions.md`, replace superseded decisions instead of keeping both.
+
 ### 1.6.1
 
 - **Repository files:** in *Upgrading the stack* of `AGENTS.md`, list `TUTOR.md` among the files to change, because it names the versions.
