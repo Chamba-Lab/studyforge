@@ -28,6 +28,10 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ## Notes by version
 
+### 1.7.0
+
+- **For new labs only:** nothing to change in the repository. A new reference, [multi-agent build](multi-agent-build.md), describes how to build a whole block with subagents (orchestrator, builder, validator, checker and learner), which model tier each role needs and the rules that keep the cost down.
+
 ### 1.6.1
 
 - **Repository files:** in *Upgrading the stack* of `AGENTS.md`, list `TUTOR.md` among the files to change, because it names the versions.

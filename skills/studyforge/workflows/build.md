@@ -4,6 +4,8 @@ Build the next lab or project in the syllabus, verify it and commit it.
 
 Read first: the study repository's `AGENTS.md`, `SYLLABUS.md` and `docs/lessons.md`. Then read [lab-types](../references/lab-types.md) or [projects](../references/projects.md), and [quality](../references/quality.md), [writing](../references/writing.md) and [visuals](../references/visuals.md).
 
+To build a whole block with no person at the keyboard between labs, when your agent can start subagents, follow [multi-agent build](../references/multi-agent-build.md): it splits this workflow into roles and keeps the cost down.
+
 ## Choose what to build
 
 Take the **first `⬜ pending` row in syllabus order**, unless the person names another one. Do not ask which one: the syllabus order is the plan. Build one item at a time.
