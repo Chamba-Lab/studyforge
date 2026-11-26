@@ -79,6 +79,7 @@ sequenceDiagram
 - **Run each check once.** The validator and checker do not repeat the builder's test runs. Continuous integration runs the verifier on every push.
 - **Use the version matrix only for version-dependent output.** Run the repository's environment, the oldest supported version and the newest. More versions only for an output known to change between them.
 - **Read only what the role needs.** The builder reads the lab's syllabus row and "Notes for the next labs", not the whole syllabus; one previous README as a model, not all of them. The orchestrator reads the returned summaries, never the findings files themselves.
+- **Subagents work without narrating.** Nobody reads a subagent's messages between tool calls; the orchestrator gets only its final report, so progress messages are output it pays for and no one reads. The orchestrator writes to the person only at decisions and at the end.
 - **Agents write their reports to files** outside the repository and return a few lines. The orchestrator does not copy long reports into the chat or into other files.
 - **Give the builder a budget.** About 30 turns for a lab and 40 for a project. A builder near its budget commits what is verified and reports what is left, instead of starting over.
 - **Run the learner once per block, on the project,** which uses everything the block taught. The validator and checker cover each lab.
