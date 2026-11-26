@@ -2,7 +2,7 @@
 
 How to build a whole block with no person at the keyboard between labs, when your agent can start subagents. One agent orchestrates and the others each play one role. Without subagents, the [build](../workflows/build.md) workflow covers the same work in one session.
 
-These are starting values from one pilot (block 1 of a SQL course, 6 labs and a project). Prove them on more paths before you treat them as settled.
+These are starting values from one pilot (block 1 of a SQL course, 6 labs and a project, then two labs of block 2 with this loop). Prove them on more paths before you treat them as settled.
 
 ## Why it is shaped this way
 
@@ -10,10 +10,13 @@ Most of the cost of an agent is **rereading its own context.** Every turn sends 
 
 The measured cost per lab, in millions of tokens reread from cache:
 
-| Loop | Builder | Validator | Second builder for feedback | Total per lab |
-|---|---|---|---|---|
-| First version: a new builder applies the feedback | 6–10 | 1–2 | 2–4 | 9–15 |
-| Lean: the same builder applies the feedback | 3.5–7 | 0.4–0.8 | none | 4–8 |
+| Loop | Builder | Validator | Checker | Second builder for feedback | Total per lab |
+|---|---|---|---|---|---|
+| First version: a new builder applies the feedback | 6–10 | 1–2 | none | 2–4 | 9–15 |
+| Lean: the same builder applies the feedback | 3.5–7 | 0.4–0.8 | none | none | 4–8 |
+| This loop: briefs, turn budget, validator and checker in parallel | 3.7–3.9 | 0.5 | 0.6–0.7 | none | 4.8–5.0 |
+
+The last row comes from two labs of the second block, built with the rules below. Each builder stayed within its budget (29 and 28 turns, feedback round included). The validator and the checker found different problems: spoilers and wording for the validator, unsourced claims about another engine and unordered example queries for the checker. Neither found a blocker.
 
 ## Roles
 
