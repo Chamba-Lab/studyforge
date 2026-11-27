@@ -78,7 +78,7 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 
 Security paths teach attacks (scanning, exploitation, cracking, phishing simulations). These rules apply to every lab where the learner runs an attack; a lab that only names one (SQL injection as the reason for query parameters) does not need them:
 
-- **Only targets the learner owns or is allowed to attack.** Labs run against local, intentionally vulnerable targets: containers or virtual machines the lab starts, or practice platforms within their terms of use. Never a public address, a shared network, a real service or a third party's system.
+- **Only targets the learner owns or is allowed to attack.** Labs run against local, intentionally vulnerable targets: containers or virtual machines the lab starts, or practice platforms within their terms of use. Never a public address, a shared network, a real service or a third party's system, not even to look.
 - **Every lab that attacks says what makes it legal.** One line before the first command: whose target it is and why attacking it is allowed. A target that the lab does not start is named with its terms of use.
 - **Authorization and scope are a topic of the path.** A path that teaches attacks has a lab, early, on permission, scope, and what to do when you find something outside it (responsible disclosure). Later labs link to it.
 - **The target stays contained.** Vulnerable services listen only on `localhost` or an isolated network, and the cleanup section removes them.

@@ -50,3 +50,5 @@ The study repository's `SETUP.md` ends with a short "Reading the guides" note (f
 | VS Code | Built in; on old versions install *Markdown Preview Mermaid Support* (remove it once built in: the two conflict) | Shown as images; to edit, install the *Excalidraw* or *Draw.io Integration* extensions |
 | JetBrains IDEs | Enable Mermaid in the Markdown settings | Shown as images |
 | Obsidian | Native | Shown as images |
+
+Re-check this table when editors change; the template's note keeps one line per editor.

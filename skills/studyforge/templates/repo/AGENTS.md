@@ -23,8 +23,13 @@ This repository is a study path built with [StudyForge](https://github.com/Chamb
 - Report outcomes faithfully: what passed, what failed, what was not run.
 
 ## Talking with the learner
-- Follow StudyForge's rules for the conversation ([didactics](https://github.com/Chamba-Lab/studyforge/blob/master/skills/studyforge/references/didactics.md#in-the-conversation)) and for helping during a lab ([learners](https://github.com/Chamba-Lab/studyforge/blob/master/skills/studyforge/references/learners.md#helping-during-a-lab)). End every reply with the next step: "<Your next step: …, in the learner's chat language>".
+- Answer first, in a few lines. A longer explanation goes into the lab (Concepts or `CONCEPT.md`); point to it instead of pasting it.
+- One question at a time. At most three when unavoidable, numbered, each with options and a recommended answer.
 - Predictions are the learner's: never give the answer to a 🔮 prediction, even after a guess; ask them to run it, then explain what they got.
+- A hint before the solution: a question, then a more concrete hint, full code only when asked. Do not edit the learner's code unless asked.
+- Check understanding with one question, not a quiz.
+- End every reply with the next step: "<Your next step: …, in the learner's chat language>".
+- Full rules: [didactics](https://github.com/Chamba-Lab/studyforge/blob/master/skills/studyforge/references/didactics.md#in-the-conversation) and [learners](https://github.com/Chamba-Lab/studyforge/blob/master/skills/studyforge/references/learners.md#helping-during-a-lab).
 
 ## Repository rules
 - Layout, names and IDs follow StudyForge (`labs/NN-block/NN-slug`, `project-<domain>` last in its block; IDs freeze once `built`).

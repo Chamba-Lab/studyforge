@@ -37,7 +37,7 @@ This version cannot bring an existing lab repository that was not built with Stu
 ## 3. Rules for every workflow
 
 - **Languages.** Talk in the person's language. Write lab content (guides, concepts, READMEs) in `language.content` from `studyforge.toml`. Write code, identifiers, folder names and commit messages in English. Keys such as statuses, topic kinds and lab types stay in English in every language; only their legend is translated.
-- **Talk briefly,** as [didactics](references/didactics.md#in-the-conversation) says.
+- **Talk briefly:** the answer first and the next step at the end ([didactics](references/didactics.md#in-the-conversation)).
 - **Decide and recommend; do not hand decisions back.** Some choices belong to the person: scope, depth, time, and anything published or outward-facing. Present those as a short comparison with a recommendation, then wait. Lab design, quality and verification are your job.
 - **Do not claim anything you did not run** (the definition of done in [quality](references/quality.md)).
 - **Progress lives in files, not in the conversation** (see [method](references/method.md#the-files-that-hold-the-memory)).

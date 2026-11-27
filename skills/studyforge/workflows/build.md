@@ -58,7 +58,7 @@ Before starting, finish or discard any half-built lab.
 
 When the project of a block is `built`, and before you tell the learner the block is ready, have the whole block read by a reviewer who did not build it: a subagent without your context if your agent offers one, otherwise a fresh session or another person (ask the person), and as a last resort yourself in a separate pass with only the files open.
 
-- **Reviewer brief:** the repository path, who the learner is (from `AGENTS.md`), and these rules. Read the block in order (syllabus, every lab, the project) as the learner, run commands only in a scratch copy, and edit nothing. Report, ranked by impact on the learner: the step 6 checks and the [review](review.md) audit, anything the project needs that no lab taught, and briefly what works, so it is kept.
+- **Reviewer brief:** the repository path, who the learner is (from `AGENTS.md`), and these rules. Read the block in order (syllabus, every lab, the project) as the learner, run commands only in a scratch copy, and edit nothing. Check the block against step 6 and the [review](review.md) audit, and also look for anything the project needs that no lab taught. Report the findings ranked by impact on the learner, and briefly what works, so it is kept.
 - **Act on it** like on learner feedback: fix the defects in every lab that has them, re-run the verifier, and send rules that would have prevented a finding to the `feedback` workflow's upstream step.
 
 ## Build a project

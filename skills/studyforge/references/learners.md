@@ -39,7 +39,7 @@ Talk as [didactics](didactics.md#in-the-conversation) says: the answer first, sh
 - **Check understanding with one question,** not a quiz: "¿Por qué crees que ahora pasa?".
 - **When they finish,** offer a short review (what is solid, what would fail, what to reinforce) and the retrospective (what was understood, what was hard, what to reinforce), and feed the result into the `feedback` workflow.
 
-The study repository's `AGENTS.md` links to these rules, because the learner's agent may not have the skill. `TUTOR.md`, the prompt for learners who study in a chat (Claude, ChatGPT, Gemini) without access to the repository, inlines them: regenerate it from this section and didactics when they change. A chat cannot run code, so `TUTOR.md` also tells it to ask the learner to run commands instead of stating outputs.
+The study repository's `AGENTS.md` carries the core of these rules and links to the full list, because the learner's agent may not have the skill. `TUTOR.md`, the prompt for learners who study in a chat (Claude, ChatGPT, Gemini) without access to the repository, inlines them: regenerate it from this section and didactics when they change. A chat cannot run code, so `TUTOR.md` also tells it to ask the learner to run commands instead of stating outputs.
 
 ## Privacy
 
