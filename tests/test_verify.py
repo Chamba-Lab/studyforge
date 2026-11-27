@@ -31,7 +31,7 @@ timeout = 120
 CHALLENGE_README = "\n".join([
     "# 🧩 1.1 · Suma", "## 🎯 Objetivos", "## 💡 Por qué importa", "## 📍 Dónde",
     "## 🧠 Conceptos", "## 📚 Documentación", "## 🧭 Escenario", "## ✅ Tareas",
-    "## 💼 En proyectos reales", "## ✔️ Respuestas verificadas", "## 🎤 Autoevaluación", ""])
+    "## 💼 En proyectos reales", "## 🎤 Autoevaluación", "## ✔️ Respuestas verificadas", ""])
 PYPROJECT = '[project]\nname = "x"\nversion = "0"\n[tool.pytest.ini_options]\npythonpath = ["."]\n'
 TESTS = "from calc import add\n\ndef test_add():\n    assert add(2, 3) == 5\n\ndef test_guard():\n    assert True\n"
 LAB = "labs/01-basics/01-sum"
@@ -94,6 +94,16 @@ def test_a_starter_with_fewer_cases_than_the_solution_is_fine(repo: Path) -> Non
     result = verify(repo, "--lab", "1.1")
     assert result.returncode == 0, result.stdout
     assert "[warn]" not in result.stdout
+
+
+def test_answers_before_self_assessment_warn(repo: Path) -> None:
+    # The verified answers come last, after self-assessment and the retrospective,
+    # because a reader in a terminal or a chat sees no <details> fold.
+    write(repo, f"{LAB}/README.md", CHALLENGE_README.replace(
+        "## 🎤 Autoevaluación\n## ✔️ Respuestas verificadas\n",
+        "## ✔️ Respuestas verificadas\n## 🎤 Autoevaluación\n"))
+    result = verify(repo, "--structure")
+    assert "sections are not in the standard order" in result.stdout
 
 
 def test_sections_that_add_nothing_can_be_left_out(repo: Path) -> None:

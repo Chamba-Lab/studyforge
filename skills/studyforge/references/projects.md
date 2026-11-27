@@ -39,11 +39,12 @@ The README states both paths and recommends one based on the learner's time.
 - It is required when the project exposes a stable interface. Otherwise `BRIEF.md` says why it does not exist and how the learner can check their work by hand.
 - It runs green against `reference/` before the project is `built`. The README says how to point it at another implementation (URL, port, command).
 - **When the path teaches testing, the project is turned around too.** The deliverable is a test suite, so `reference/` holds the finished application and its reference suite, the learner writes theirs in a folder of the project (for example `your-suite/`), and `acceptance/` is a mutant hunt over a whole suite: it must pass against the real application and fail against each mutant copy of it. Otherwise a weak suite "passes" as long as the application works. See the project of pytest-lab, block 1.
+- **When the deliverable is files, not a service** (query files, configuration), `acceptance/` takes the folder under test as a parameter, and defaults to the learner's folder (for example `my-queries/`) so a learner never sees green from the solution. `reference/` holds one test that runs `acceptance/` against itself. See project 1.P of sql-lab.
 
 ## `reference/`
 
 - **A finished, reasonable implementation**: a clean architecture that is not over-engineered, follows the stack's best practices, and keeps every test green.
-- **Run the packaged artifact** (jar, image, binary) against real dependencies at least once before calling it done, and run the README tour word for word. Those runs find defects that the tests miss.
+- **Run the packaged artifact** (jar, image, binary) against real dependencies at least once before calling it done, and run the README tour word for word. Those runs find defects that the tests miss. When the deliverable is files, the equivalent is running `acceptance/` against `reference/` on every engine or interpreter build at hand.
 
 ## `REVIEW.md`
 

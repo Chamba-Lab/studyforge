@@ -81,12 +81,6 @@ Run everything with:
 <…>
 </details>
 
-## ✔️ Verified answers
-<details><summary>Open only after finishing the tasks</summary>
-
-<One line with the versions it was run on, worded the same in every lab. Then the answer to every "Predict first", with the real output that proves it.>
-</details>
-
 ## 🎤 Self-assessment
 1. <Interview-level question, answered without looking at the code.>
 2. <…>
@@ -94,10 +88,16 @@ Run everything with:
 4. <…>
 5. <…>
 
-The complete solution is in [`solution/`](solution/).
-
 ## 🔁 Retrospective
 <!-- studyforge: When it adds. -->
 - What did I understand?
 - What was hard?
 - What should I reinforce?
+
+## ✔️ Verified answers
+<details><summary>Open only after finishing the tasks</summary>
+
+<One line with the versions it was run on, worded the same in every lab. Then the answer to every "Predict first", with the real output that proves it.>
+</details>
+
+The complete solution is in [`solution/`](solution/).

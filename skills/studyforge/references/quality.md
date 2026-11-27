@@ -24,7 +24,7 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 - [ ] Every claim was checked against [sources](sources.md), and every link opens.
 - [ ] Diagrams render on GitHub ([visuals](visuals.md)).
 - [ ] Proofread for form: capitalization (headings, lists, tables, diagram labels), proper nouns, accents and punctuation in the content language ([didactics](didactics.md#tone)).
-- [ ] No byte-order mark, no build output, no `.env`, no secret. Wrapper scripts (`mvnw`, `gradlew`) are executable in git.
+- [ ] No byte-order mark, no build output, no `.env`, no secret, no real username, home path or e-mail address (outputs and lessons copied from a real run leak them): `git grep` the tracked files for yours. Wrapper scripts (`mvnw`, `gradlew`) are executable in git.
 - [ ] `python tools/verify.py --lab <ID>` passes.
 - [ ] `SYLLABUS.md` says `🟨 built`, and its "Notes for the next labs" are updated.
 - [ ] One commit: `feat(lab-<ID>): …`.
@@ -39,13 +39,13 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 - [ ] The cleanup section removes everything the guide created, and only that.
 
 **Project, in addition** (see [projects](projects.md))
-- [ ] `reference/` is green, `acceptance/` is green against it, and the packaged artifact was run against real dependencies.
+- [ ] `reference/` is green, `acceptance/` is green against it, and the packaged artifact was run against real dependencies (or, when the deliverable is files, `acceptance/` against `reference/` on every engine build at hand).
 - [ ] Every row of the "break it yourself" table in `REVIEW.md` was run, and its failure is quoted from the output (extracted, not paraphrased).
 
 ## How to verify without fooling yourself
 
 - **Experiment in a scratch copy, never in the repository.** Copy, change one thing, use a clean build, run, read the log, restore, and prove the restoration.
-- **A test that passes for the wrong reason is a bug.** Examples: negative tests that pass when the happy path is broken, two nulls compared as equal, a route that does not exist answering 404. Assert that the thing exists before asserting what it says.
+- **A test that passes for the wrong reason is a bug.** Examples: negative tests that pass when the happy path is broken, an assertion about NULL that also passes when every value is NULL, a route that does not exist answering 404. Assert that the thing exists before asserting what it says.
 - **"0 tests ran" is a failure, not a success.** A mutation that does not compile, or a starter that cannot build, produces no reports. Every experiment script prints how many tests ran.
 - **A mutation that stays green is a finding.** Either the code is not needed (remove it from the solution and the task) or the tests cannot see it (say so in the README, and show the effect another way). Explain it; never ignore it.
 - **First guesses about traps are often wrong.** Before building a task or a warning around a setting, remove the setting and see whether anything fails. It may already be the default.
@@ -55,9 +55,18 @@ The agent owns the quality of every lab. These rules are what "done" means. Most
 - **Shared state needs an explicit reset** between tests (caches, breakers, counters, fakes). When a trap breaks shared state for good, order the test classes by task and say so.
 - **Wait for readiness**, such as a port or a log line, before the first call. A silent first call is a startup race, not a bug.
 - **Plan the verification budget** when the infrastructure is slow. Dry-run one mutation first and read its log. Run long batteries in the background.
-- **A comfortable test environment hides bugs.** An experiment script that set `PYTHONIOENCODING=utf-8` for every child process let a "no UTF-8 output" mutation pass; without it, the acceptance test caught it. Run experiments in the environment learners have, not one that is friendlier.
+- **A comfortable test environment hides bugs.** An experiment script that set `PYTHONIOENCODING=utf-8` for every child process let a "no UTF-8 output" mutation pass; without it, the acceptance test caught it. Run experiments in the environment learners have, not one that is friendlier: check encodings in a shell started without your profile (`powershell -NoProfile`), since an agent's profile once hid a problem learners had.
 - **A test that compares against the same constant as the code protects nothing.** If `EXIT_ERROR = 2` changes to `1`, a test that asserts `== EXIT_ERROR` changes with it. When a value is part of the contract, write it literally in the test.
-- **Your own tests fall into the traps you teach.** Data that does not separate two behaviors lets a mutant survive (ties in alphabetical order, a largest debtor who is also the first name). The mutation list catches it.
+- **Your own tests fall into the traps you teach.** Data that does not separate two behaviors lets a mutant survive (ties in alphabetical order, a largest debtor who is also the first name). The mutation list catches it only if the data holds each trap:
+  - **Rounding:** mutate to one digit fewer, one more, no digits and no rounding, with data where each mutation changes a row.
+  - **NULL:** keep a non-NULL row on each side of the rule, even when the expected value is NULL, so "everything NULL" and "nothing NULL" both fail.
+  - **Missing values:** include every kind of hole (NULL, a placeholder such as `''`, a real zero); a wrong fix fails only when its kind of hole is there.
+  - **Ties:** engines return ties in a stable order (SQLite: insertion order), so a missing tiebreak passes by chance. Store each tied group opposite to its required tiebreak, and run every other task's tiebreak as a mutation.
+  - **Projects:** give each domain rule a breaking row in every query that uses it, not once in the data; another filter can remove the only row that exposes it.
+  - **Pagination:** a test sees only its page, so ask for the last, short page.
+- **Answers obey the lab's own quirks.** Self-assessment and verified answers respect what the lab teaches (in SQLite `'abcd' LIKE 'A___'` is 1, because `LIKE` ignores ASCII case).
+- **Quote only the stable start of a version-dependent message**, and run it on every interpreter at hand, not only the CI matrix.
+- **Name tests after the goal, not the trap.** The first list of failures shows every test name before any prediction.
 
 ## Being a good guest on the machine
 

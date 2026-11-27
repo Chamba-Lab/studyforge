@@ -28,6 +28,13 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ## Notes by version
 
+### 1.8.0
+
+- **Mechanical:** copy `verify.py`. It now expects the verified answers last and warns about a lab that still has them before the self-assessment.
+- **For built labs:** move the verified answers to the end of every challenge, and of every exploration that has them, so a learner reading in a terminal or a chat meets the questions before the answers. Cut the whole section, from its heading to the line before the next `## `, and paste it after the last section of the README (the 🔁 retrospective when there is one, otherwise the 🎤 self-assessment). Keep its heading text exactly as it is, so links to its anchor still work. The heading to move is the one starting with `## ✔️`, in Spanish `## ✔️ Respuestas verificadas`, in English `## ✔️ Verified answers`. Move the section the same way when it holds only the template comment (an exploration). In a challenge whose self-assessment ends with the line that links to `solution/`, move that line too, to after the answers. An exploration without ✔️ whose versions line sits elsewhere moves it to the start of its first 👀 block. The order of every other section does not change.
+- **Repository files:** in *Repository rules* of `AGENTS.md`, after the line about secrets, add `` - No real usernames, home paths or e-mail addresses in repository files, lessons and verified outputs included: write `C:/Users/<user>/…` or `~/…`. Before committing, `git grep` the tracked files for your own username and home path.``
+- **For new labs only:** rules learned building sql-lab blocks 1 and 2, in [quality](quality.md#how-to-verify-without-fooling-yourself), [writing](writing.md#teaching-devices), [didactics](didactics.md#explaining), [projects](projects.md#acceptance) and the [Python stack](../stacks/python.md#gotchas).
+
 ### 1.7.0
 
 - **For new labs only:** nothing to change in the repository. A new reference, [multi-agent build](multi-agent-build.md), describes how to build a whole block with subagents (orchestrator, builder, validator, checker and learner), which model tier each role needs and the rules that keep the cost down.
