@@ -37,6 +37,7 @@ This repository is a study path built with [StudyForge](https://github.com/Chamb
 - `main`/`master` is the clean template. Learners keep solutions in `solutions/<name>` or a fork; never commit solved starters here.
 - Conventional Commits: `feat(lab-1.2): …`, `feat(project-1): …`, `fix(lab-…)`, `docs(syllabus): …`. Push at milestones or on request.
 - Never commit secrets or `.env`. No byte-order marks. Wrapper scripts executable in git.
+- No real usernames, home paths or e-mail addresses in repository files, lessons and verified outputs included: write `C:/Users/<user>/…` or `~/…`. Before committing, `git grep` the tracked files for your own username and home path.
 - Every claim in a lab was run on the pinned versions. `python tools/verify.py --lab <ID>` must pass before a lab is `built`.
 
 ## Stack specifics

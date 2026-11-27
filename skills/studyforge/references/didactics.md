@@ -18,12 +18,13 @@ The teaching devices make the learner practice. Explaining makes sure they under
 - **Analogies only when they map.** Use one when it maps the mechanism, not just the mood, and say where it stops working: "como una alarma de humo… pero, a diferencia de la alarma, una prueba solo detecta lo que le pediste revisar".
 - **Bridge to what came before.** Open with one sentence that connects to what the learner already did: "En el lab 1.2 escribiste una prueba por caso; aquí…".
 - **Keep the jargon level even.** Titles, objectives and the syllabus use words the learner knows at that point. A term not yet taught gets a gloss or waits for its lab. Acronyms count as terms: the first "CI" or "API" a learner meets gets its gloss.
-- **Only what is used now.** A concept the current tasks do not need belongs to the lab that uses it. A short "you will use this in…" mention is fine; a full explanation is not.
+- **Only what is used now.** A concept the current tasks do not need belongs to the lab that uses it. A short "you will use this in…" mention is fine; a full explanation is not. Still, every word and file the learner sees gets one line saying what it is, even when it is used later: an unexplained word stops a beginner.
 
 ## Terms of art
 
 - **Terms of art stay in English** when that is how the trade uses them (test suite, fixture, mock, stub, Arrange-Act-Assert, pull request, deployment). The first time a learner meets one, give it a short gloss in the content language: "un *fixture* (la preparación que una prueba necesita)". From then on, use the English term. A learner who only knows a literal translation cannot search the docs or follow a team conversation. Translate the term only when the content language has an established equivalent that practitioners use ("prueba unitaria" is used; "accesorio" for fixture is not).
-- **Plain, neutral language**, without local slang. Use short sentences and active voice. Explain the *why* before the *how*.
+- **English error messages get a gloss.** Where the lab first provokes one, add one line in the content language saying what it means.
+- **Plain, neutral language**, without local slang or words whose meaning changes by region (in Peru, "planilla" means payroll, not spreadsheet). Use short sentences and active voice. Explain the *why* before the *how*.
 
 ## One idea at a time
 
