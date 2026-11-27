@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.7.0...studyforge-v1.8.0) (2026-11-27)
+
+
+### Features
+
+* **skill:** lessons from sql-lab blocks 1-2 and verified answers last ([#59](https://github.com/Chamba-Lab/studyforge/issues/59)) ([788454e](https://github.com/Chamba-Lab/studyforge/commit/788454e3b69270d38bf2a2387be950d4878e7d5c))
+
 ## [1.7.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.6.1...studyforge-v1.7.0) (2026-11-26)
 
 

@@ -1,6 +1,6 @@
 # StudyForge configuration. Read by the workflows and by tools/verify.py.
 # Reference: https://github.com/Chamba-Lab/studyforge/blob/master/skills/studyforge/references/layout.md
-studyforge = "1.7.0" # x-release-please-version
+studyforge = "1.8.0" # x-release-please-version
 
 [path]
 title = "<Topic, from <level> to <level>>"
