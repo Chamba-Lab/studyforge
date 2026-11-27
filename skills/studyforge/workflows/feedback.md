@@ -2,7 +2,7 @@
 
 Turn what a learner said about a lab into improvements: to that lab, to the earlier labs, to the labs not built yet, and, when the lesson is general, to StudyForge itself.
 
-Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/lessons.md`, and [learners](../references/learners.md).
+Read first, after the [orient step](../SKILL.md#1-find-where-you-are): [learners](../references/learners.md).
 
 Feedback can arrive at any moment, from the conversation or from a "Lab feedback" issue. Building never waits for it.
 
@@ -27,5 +27,5 @@ Feedback can arrive at any moment, from the conversation or from a "Lab feedback
    - Once the learner has solved the lab and their feedback is applied, set it to `✅ done` in `SYLLABUS.md`.
    - Commit with `fix(lab-<ID>): apply learner feedback` (or `docs(syllabus): …`).
    - Answer the learner (or the issue): what changed, and where.
-5. **Upstream general lessons.** A lesson that would help any study path belongs in StudyForge (`references/quality.md`, a template or a workflow). Draft the issue or pull request for `Chamba-Lab/studyforge` and show it to the person. Opening it is outward-facing, so wait for their approval.
+5. **Upstream general lessons.** A lesson that would help any study path belongs in StudyForge (`references/quality.md`, a template, a workflow or a stack note). Draft the issue or pull request for `Chamba-Lab/studyforge` and show it to the person. Opening it is outward-facing, so wait for their approval.
 6. **Retrospective.** Use the learner's answers to "what was hard / what should I reinforce" to tune the next lab: more practice, a better trap, or a smaller step.

@@ -2,7 +2,7 @@
 
 Audit labs against the current standard and fix the gaps. Use it for one lab, a block or the whole repository. Also use it when a rule changes and the change has to reach every lab, or when the repository follows an older StudyForge version.
 
-Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/decisions.md`, and [quality](../references/quality.md) and [writing](../references/writing.md).
+Read first, after the [orient step](../SKILL.md#1-find-where-you-are): the study repository's `docs/decisions.md`, and [quality](../references/quality.md) and [writing](../references/writing.md).
 
 ## Steps
 
@@ -13,7 +13,7 @@ Read first: the study repository's `AGENTS.md`, `SYLLABUS.md`, `docs/decisions.m
    - **Orphan concepts:** a command, operator, flag or annotation used in an exercise but not explained in the README or `CONCEPT.md`.
    - **Explanation:** concepts listed as bare definitions, with no problem or example before the task that needs them; a tool shown before the idea it expresses; terms of art or acronyms translated literally or used without a gloss; section titles that differ from the reference table in [writing](../references/writing.md#section-anchors).
    - **Spoilers before a prediction:** in Concepts, in the scenario's tables, in the dissection or in the starter.
-   - **Noise:** optional sections with nothing of their own, ideas explained twice, boilerplate repeated across labs, long sections without `###` parts, identical commands duplicated per shell.
+   - **Noise:** the checklist in [writing](../references/writing.md#say-each-thing-once).
    - **Syllabus readability:** API names or terms taught later in topics and outcomes, uneven technicality across rows, blocks that mix levels, and a path that plans only the blocks already built.
    - **Unverified claims:** outputs, defaults or error messages with no run behind them, or written for an older version.
    - **Tests that pass for the wrong reason**, and starter tests that are not red.

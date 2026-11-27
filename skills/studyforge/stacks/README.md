@@ -1,6 +1,6 @@
 # Stack notes
 
-A stack note tells the workflows how to build and verify labs for one toolchain. These notes are **starting values**: confirm them against the versions a study repository pins, and record what you learn in that repository's `docs/lessons.md`. Lessons that hold for every repository come back here.
+A stack note tells the workflows how to build and verify labs for one toolchain. These notes are **starting values**: confirm them against the versions a study repository pins. What you learn goes where the [feedback](../workflows/feedback.md) workflow says.
 
 | Stack | Note | `detect` | Typical lab types |
 |---|---|---|---|
