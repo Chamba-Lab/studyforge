@@ -61,6 +61,8 @@ Each idea has one home ([didactics](didactics.md#say-each-thing-once)). In a lab
 - A note repeated right under a table that already says it.
 - Boilerplate copied into every lab (the same diagram, the same paragraph): say it once in the first lab or in the repository README, and link to it.
 
+**Noise checklist**, for every editor's read and review: optional sections with nothing of their own, ideas explained twice, boilerplate repeated across labs, long sections without `###` parts, identical commands duplicated per shell.
+
 ## Commands
 
 - **Commands always go in fenced code blocks, never inline.** The learner copies them and runs them by hand.

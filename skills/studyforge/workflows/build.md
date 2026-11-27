@@ -2,7 +2,7 @@
 
 Build the next lab or project in the syllabus, verify it and commit it.
 
-Read first: the study repository's `AGENTS.md`, `SYLLABUS.md` and `docs/lessons.md`. Then read [lab-types](../references/lab-types.md) or [projects](../references/projects.md), and [quality](../references/quality.md), [writing](../references/writing.md) and [visuals](../references/visuals.md).
+Read first, after the [orient step](../SKILL.md#1-find-where-you-are): [lab-types](../references/lab-types.md) or [projects](../references/projects.md), and [quality](../references/quality.md), [writing](../references/writing.md) and [visuals](../references/visuals.md).
 
 To build a whole block with no person at the keyboard between labs, when your agent can start subagents, follow [multi-agent build](../references/multi-agent-build.md): it splits this workflow into roles and keeps the cost down.
 
@@ -10,7 +10,7 @@ To build a whole block with no person at the keyboard between labs, when your ag
 
 Take the **first `⬜ pending` row in syllabus order**, unless the person names another one. Do not ask which one: the syllabus order is the plan. Build one item at a time.
 
-Run `git status` and `git log --oneline -15` to see where the work stands. Before starting, finish or discard any half-built lab.
+Before starting, finish or discard any half-built lab.
 
 ## Build a lab
 
@@ -40,7 +40,7 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
    - Run the type's checks from the definition of done in [quality](../references/quality.md).
    - Check that the diagrams render.
    - **Read the lab as a learner** at the level the syllabus sets for this point. Can you follow it without guessing? Is every new concept introduced with its problem and an example before a task needs it, or taught in an earlier lab? Is every term of art and acronym glossed the first time? Does anything the learner reads before a prediction give its answer away?
-   - **Read it once more as an editor**, only for form: does every optional section add something of its own, is any idea explained twice, does a long section show its parts with `###`, and do the counts and names in the README and the starter's comments match the files?
+   - **Read it once more as an editor**, only for form: the noise checklist in [writing](../references/writing.md#say-each-thing-once), and do the counts and names in the README and the starter's comments match the files?
 7. **Update the memory.**
    - In `SYLLABUS.md`: set the status to `🟨 built`, add the link to the README, and update the build map and the "Notes for the next labs": add what the next labs need and delete notes whose labs are now built.
    - In `GLOSSARY.md`, when the repository has one: add the terms of art this lab owns.
@@ -56,13 +56,9 @@ Run `git status` and `git log --oneline -15` to see where the work stands. Befor
 
 ## Review a block with fresh eyes
 
-When the project of a block is `built`, and before you tell the learner the block is ready, have the whole block read by a reviewer who did not build it. The author no longer sees what they wrote, and every defect this review finds would otherwise reach the learner.
+When the project of a block is `built`, and before you tell the learner the block is ready, have the whole block read by a reviewer who did not build it: a subagent without your context if your agent offers one, otherwise a fresh session or another person (ask the person), and as a last resort yourself in a separate pass with only the files open.
 
-- **If your agent offers subagents,** start one without your context. Otherwise, ask the person whether a fresh session or another person can do it. As a last resort, do it yourself in a separate pass, with only the files open, reading the labs in order.
-- **The reviewer gets:** the repository path, who the learner is (from `AGENTS.md`), and this brief. It reads the block in order (syllabus, every lab, the project) as the learner, may run commands only in a scratch copy, edits nothing, and reports findings ranked by impact on the learner:
-  - **Defects:** a claim, count or name that does not match the files; a concept or acronym used before it is taught; an answer given away before its prediction (Concepts, tables, dissection, starter); something the project needs that no lab taught.
-  - **Readability:** sections that add nothing of their own, ideas explained twice, boilerplate repeated across labs, walls of text without `###` parts, commands duplicated per shell when they are identical.
-  - **What works**, briefly, so it is kept.
+- **Reviewer brief:** the repository path, who the learner is (from `AGENTS.md`), and these rules. Read the block in order (syllabus, every lab, the project) as the learner, run commands only in a scratch copy, and edit nothing. Check the block against step 6 and the [review](review.md) audit, and also look for anything the project needs that no lab taught. Report the findings ranked by impact on the learner, and briefly what works, so it is kept.
 - **Act on it** like on learner feedback: fix the defects in every lab that has them, re-run the verifier, and send rules that would have prevented a finding to the `feedback` workflow's upstream step.
 
 ## Build a project

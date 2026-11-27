@@ -33,7 +33,7 @@ Do not use formats that GitHub does not render (PlantUML, D2, ASCII art for anyt
 - **Use Mermaid by default.** Use images only when Mermaid falls short.
 - **One diagram per idea, at most ~15 nodes.** If it does not fit, it is two ideas.
 - **A diagram never replaces the text.** One sentence before it says what to look at. Images carry alt text. This keeps guides accessible and readable from a terminal or by an agent.
-- **Use only the types in the table.** All of them were checked rendering on GitHub in the gallery (2026-11-17). GitHub does not always ship the newest Mermaid: check any other type in the gallery first, and look at the GitHub preview before marking a lab `built`.
+- **Use only the types in the table** (verified on GitHub; gallery in the repository's [docs/visuals.md](https://github.com/Chamba-Lab/studyforge/blob/master/docs/visuals.md)). GitHub does not always ship the newest Mermaid: check any other type in the gallery first, and look at the GitHub preview before marking a lab `built`.
 - **Check `timeline` and `mindmap` in both themes.** They pick their own color scale, and in GitHub's dark theme some nodes come out dark on dark. If a node is hard to read, simplify the diagram or use a `flowchart`.
 - **In math, write braces as `\lbrace` and `\rbrace`.** Markdown consumes the backslash of `\{`, and GitHub then renders the formula without braces.
 - **Images have a solid background.** A transparent PNG or SVG with dark strokes disappears in GitHub's dark theme.
@@ -47,8 +47,8 @@ The study repository's `SETUP.md` ends with a short "Reading the guides" note (f
 | Where you read | Mermaid | Excalidraw / diagrams.net files |
 |---|---|---|
 | GitHub, GitLab | Native | Shown as images |
-| VS Code | Built into recent versions of the Markdown preview. On older versions, install *Markdown Preview Mermaid Support*, and remove it once your version has it built in, because the two can conflict | Shown as images; to edit, install the *Excalidraw* or *Draw.io Integration* extensions |
+| VS Code | Built in; on old versions install *Markdown Preview Mermaid Support* (remove it once built in: the two conflict) | Shown as images; to edit, install the *Excalidraw* or *Draw.io Integration* extensions |
 | JetBrains IDEs | Enable Mermaid in the Markdown settings | Shown as images |
 | Obsidian | Native | Shown as images |
 
-Check this table against current editor releases when you write the template's note, and keep it short there: one line per editor.
+Re-check this table when editors change; the template's note keeps one line per editor.
