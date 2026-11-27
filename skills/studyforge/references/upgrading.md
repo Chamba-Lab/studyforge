@@ -28,6 +28,11 @@ An upgrade applies these notes; it is not a full audit. Audit every lab only whe
 
 ## Notes by version
 
+### 1.8.0
+
+- **Mechanical:** copy `verify.py`. It now expects the verified answers last and warns about a lab that still has them before the self-assessment.
+- **For built labs:** move the verified answers to the end of every challenge, and of every exploration that has them, so a learner reading in a terminal or a chat meets the questions before the answers. Cut the whole section, from its heading to the line before the next `## `, and paste it after the last section of the README (the 🔁 retrospective when there is one, otherwise the 🎤 self-assessment). Keep its heading text exactly as it is, so links to its anchor still work. The heading to move is the one starting with `## ✔️`, in Spanish `## ✔️ Respuestas verificadas`, in English `## ✔️ Verified answers`. In a challenge, also move the line that links to `solution/` from the end of the self-assessment to after the answers. The order of every other section does not change.
+
 ### 1.7.0
 
 - **For new labs only:** nothing to change in the repository. A new reference, [multi-agent build](multi-agent-build.md), describes how to build a whole block with subagents (orchestrator, builder, validator, checker and learner), which model tier each role needs and the rules that keep the cost down.

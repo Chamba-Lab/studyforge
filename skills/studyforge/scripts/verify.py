@@ -50,7 +50,7 @@ PROJECT_RE = re.compile(rf"^project-({SLUG})$")
 VS16 = "️"  # emoji variation selector, ignored when comparing anchors
 TYPE_EMOJI = {"challenge": "🧩", "exploration": "🔭", "concept": "💭", "project": "🏗"}
 ANCHOR_ORDER = ["🎯", "💡", "📍", "🧠", "📚", "🧭", "✅", "🧪", "🛣", "🔍", "👀",
-                "💼", "🧹", "🚀", "🆘", "✔", "🎤", "🔁"]
+                "💼", "🧹", "🚀", "🆘", "🎤", "🔁", "✔"]  # answers last: a terminal shows no fold
 REQUIRED_ANCHORS = {  # sections every lab of the type needs; the rest appear only when they add something
     "challenge": ["🎯", "💡", "📍", "🧠", "📚", "🧭", "✅", "✔", "🎤"],
     "exploration": ["🎯", "💡", "📍", "🧠", "📚", "🧭", "🧪", "🎤"],

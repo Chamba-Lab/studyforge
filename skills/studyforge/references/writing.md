@@ -32,9 +32,11 @@ Each section heading starts with a fixed emoji, followed by a title in the conte
 | 🧹 | Cleanup | Limpieza | when it creates resources | when it creates resources | | |
 | 🚀 | Stretch goal | Reto extra | when it adds | when it adds | when it adds | |
 | 🆘 | Hints | Pistas | when it adds | when it adds | | |
-| ✔️ | Verified answers | Respuestas verificadas | required | when it adds | | |
 | 🎤 | Self-assessment | Autoevaluación | required | required | required | |
 | 🔁 | Retrospective | Retrospectiva | when it adds | when it adds | when it adds | when it adds |
+| ✔️ | Verified answers | Respuestas verificadas | required | when it adds | | |
+
+**Answers come last.** A `<details>` fold hides them only on GitHub; a learner reading in a terminal or a chat, and an agent, read the file top to bottom. With ✔️ last, the self-assessment and the retrospective are met before any answer (since 1.8.0; earlier labs had ✔️ before 🎤).
 
 The Spanish column is the reference translation. For another content language, translate the same way and write the titles once in the study repository's `AGENTS.md`, so every lab uses the same ones.
 
@@ -65,7 +67,8 @@ Each idea has one home ([didactics](didactics.md#say-each-thing-once)). In a lab
 - **Show each command for the learner's shells**, in the order of `learner.shells`. When the command is the same in every shell (`python -m pytest`, `mvn test`), write **one** block labeled with all of them ("PowerShell o Bash:"). Write one block per shell only when the command differs, such as environment variables or paths. Label each block in the line before it.
 - **Running the same command again** needs no new block: "Corre otra vez el comando del experimento 2".
 - **"Where to run commands"** goes near the top and names the folder (for example `starter/`). The check of where you are (`Get-Location` / `pwd`) appears in the first lab that uses a terminal; later labs only name the folder. If a step needs another folder, the step says so.
-- **Expected output gets its own block** when it matters. Quote real output, trimmed to the key lines.
+- **Expected output gets its own block** when it matters. Quote real output, trimmed to the key lines. A data table printed in a README matches the seed or fixture row for row; regenerate it from the data, never by hand.
+- **File sizes:** show `ls -l <file>`, which runs in PowerShell and Bash, and name the size column in each (`Length` in PowerShell, the fifth column in Bash).
 - **Inline code is only for identifiers, file names and short values.**
 
 ## Explaining
@@ -78,16 +81,18 @@ Every concept follows [didactics](didactics.md#explaining): problem, idea, examp
 
 ## Teaching devices
 
-- **🔮 Predict first.** Mark prediction steps as `🔮 **Predict first:** …`. The answer lives in "Verified answers" (challenges) or in a `<details><summary>👀 …</summary>` right after the commands (explorations).
-- **Nothing the learner reads before a prediction may give its answer away.** That includes the 🧠 Concepts section and its examples, the scenario's tables (a mutant described as "calls a method that does not exist" answers "what if the mock has no spec?"), the command dissection, a `[!WARNING]` that explains the trap ("`match` is a regular expression"), expected output left visible, a hint in the same step ("…and read the failure"), a docstring or comment in the demo ("they pass together and fail apart"), and a starter that names or imports the solution (a `TODO` that says "…with `pytest.approx`", an unused `import re`). A warning may say *that* a trap exists, never *what* it is. Check this from a learner's point of view before marking a lab `built`. A fresh reviewer who did not build the lab finds these faster than the author.
+- **🔮 Predict first.** Mark prediction steps as `🔮 **Predict first:** …`. The answer lives in "Verified answers" (challenges) or in a `<details><summary>👀 …</summary>` right after the commands (explorations). Put the 🔮 step before the command that produces the answer: even the command's startup banner can give it away.
+- **A prediction must be reachable.** Its code gets past every check that runs before the one it asks about (a harness that compares columns before rows stops at "columns differ"). Keep the trap in the one expression the prediction asks about; split the task when the prediction would contain another step's solution. When the prediction's code stays in the task file, the next step says "replace it", and the harness explains the error a second statement causes.
+- **The step after a prediction does not answer it.** It says "compare what you see with your prediction", then gives a goal ("leave in the file a query that…"), never the fix or where to look ("read the failure", "fix it with parentheses").
+- **Nothing the learner reads before a prediction may give its answer away.** That includes the 🎯 objectives, the 🧠 Concepts section and its examples, the captions and contents of the scenario's tables (a mutant described as "calls a method that does not exist" answers "what if the mock has no spec?"), the command dissection, a `[!WARNING]` that explains the trap ("`match` is a regular expression"), expected output left visible, a hint in the same step ("…and read the failure"), a docstring or comment in the demo ("they pass together and fail apart"), and a starter that names or imports the solution (a `TODO` that says "…with `pytest.approx`", an unused `import re`). A warning may say *that* a trap exists, never *what* it is. Check this from a learner's point of view before marking a lab `built`. A fresh reviewer who did not build the lab finds these faster than the author.
 - **Tasks:** each task is numbered and has a one-line goal, checkbox steps, and the test that validates it (`**Validated by:** \`ConfigTest\``).
 - **Alerts:** use `> [!NOTE]` for context, `> [!TIP]` for shortcuts, `> [!IMPORTANT]` for what must not be missed, and `> [!WARNING]` for the lab's traps (without spoiling them).
 - **Spoilers** (hints, verified answers, self-assessment answers) go inside `<details><summary>…</summary>`. Order hints from vague to concrete.
-- **🔍 Command dissection.** A reference card for the new commands, flags, operators or annotations the lab uses: one line each, with what it does and its default. It does not repeat the explanation in Concepts, and it does not show the value a task asks for. Leave it out when the lab introduces no new syntax.
+- **🔍 Command dissection.** A reference card for the new commands, flags, operators or annotations the lab uses: one line each, with what it does and its default. It does not repeat the explanation in Concepts, and it does not show the value a task asks for. Leave it out when the lab introduces no new syntax. A flag that appears only here is not taught: a later lab that relies on it introduces it again in a task.
 - **`diff` blocks** show what changes between two states (configuration, starter → solution) better than two full listings.
 - **Links to code:** every scenario links its implementation and tests with relative paths.
 - **💼 In real projects:** professional judgment, security, operations, typical team mistakes, and how this is configured outside development mode. Only what the lab did not already say; leave the section out when there is nothing new.
-- **✔️ Verified answers** answer every prediction with the real output. They open with one line naming the versions they were run on, worded the same in every lab of the repository.
+- **✔️ Verified answers** answer every prediction with the real output. They open with one line naming the versions they were run on, worded the same in every lab of the repository. An exploration without ✔️ puts that line first in its first 👀 block.
 - **🎤 Self-assessment:** 5 interview-level questions, to answer without looking at the code, written as [questions that make the learner think](didactics.md#questions-that-make-the-learner-think). In concept labs the answers go in `<details>` blocks.
 - **🔁 Retrospective:** what did I understand, what was hard, what should I reinforce. It feeds the `feedback` workflow.
 

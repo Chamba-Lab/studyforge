@@ -1,6 +1,6 @@
 # Lab types
 
-Choose the type per topic when designing the syllabus. Every lab has the same sections in its README regardless of type (see [writing](writing.md)). What changes is what sits next to the README and how the lab is verified.
+Choose the type per topic when designing the syllabus. Every lab has the same sections in its README regardless of type, in the same order, with the verified answers last (see [writing](writing.md#section-anchors)). What changes is what sits next to the README and how the lab is verified.
 
 | Type | Use it when | Next to the README | Verified by |
 |---|---|---|---|
@@ -21,7 +21,7 @@ NN-<slug>/
 
 - **Tests are the acceptance criteria.** Each task names the test class that validates it.
 - **The starter hides the mechanism under study, not the app.** Replace only the code being taught with a `TODO`, and keep everything else working. A starter that cannot even build is not "red": its tests never run.
-- **Each target test fails for the right reason.** A "404 for an unknown id" test passes on its own when the route does not exist yet. Make negative tests first prove that the valid case works.
+- **Each target test fails for the right reason.** A "404 for an unknown id" test passes on its own when the route does not exist yet. Make negative tests first prove that the valid case works. A test that compares ordered results first compares them as a multiset, so its failure says either "wrong rows" or "right rows, wrong order".
 - **Regression guards are welcome.** A test that is green from the start protects something the learner must not break, such as an earlier domain this lab builds on. Name it as a guard in the README.
 - **Labs about testing are turned around.** The production code is finished and the learner writes tests. Two ways to validate them:
   - **Arrangement missing:** the assertions are written and the setup is missing (mocks, clock, fixtures). This fits labs about test tooling inside a larger framework.
