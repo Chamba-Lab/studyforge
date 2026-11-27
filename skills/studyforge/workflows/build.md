@@ -69,7 +69,7 @@ When the project of a block is `built`, and before you tell the learner the bloc
 
 1. **Name the one question of the domain**, then write `BRIEF.md`: context, contract, acceptance criteria and non-functional requirements (each with the lab that taught it), plus the constraints and freedoms, and what is out of scope.
 2. **Write `acceptance/`** as black-box tests against the contract. If the interface is not stable enough for that, write the reason in `BRIEF.md`.
-3. **Build `reference/`.** Make every test green, then run `acceptance/` against it, then run the packaged artifact against real dependencies.
+3. **Build `reference/`.** Make every test green, then run `acceptance/` against it, then run the packaged artifact against real dependencies (for a deliverable made of files, run `acceptance/` against `reference/` on every engine build at hand).
 4. **Write the mutation list while you design the tests.** Ask yourself: "what would I break to prove this test matters?". Run each mutation in a scratch copy with a script that prints the number of tests that ran and the real failure.
 5. **Write `REVIEW.md`** from the results: the reading order, the decisions with the lab that taught each one, the traps, the "break it yourself" table with failures quoted from the output, what is deliberately missing, and questions to challenge the design.
 6. **Write the README** (what it is, how to run it, the two ways to use it), verify it, update the memory, and commit with `feat(project-<block>): …`, as for a lab.
