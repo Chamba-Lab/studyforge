@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.6.1...studyforge-v1.7.0) (2026-11-26)
+
+
+### Features
+
+* **skill:** describe how to build a block with several agents ([#50](https://github.com/Chamba-Lab/studyforge/issues/50)) ([7014439](https://github.com/Chamba-Lab/studyforge/commit/7014439afe1e2ead8bff675afa9c437ca8d31a06))
+
 ## [1.6.1](https://github.com/Chamba-Lab/studyforge/compare/studyforge-v1.6.0...studyforge-v1.6.1) (2026-11-25)
 
 
