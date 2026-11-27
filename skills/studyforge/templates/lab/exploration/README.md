@@ -98,4 +98,4 @@ Remove only what this lab created:
 - What should I reinforce?
 
 ## ✔️ Verified answers
-<!-- studyforge: When it adds. The 👀 blocks already answer each prediction; use this section only for what they do not cover, such as the versions it was run on or a measurement across several runs. -->
+<!-- studyforge: When it adds. The 👀 blocks already answer each prediction; use this section only for what they do not cover, such as a measurement across several runs. With this section, the versions line opens it; without it, the versions line opens the first 👀 block. -->

@@ -97,7 +97,7 @@ def test_a_starter_with_fewer_cases_than_the_solution_is_fine(repo: Path) -> Non
 
 
 def test_answers_before_self_assessment_warn(repo: Path) -> None:
-    # Since 1.8 the verified answers come last, after self-assessment and the retrospective,
+    # The verified answers come last, after self-assessment and the retrospective,
     # because a reader in a terminal or a chat sees no <details> fold.
     write(repo, f"{LAB}/README.md", CHALLENGE_README.replace(
         "## 🎤 Autoevaluación\n## ✔️ Respuestas verificadas\n",

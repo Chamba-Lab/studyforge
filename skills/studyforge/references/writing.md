@@ -36,9 +36,9 @@ Each section heading starts with a fixed emoji, followed by a title in the conte
 | 🔁 | Retrospective | Retrospectiva | when it adds | when it adds | when it adds | when it adds |
 | ✔️ | Verified answers | Respuestas verificadas | required | when it adds | | |
 
-**Answers come last.** A `<details>` fold hides them only on GitHub; a learner reading in a terminal or a chat, and an agent, read the file top to bottom. With ✔️ last, the self-assessment and the retrospective are met before any answer (since 1.8.0; earlier labs had ✔️ before 🎤).
-
 The Spanish column is the reference translation. For another content language, translate the same way and write the titles once in the study repository's `AGENTS.md`, so every lab uses the same ones.
+
+**Answers come last.** A `<details>` fold hides them only on GitHub; a learner reading in a terminal or a chat, and an agent, read the file top to bottom. With ✔️ last, the self-assessment and the retrospective come before any answer.
 
 The title line is `# <type emoji> <ID> · <Title>`, for example `# 🧩 1.2 · Configuration and profiles`. A metadata table follows it: ⏱️ duration, 🧪 type, 🏷️ kind, and the pinned stack versions.
 
